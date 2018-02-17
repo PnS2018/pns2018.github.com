@@ -18,7 +18,7 @@ Those of you who are well familiar with linear algebra may skip this section.
 
 #### Vector Space
 A vector space $$V$$, over the set of real numbers $$\mathbb{R}$$, is a set equipped with two operations, addition `+` and multiplication `.`, subject to the conditions,
-1. The set is closed under the addition operator, i.e. for any $$gc\vec{l}, \vec{m} \in V$$, $$\vec{l} + \vec{m} \in V$$.
+1. The set is closed under the addition operator, i.e. for any $$\vec{l}, \vec{m} \in V$$, $$\vec{l} + \vec{m} \in V$$.
 2. The addition operation is commutative, i.e. for any $$\vec{l}, \vec{l} \in V$$, $$\vec{l} + \vec{m} = \vec{m} + \vec{l}$$.
 3. The addition operation is associative, i.e. for any $$\vec{l}, \vec{m}, \vec{n} \in V$$, $$(\vec{l} + \vec{m}) + \vec{n} = \vec{l} + (\vec{m} + \vec{n})$$.
 4. There exists a zero vector $$\vec{0} \in V$$, which is the identity element of addition, i.e. for any $$\vec{l} \in V$$, $$\vec{l} + \vec{0} = \vec{l}$$.
