@@ -25,7 +25,7 @@ A vector space $$V$$, over the set of real numbers $$\mathbb{R}$$, is a set equi
 9. There exists an identity element of scalar multiplication, i.e. for any $$\vec{l} \in V$$, $$1.\vec{l} = \vec{l}$$.
 
 
-$$\bm{x}=\left[\begin{matrix}x_{1}, x_{2}, x_{3}, \vdots, x_{n}\end{matrix}\right]$$
+$$\mathbf{x}=\left[\begin{matrix}x_{1}, x_{2}, x_{3}, \vdots, x_{n}\end{matrix}\right]$$
 
 
 ```python
