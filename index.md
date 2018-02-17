@@ -7,3 +7,16 @@ This module instructs students to learn the basics of deep learning as well as f
 __Prerequisites:__ Basic programming (e.g. Python, C++), Basics in Linear Algebra
 
 ## [Session 01](./session_01.md)
+Basics of Linear Algebra (vector, matrix, tensors, etc), Introduction to Python, numpy basics, symbolic computation basics.
+
+## [Session 02](./session_02.md)
+Brief introduction to Linear Regression, Logistic Regression, Stochastic Gradient Descent and its variants.
+
+## [Session 03](./session_03.md)
+Brief introduction to Multi-layer Perceptron and Convolutional Neural Networks.
+
+## [Session 04](./session_04.md)
+Basic techniques of Computer Vision using OpenCV, such as thresholding, edge detection, etc.
+
+## [Session 05](./session_05.md)
+Advanced techniques of Computer Vision such as filtering, corner detection, keypoints, etc.
