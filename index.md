@@ -2,7 +2,10 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+$$a^{2}+b^{2}=c^{2}$$
+
+
+Text can be **bold**, _italic_, or ~~strikethrough~~. $$c^{2}$$
 
 [Link to another page](another-page).
 

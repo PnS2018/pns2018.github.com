@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
+
+    <link rel="stylesheet" href="{{ site.baseurl}}/res/katex/katex.min.css" type="text/css" rel="stylesheet">
+    <script src="{{ site.baseurl}}/res/katex/katex.min.js" type="text/javascript"></script>
   <head>
     <meta charset="UTF-8">
 
@@ -44,5 +47,26 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
+
+
+<script>
+  $("script[type='math/tex']").replaceWith(
+  function(){
+    var tex = $(this).text();
+    var restex=tex.replace("% <![CDATA[", " ").replace("%]]>", " ");
+    return "<span class=\"inline-equation\">" + 
+           katex.renderToString(restex) +
+           "</span>";
+  });
+
+  $("script[type='math/tex; mode=display']").replaceWith(
+  function(){
+    var tex = $(this).text();
+    var restex=tex.replace("% <![CDATA[", " ").replace("%]]>", " ");
+    return "<div align=\"center\" class=\"equation\">" + 
+           katex.renderToString("\\displaystyle "+restex)+
+           "</div>";
+  });
+</script>
   </body>
 </html>
