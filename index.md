@@ -32,6 +32,14 @@ Basic techniques of Computer Vision using OpenCV, such as thresholding, edge det
 ## [Session 05](./session_05.md)
 Advanced techniques of Computer Vision such as filtering, corner detection, keypoints, etc.
 
+## Technical Tutorials and Resources
+
+### [Git Crash Course](./git-intro.md)
+
+### [Python for Scientific Computing](./python-sc.md)
+
+### [Extra Deep Learning Resources](./dl-res.md)
+
 ## Projects
 
 + __Baby Jarvis__: Apply face recognition using Keras, OpenCV, and Raspberry Pi. The device will shout the names when it sees you.
