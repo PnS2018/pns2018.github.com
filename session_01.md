@@ -34,7 +34,7 @@ np.array([1, 2, 3, 4, 5, 6])  # a row vector that has 6 elements
 
 ### Matrix
 
-$$\mathbf{A}=\left[\begin{matrix}A_{11} & A_{1,2} & \cdots & A_{1m} \\
+$$\mathbf{A}=\left[\begin{matrix}A_{11} & A_{12} & \cdots & A_{1m} \\
 A_{21} & A_{22} & \cdots & A_{2m} \\
 \vdots & \vdots & \ddots & \vdots \\
 A_{n1} & A_{n2} & \cdots & A_{nm}\end{matrix}\right]$$
