@@ -25,19 +25,30 @@ A vector space $$V$$, over the set of real numbers $$\mathbb{R}$$, is a set equi
 9. There exists an identity element of scalar multiplication, i.e. for any $$\vec{l} \in V$$, $$1.\vec{l} = \vec{l}$$.
 
 
+### Scalar, Vector, Matrix and Tensor
+
++ A __Scalar__ is just a single number.
+
++ A __Vector__ is an array of numbers. For example a vector $$\mathbf{x}$$ that has $$n$$ elements is represented as:
+
 $$\mathbf{x}=\left[\begin{matrix}x_{1}\\ x_{2}\\ x_{3}\\ \vdots\\ x_{n}\end{matrix}\right]$$
 
+A numpy example of a 6-element vector is given as follows:
 
 ```python
 np.array([1, 2, 3, 4, 5, 6])  # a row vector that has 6 elements
 ```
 
-### Matrix
+__Technical Note__: by default, numpy can only represent row vector as numpy needs two dimensions to represent a column vector.
+
++ A __Matrix__ is a 2D array of numbers:
 
 $$\mathbf{A}=\left[\begin{matrix}A_{11} & A_{12} & \cdots & A_{1m} \\
 A_{21} & A_{22} & \cdots & A_{2m} \\
 \vdots & \vdots & \ddots & \vdots \\
 A_{n1} & A_{n2} & \cdots & A_{nm}\end{matrix}\right]$$
+
+A numpy example:
 
 ```python
 np.array([[1, 2, 3, 4],
@@ -45,4 +56,8 @@ np.array([[1, 2, 3, 4],
           [9, 10, 11, 12]])  # a 3x4 matrix
 ```
 
-### Tensor
++ A multi-dimensional array is called a __tensor__.
+
+```python
+np.ones((2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are filled as 1
+```
