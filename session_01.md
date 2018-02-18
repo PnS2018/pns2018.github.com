@@ -39,4 +39,10 @@ A_{21} & A_{22} & \cdots & A_{2m} \\
 \vdots & \vdots & \ddots & \vdots \\
 A_{n1} & A_{n2} & \cdots & A_{nm}\end{matrix}\right]$$
 
+```python
+np.array([[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12]])  # a 3x4 matrix
+```
+
 ### Tensor
