@@ -31,3 +31,11 @@ $$\mathbf{x}=\left[\begin{matrix}x_{1}\\ x_{2}\\ x_{3}\\ \vdots\\ x_{n}\end{matr
 ```python
 np.array([1, 2, 3, 4, 5, 6])  # a row vector that has 6 elements
 ```
+
+### Matrix
+
+$$\mathbf{A}=\left[\begin{matrix}A_{1,1}, \cdots, A_{1, m} \\
+\vdots, \ddots, \vdots \\
+A_{n, 1}, \cdots, A_{n, m}\end{matrix}\right]$$
+
+### Tensor
