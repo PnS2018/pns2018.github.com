@@ -9,6 +9,13 @@ This module instructs students to learn the basics of deep learning as well as f
 + __Prerequisites__ Basic programming (e.g. Python, C++), Basics in Linear Algebra
 + __TA__: Yuhuang Hu and Jithendar Anumula
 
+---
+<div>
+<h2 align="center">
+    All materials are available at: <a href="https://github.com/PnS2018">https://github.com/PnS2018</a>
+</h2>
+</div>
+---
 # Schedule
 
 + __Session__: Thursdays 1-5pm
