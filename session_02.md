@@ -2,6 +2,59 @@
 layout: default
 ---
 
+Welcome to the second session of Deep Learning in Raspberry Pi.
+
+In this section, we are gonna introduce some core concepts in Machine
+Learning (ML). We will dive into two historically very influential learning models: Linear Regression and Logistic Regression. We will also explain Stochastic Gradient Descent (SGD) and its variants. 
+
+## Machine Learning Basics
+
+### What is a "Learning Algorithm"?
+
+A popular definition of learning algorithm is introduced by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
+
+---
+"A computer program is said to learn from
+
++   experience $$E$$ with respect to
++   some class of tasks $$T$$ and
++   performance measure $$P$$,
+
+if its performance at tasks in $$T$$, as measured by $$P$$, improves with experience $$E$$" (Mitchell, 1997)
+---
+
+__NOTE__: This book is really fun to read and introduced many ML algorithms that are very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
+
+#### The task $$T$$
+
++ __Classification__ specifies which $$k$$ categories some input belongs to. ($$f:\mathbb{R}^{n}\rightarrow\{1,\ldots, K\}$$)
+
++ __Regression__ predicts a numerical value given some input. ($$f: \mathbf{R}^{n}\rightarrow\mathbf{R}$$)
+
++ __Transcription__ outputs a sequence of symbols, rather than a category code. (similar to classification, e.g. speech recognition, machine translation, image captioning)
+
++ __Denoising__ predicts clean samples $$\mathbf{x}$$ from _corrupted_ samples $$\tilde{\mathbf{x}}$$. (estimate $$\Pr(\mathbf{x}|\tilde{\mathbf{x}})$$)
+
+And many more types are not listed here.
+
+#### The performance measure $$P$$
+
++ Measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification)
+
++ Batches of unseen _validation_ data is introduced to measure performance.
+
++ Design measure $$P$$ can be very subtle. It should be effective
+
+#### The experience $$E$$
+
+Experience is what learning algorithms are allowed to have during learning process.
+
++ Experience is usually an _dataset_, a collection of _examples_.
+
++ _Unsupervised Learning algorithms_ experience a dataset containing many features, learning useful structure of the dataset (estimate $$\Pr(\mathbf{x})$$).
+
++ _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}|\mathbf{x})).
+
 ## Linear Regression
 
 $$
