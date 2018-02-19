@@ -66,10 +66,17 @@ $$
 
 
 ```python
-x = Input((10,), name="input_layer")
+x = Input((10,), name="input layer")
 y = Linear(1, name="linear layer")
 model = Model(x, y)
 ```
+
+## Generalization, Capacity, Overfitting, Underfitting
+
++   __Generalization__ abaility to perform well on previously unobserved inputs.
++   __Capacity__ abaility to fit a wide varity of functions.
++   __Overfitting__ occurs when the gap between training error and test error is too large
++   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
 
 ## Logistic Regression
 
