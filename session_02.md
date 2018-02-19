@@ -46,7 +46,7 @@ $$
 $$
 
 $$
-\mathbf{W}^{\start}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
+\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
 $$
 
 ```python
@@ -59,3 +59,17 @@ model = Model(x, y)
 ## Stochastic Gradient Descent and its variants
 
 $$\mathbf{w}^{\star}=\mathbf{w}-\alpha\frac{\partial\mathcal{L}}{\partial \mathbf{w}}$$
+
+$$
+\begin{aligned}
+\hat{\mathbf{v}}=&\mu\mathbf{v}-\alpha\nabla\mathcal{L}(\mathbf{w}) \\
+\hat{\mathbf{w}}=&w+\hat{\mathbf{v}}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\hat{\mathbf{v}} = \mu\mathbf{v}-\alpha\nabla\mathbf{L}(\mathbf{w}+\mu\mathbf{v}) \\
+\hat{\mathbf{w}} = \mathbf{w}+\hat{\mathbf{v}}
+\end{aligned}
+$$
