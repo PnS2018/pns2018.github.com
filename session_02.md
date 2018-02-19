@@ -133,3 +133,26 @@ $$
 \hat{\mathbf{w}} =& \mathbf{w}+\hat{\mathbf{v}}
 \end{aligned}
 $$
+
+## Hyperparameters, Validation sets
+
++   __Hyperparameters__ controls the behavior of the learning algorithm. Usually choose empirically.
+
++   __Validation sets__ is a subset of data used to guide the selection of hyperparameters. (split from training dataset, usually 20%)
+
+## No Free Lunch Theorem, Curse of Dimensionality
+
+---
+
+The no free lunch theorm for machine learning (Wolpert, 1996) states that, average ove rall possible data generating distributions, every classification algorithm has the same error rate when classifying previous unobserved points. In some sence, no ML algorithm is universally any better than any other.
+
+---
+
+__Seek solution for some relevant distributions, NOT universal distribution.__
+
+
+---
+
+Many machine leanring problems become exceedingly difficult when the number of dimensions in the data is high. The phenomenon is known as the _curse of dimensionality_. Of particualr concern is that the number of possible distinct configurations of the variables of interest increases __exponentially__ as the dimensionality increases.
+
+---
