@@ -14,6 +14,7 @@ Learning (ML). We will dive into two historically very influential learning mode
 A popular definition of learning algorithm is introduced by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
 
 ---
+
 "A computer program is said to learn from
 
 +   experience $$E$$ with respect to
@@ -21,6 +22,7 @@ A popular definition of learning algorithm is introduced by Tom M. Mitchell in h
 +   performance measure $$P$$,
 
 if its performance at tasks in $$T$$, as measured by $$P$$, improves with experience $$E$$" (Mitchell, 1997)
+
 ---
 
 __NOTE__: This book is really fun to read and introduced many ML algorithms that are very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
