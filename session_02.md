@@ -69,7 +69,7 @@ $$
 
 $$
 \begin{aligned}
-\hat{\mathbf{v}} = \mu\mathbf{v}-\alpha\nabla\mathbf{L}(\mathbf{w}+\mu\mathbf{v}) \\
-\hat{\mathbf{w}} = \mathbf{w}+\hat{\mathbf{v}}
+\hat{\mathbf{v}} =& \mu\mathbf{v}-\alpha\nabla\mathbf{L}(\mathbf{w}+\mu\mathbf{v}) \\
+\hat{\mathbf{w}} =& \mathbf{w}+\hat{\mathbf{v}}
 \end{aligned}
 $$
