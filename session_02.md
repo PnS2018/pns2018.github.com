@@ -23,18 +23,30 @@ model = Model(x, y)
 
 $$
 \begin{aligned}
-f(\mathbf{x}) =& \frac{1}{1-\exp(-\mathbf{W}^{\top}\mathbf{x}} \\
+f(\mathbf{x}) =& \frac{1}{1-\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
 \Pr(y=1|\mathbf{x}) =& f(\mathbf{x}) \\
 \Pr(y=0|\mathbf{x}) =& 1-f(\mathbf{x})
 \end{aligned}
 $$
 
 $$
-\mathcal{L}(\mathbf{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
+\mathcal{L}(\mathcal{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
 $$
 
 $$
-\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathbf{X}, \mathbf{y})
+\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
+$$
+
+$$
+\text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \mathbf{W}) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x}}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x}}
+$$
+
+$$
+\mathcal{L}(\mathcal{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\sum_{k=1}^{K}\mathbf{1}\{y^{(i)}=k\}\log\Pr(y^{(i)}=k|\mathbf{x}^{(i)}, \mathbf{W})
+$$
+
+$$
+\mathbf{W}^{\start}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
 $$
 
 ```python
