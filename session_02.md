@@ -55,7 +55,7 @@ Experience is what learning algorithms are allowed to have during learning proce
 
 + _Unsupervised Learning algorithms_ experience a dataset containing many features, learning useful structure of the dataset (estimate $$\Pr(\mathbf{x})$$).
 
-+ _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}|\mathbf{x})).
++ _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}|\mathbf{x})$$).
 
 ## Linear Regression
 
