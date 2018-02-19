@@ -7,9 +7,7 @@ Welcome to the second session of Deep Learning in Raspberry Pi.
 In this section, we are gonna introduce some core concepts in Machine
 Learning (ML). We will dive into two historically very influential learning models: Linear Regression and Logistic Regression. We will also explain Stochastic Gradient Descent (SGD) and its variants. 
 
-## Machine Learning Basics
-
-### What is a "Learning Algorithm"?
+## What is a "Learning Algorithm"?
 
 A popular definition of learning algorithm is introduced by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
 
@@ -27,7 +25,7 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 
 __NOTE__: This book is really fun to read and introduced many ML algorithms that are very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
 
-#### The task $$T$$
+### The task $$T$$
 
 + __Classification__ specifies which $$k$$ categories some input belongs to. ($$f:\mathbb{R}^{n}\rightarrow\{1,\ldots, K\}$$)
 
@@ -39,7 +37,7 @@ __NOTE__: This book is really fun to read and introduced many ML algorithms that
 
 And many more types are not listed here.
 
-#### The performance measure $$P$$
+### The performance measure $$P$$
 
 + Measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification)
 
@@ -47,7 +45,7 @@ And many more types are not listed here.
 
 + Design measure $$P$$ can be very subtle. It should be effective
 
-#### The experience $$E$$
+### The experience $$E$$
 
 Experience is what learning algorithms are allowed to have during learning process.
 
@@ -55,7 +53,7 @@ Experience is what learning algorithms are allowed to have during learning proce
 
 + _Unsupervised Learning algorithms_ experience a dataset containing many features, learning useful structure of the dataset (estimate $$\Pr(\mathbf{x})$$).
 
-+ _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}|\mathbf{x})$$).
++ _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}\vert\mathbf{x})$$).
 
 ## Linear Regression
 
