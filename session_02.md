@@ -38,7 +38,7 @@ $$
 $$
 
 $$
-\text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \mathbf{W}) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x}}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x}}
+\text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \mathbf{W}) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x})}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x})}
 $$
 
 $$
