@@ -59,6 +59,8 @@ Experience is what learning algorithms are allowed to have during learning proce
 + _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}\vert\mathbf{x})$$).
 
 
+### Hypothesis function
+
 Mathematically, this computer program with respect to the learning task $$T$$ can be defined
 as a hypothesis function that takes an input $$\mathbf{x}$$ and transforms it to
 an output $$\mathbf{y}$$.
@@ -68,6 +70,20 @@ $$\mathbf{y}=f(\mathbf{x}; \mathbf{W})$$
 The function may be parameterized by a group of parameters $$\mathbf{W}$$.
 Note that $$\mathbf{W}$$ includes both trainable and non-trainable parameters.
 All the DNN architectures discussed in this module can be formulated in this paradigm.
+
+### The Cost Function
+
+A cost function $$\mathcal{L}$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech).
+
+When the cost function is differentiable (such as in DNNs presented in this module), a class of _Gradient-Based Optimization_ algorithms can be applied to optimize the hypothesis functions $$f(\cdot)$$. Thanks to specialized hardware such as GPUs and TPUs, these algorithms can be computed very efficiently.
+
+Particularly, Gradient Descent (Cauchy, 1847) and its variants, such as
+RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al., 2011), Adadelta
+(Zeiler, 2012), Adam (Kingma & Ba, 2014) are surprisingly good at training
+Deep Learning models and have dominated the development of training algorithms. Software libraries such as `Theano` (Theano Development Team, 2016)
+and `TensorFlow` (Abadi et al., 2015) have automated the process of computing the gradient (the most difficult part of applying gradient descent) using
+a symbolic computation graph. This automation enables the researchers to
+design and train arbitrary learning models.
 
 
 ## Linear Regression
