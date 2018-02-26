@@ -4,16 +4,16 @@ layout: default
 
 Welcome to the second session of Deep Learning in Raspberry Pi.
 
-In this section, we are gonna introduce some core concepts in Machine
-Learning (ML). We will dive into two historically very influential learning models: Linear Regression and Logistic Regression. We will also explain Stochastic Gradient Descent (SGD) and its variants. 
+In this section, we are going to introduce some core concepts in Machine
+Learning (ML). We will dive into two historically very influential learning models: Linear Regression and Logistic Regression. We will also discuss Stochastic Gradient Descent (SGD) and its variants. 
 
 ## What is a "Learning Algorithm"?
 
-A popular definition of learning algorithm is introduced by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
+A broadly adopted definition of _learning algorithm_ is given by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
 
 ---
 
-"A computer program is said to learn from
+"A computer program is said to __learn__ from
 
 +   experience $$E$$ with respect to
 +   some class of tasks $$T$$ and
@@ -24,6 +24,9 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 ---
 
 __NOTE__: This book is really fun to read and introduced many ML algorithms that are very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
+
+Many popular machine learning textbooks have in-depth discussions of this
+definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016). Here we give simple examples for them:
 
 ### The task $$T$$
 
@@ -54,6 +57,18 @@ Experience is what learning algorithms are allowed to have during learning proce
 + _Unsupervised Learning algorithms_ experience a dataset containing many features, learning useful structure of the dataset (estimate $$\Pr(\mathbf{x})$$).
 
 + _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}\vert\mathbf{x})$$).
+
+
+Mathematically, this computer program with respect to the learning task $$T$$ can be defined
+as a hypothesis function that takes an input $$\mathbf{x}$$ and transforms it to
+an output $$\mathbf{y}$$.
+
+$$\mathbf{y}=f(\mathbf{x}; \mathbf{W})$$
+
+The function may be parameterized by a group of parameters $$\mathbf{W}$$.
+Note that $$\mathbf{W}$$ includes both trainable and non-trainable parameters.
+All the DNN architectures discussed in this module can be formulated in this paradigm.
+
 
 ## Linear Regression
 
