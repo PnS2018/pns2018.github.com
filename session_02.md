@@ -85,8 +85,11 @@ and `TensorFlow` (Abadi et al., 2015) have automated the process of computing th
 a symbolic computation graph. This automation enables the researchers to
 design and train arbitrary learning models.
 
+We will revisit this topic at the end of this session. In next sections, we will look closely into __Linear Regression__ (Regression) and __Logistic Regression__ (Classification).
 
 ## Linear Regression
+
+
 
 $$
 \begin{aligned}
