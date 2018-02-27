@@ -76,7 +76,7 @@ Strictly speaking, the hypothesis function defines a large family of functions t
 ### The Cost Function
 
 A cost function $$J$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech). The cost function reflects the performance measure $$P$$ directly or indirectly. In most cases, the performance of a learning algorithm gets higher
-while the cost function $$J$$ becomes lower.
+when the cost function $$J$$ becomes lower.
 
 When the cost function is differentiable (such as in DNNs presented in this module), a class of _Gradient-Based Optimization_ algorithms can be applied to optimize the hypothesis functions $$f(\cdot)$$. Thanks to specialized hardware such as GPUs and TPUs, these algorithms can be computed very efficiently.
 
@@ -94,20 +94,20 @@ We will revisit this topic at the end of this session. In next sections, we will
 
 ## Linear Regression
 
-Regression is a task of Supervised Learning. The goal is to take a input vector $$\mathbf{x}\in\mathbb{R}^{n}$$ (a.k.a, features) and predict a target value/vector $$\mathbf{y}$$. In this section, we will learn how to implement _Linear Regression_.
+Regression is a task of Supervised Learning. The goal is to take a input vector $$\mathbf{x}\in\mathbb{R}^{n}$$ (a.k.a, features) and predict a target value $$y\in\mathbb{R}$$. In this section, we will learn how to implement _Linear Regression_.
 
-As the name suggested, Linear Regression has a hypothesis function that is a linear function. The goal is to find a linear relationship between the input features and target values:
+As the name suggested, Linear Regression has a hypothesis function that is a linear function. The goal is to find a linear relationship between the input features and the target value:
 
 $$
 \begin{aligned}
-\mathbf{y}^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
+y^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
 =&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}^{(i)}+b
 \end{aligned}
 $$
 
-Note that the hypothesis function $$f(\mathbf{x}; \mathbf{W})$$ represents a large family of linear functions by the choice of specific configuration of $$\mathbf{W}$$.
+Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points.
 
-Suppose that the target value is a scalar (a.k.a $$\mathbf{y}\in\mathbb{R}$$), we can easily define such model in Keras:
+Suppose that the target value is a scalar (a.k.a $$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
 
 ```python
 x = Input((10,), name="input layer")  # the input feature has 10 values
