@@ -63,5 +63,7 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 This module has taken many online resources on Deep Learning and Raspberry Pi.
 We would like to acknowledge following resources:
 
++ [Deep Learning](http://www.deeplearningbook.org/)
 + [Unsupervised Feature Learning and Deep Learning Tutorial](http://ufldl.stanford.edu/tutorial/)
 + [cs231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/)
++ [RPI-Wireless-Hotspot](https://github.com/unixabg/RPI-Wireless-Hotspot)
