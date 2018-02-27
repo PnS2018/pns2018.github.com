@@ -71,7 +71,7 @@ The function may be parameterized by a group of parameters $$\mathbf{W}$$.
 Note that $$\mathbf{W}$$ includes both trainable and non-trainable parameters.
 All the DNN architectures discussed in this module can be formulated in this paradigm.
 
-Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\mathbf{W}^{\star}$$ that predicts correct decisions of the given task.
+Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\mathbf{W}^{\star}$$ that yields the highest performance according to the performance measure $$P$$ of the given task.
 
 ### The Cost Function
 
