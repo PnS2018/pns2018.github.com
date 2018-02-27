@@ -88,7 +88,7 @@ and `TensorFlow` (Abadi et al., 2015) have automated the process of computing th
 a symbolic computation graph. This automation enables the researchers to
 design and train arbitrary learning models.
 
-__Remark__: in this module, we use the term "cost function" and "loss function" interchangeably. Usually, the loss function is denoted as $$\mathcal{L}$$.
+__Remark__: in this module, we use the term "cost function", "objective function" and "loss function" interchangeably. Usually, the loss function is denoted as $$\mathcal{L}$$.
 
 We will revisit this topic at the end of this session. In next sections, we will look closely into __Linear Regression__ (Regression) and __Logistic Regression__ (Classification).
 
@@ -126,6 +126,12 @@ For Linear Regression, one possible formulation of the cost function is Mean-Squ
 $$
 J(\mathbf{W})=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})\right)^{2}
 $$
+
+By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \mathbf{W}^{\star}$$ can perform well on unseen examples in the testing dataset.
+
+__Remarks__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
+
+__Remarks__: Linear Regression is a class of learning model that are extensively studied in history.
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
