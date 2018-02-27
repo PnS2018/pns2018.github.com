@@ -113,9 +113,8 @@ model = Model(x, y)  # compile the hypothesis function
 To find a linear relationship that has $$\mathbf{y}^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$W^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$\mathcal{L}$$ that measures the error made by the hypothesis function, our goal can be formulated into:
 
 $$
-\mathbf{W}^{\start}=\arg\min_{\mathbf{W}}\mathbf{L}(\mathbf{y}, f(\mathbf{x};\mathbf{W}))
+\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathbf{y}, f(\mathbf{x};\mathbf{W}))
 $$
-
 
 
 
