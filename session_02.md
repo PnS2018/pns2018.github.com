@@ -23,7 +23,7 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 
 ---
 
-__NOTE__: This book is really fun to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
+__Remark__: This book is really fun to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
 
 Many popular machine learning textbooks have in-depth discussions of this
 definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016).
@@ -75,7 +75,8 @@ Strictly speaking, the hypothesis function defines a large family of functions t
 
 ### The Cost Function
 
-A cost function $$\mathcal{L}$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech).
+A cost function $$J$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech). The cost function reflects the performance measure $$P$$ directly or indirectly. In most cases, the performance of a learning algorithm gets higher
+while the cost function $$J$$ becomes lower.
 
 When the cost function is differentiable (such as in DNNs presented in this module), a class of _Gradient-Based Optimization_ algorithms can be applied to optimize the hypothesis functions $$f(\cdot)$$. Thanks to specialized hardware such as GPUs and TPUs, these algorithms can be computed very efficiently.
 
@@ -86,6 +87,8 @@ Deep Learning models and have dominated the development of training algorithms. 
 and `TensorFlow` (Abadi et al., 2015) have automated the process of computing the gradient (the most difficult part of applying gradient descent) using
 a symbolic computation graph. This automation enables the researchers to
 design and train arbitrary learning models.
+
+__Remark__: in this module, we use the term "cost function" and "loss function" interchangeably. Usually, the loss function is denoted as $$\mathcal{L}$$.
 
 We will revisit this topic at the end of this session. In next sections, we will look closely into __Linear Regression__ (Regression) and __Logistic Regression__ (Classification).
 
