@@ -95,17 +95,28 @@ As the name suggested, Linear Regression has a hypothesis function that is a lin
 
 $$
 \begin{aligned}
-\mathbf{y}^{(i)}=f(\mathbf{x}^{(i)})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
-=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}+b
+\mathbf{y}^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
+=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}^{(i)}+b
 \end{aligned}
 $$
 
+Note that the hypothesis function $$f(\mathbf{x}; \mathbf{W})$$ represents a large family of linear functions by the choice of specific configuration of $$\mathbf{W}$$.
+
+Suppose that the target value is a scalar (a.k.a $$\mathbf{y}\in\mathbb{R}$$), we can easily define such model in Keras:
 
 ```python
-x = Input((10,), name="input layer")
-y = Linear(1, name="linear layer")
-model = Model(x, y)
+x = Input((10,), name="input layer")  # the input feature has 10 values
+y = Linear(1, name="linear layer")  # implement linear function
+model = Model(x, y)  # compile the hypothesis function
 ```
+
+To find a linear relationship that has $$\mathbf{y}^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$W^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$\mathcal{L}$$ that measures the error made by the hypothesis function, our goal can be formulated into:
+
+$$
+\mathbf{W}^{\start}=\arg\min_{\mathbf{W}}\mathbf{L}(\mathbf{y}, f(\mathbf{x};\mathbf{W}))
+$$
+
+
 
 
 ## Generalization, Capacity, Overfitting, Underfitting
