@@ -115,14 +115,16 @@ y = Linear(1, name="linear layer")  # implement linear function
 model = Model(x, y)  # compile the hypothesis function
 ```
 
-To find a linear relationship that has $$\mathbf{y}^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$W^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$\mathcal{L}$$ that measures the error made by the hypothesis function, our goal can be formulated into:
+To find a linear relationship that has $$y^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$W^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$J$$ that measures the error made by the hypothesis function, our goal can be formulated into:
 
 $$
-\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathbf{y}, f(\mathbf{x};\mathbf{W}))
+\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}J(\mathbf{W})
 $$
 
+For Linear Regression, one possible formulation of the cost function is Mean-Squared Error (MSE), this cost function measures the mean error caused by each data sample:
+
 $$
-\mathcal{L}=\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{m}\left(\mathbf{y}_{j}^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})_{j}\right)^{2}
+J(\mathbf{W})=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})\right)^{2}
 $$
 
 ## Generalization, Capacity, Overfitting, Underfitting
