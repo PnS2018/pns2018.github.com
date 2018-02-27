@@ -116,7 +116,9 @@ $$
 \mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathbf{y}, f(\mathbf{x};\mathbf{W}))
 $$
 
-
+$$
+\mathcal{L}=\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{m}\left(\mathbf{y}_{j}^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})_{j}\right)^{2}
+$$
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
