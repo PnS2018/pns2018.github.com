@@ -23,10 +23,10 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 
 ---
 
-__NOTE__: This book is really fun to read and introduced many ML algorithms that are very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
+__NOTE__: This book is really fun to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
 
 Many popular machine learning textbooks have in-depth discussions of this
-definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016). Here we give simple examples for them:
+definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016). Here we give simple examples:
 
 ### The task $$T$$
 
@@ -42,11 +42,11 @@ And many more types are not listed here.
 
 ### The performance measure $$P$$
 
-+ Measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification)
++ Measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification).
 
 + Batches of unseen _validation_ data is introduced to measure performance.
 
-+ Design measure $$P$$ can be very subtle. It should be effective
++ Design measure $$P$$ can be very subtle. It should be effective.
 
 ### The experience $$E$$
 
@@ -89,12 +89,14 @@ We will revisit this topic at the end of this session. In next sections, we will
 
 ## Linear Regression
 
+Regression is a task of Supervised Learning. The goal is to take a input vector $$\mathbf{x}\in\mathbb{R}^{n}$$ (a.k.a, features) and predict a target value/vector $$\mathbf{y}$$. In this section, we will learn how to implement _Linear Regression_.
 
+As the name suggested, Linear Regression has a hypothesis function that is a linear function. The goal is to find a linear relationship between the input features and target values:
 
 $$
 \begin{aligned}
-y=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
-=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b
+\mathbf{y}^{(i)}=f(\mathbf{x}^{(i)})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
+=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}+b
 \end{aligned}
 $$
 
@@ -104,6 +106,7 @@ x = Input((10,), name="input layer")
 y = Linear(1, name="linear layer")
 model = Model(x, y)
 ```
+
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
@@ -190,3 +193,4 @@ __Seek solution for some relevant distributions, NOT universal distribution.__
 Many machine leanring problems become exceedingly difficult when the number of dimensions in the data is high. The phenomenon is known as the _curse of dimensionality_. Of particualr concern is that the number of possible distinct configurations of the variables of interest increases __exponentially__ as the dimensionality increases.
 
 ---
+
