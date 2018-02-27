@@ -4,7 +4,7 @@ layout: default
 
 Welcome to the second session of Deep Learning in Raspberry Pi.
 
-In this section, we are going to introduce some core concepts in Machine
+In this section, we are going to discuss some core concepts in Machine
 Learning (ML). We will dive into two historically very influential learning models: Linear Regression and Logistic Regression. We will also discuss Stochastic Gradient Descent (SGD) and its variants. 
 
 ## What is a "Learning Algorithm"?
@@ -26,13 +26,13 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 __NOTE__: This book is really fun to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
 
 Many popular machine learning textbooks have in-depth discussions of this
-definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016). Here we give simple examples:
+definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016).
 
 ### The task $$T$$
 
 + __Classification__ specifies which $$k$$ categories some input belongs to. ($$f:\mathbb{R}^{n}\rightarrow\{1,\ldots, K\}$$)
 
-+ __Regression__ predicts a numerical value given some input. ($$f: \mathbf{R}^{n}\rightarrow\mathbf{R}$$)
++ __Regression__ predicts a numerical value given some input. ($$f: \mathbb{R}^{n}\rightarrow\mathbb{R}$$)
 
 + __Transcription__ outputs a sequence of symbols, rather than a category code. (similar to classification, e.g. speech recognition, machine translation, image captioning)
 
@@ -70,6 +70,8 @@ $$\mathbf{y}=f(\mathbf{x}; \mathbf{W})$$
 The function may be parameterized by a group of parameters $$\mathbf{W}$$.
 Note that $$\mathbf{W}$$ includes both trainable and non-trainable parameters.
 All the DNN architectures discussed in this module can be formulated in this paradigm.
+
+Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\mathbf{W}^{\star}$$ that predicts correct decisions of the given task.
 
 ### The Cost Function
 
