@@ -58,7 +58,7 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 + __(Advanced) Raspberry that talks__: Analysis image via image captioning, then broadcast it to audio.
 
-# Acknolwdgement
+# Acknowledgment
 
 This module has taken many online resources on Deep Learning and Raspberry Pi.
 We would like to acknowledge following resources:
