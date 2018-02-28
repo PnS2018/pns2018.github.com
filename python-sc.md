@@ -133,3 +133,7 @@ If you are a [Eclipse](http://www.eclipse.org/) user, perhaps you would be very 
 ### Vim
 
 For experienced user, we recommend [Vim](https://www.vim.org/) or its community-driven fork [neovim](https://neovim.io/). By configuring Vim, you will be able to get a fast editor that has all the IDE features you want and being lightweight in some sense. Additionally, because Vim is a very flexible editor, you could do many things very efficient while other editors won't or can't do.
+
+## Further Readings
+
++ [NSC-GPU-GUIDE](https://github.com/duguyue100/NSC-GPU-GUIDE): this repository contains some setup scripts that we use at INI for setting up computing resources for master students. The target system is Ubuntu 16.04.
