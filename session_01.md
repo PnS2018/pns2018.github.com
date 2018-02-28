@@ -26,7 +26,7 @@ A vector space $$ V $$, over the set of real numbers $$ \mathbb{R} $$, is a set 
 
 
 ### Inner Product Space
-An Inner Product Space is a vector space $V$ with an inner product operation, which is a mapping $$ \langle\cdot, \cdot\rangle: V \times V \to \mathbb{R} $$. Note that the range can either be $$ \mathbb{R} $$ or $$ \mathbb{C} $$, but we will only consider the case for $$ \mathbb{R} $$ here. The inner product should satisfy the following properties.
+An Inner Product Space is a vector space $$V$$ with an inner product operation, which is a mapping $$ \langle\cdot, \cdot\rangle: V \times V \to \mathbb{R} $$. Note that the range can either be $$ \mathbb{R} $$ or $$ \mathbb{C} $$, but we will only consider the case for $$ \mathbb{R} $$ here. The inner product should satisfy the following properties.
 1. $$ \langle \vec{l}, \vec{m} \rangle = \langle \vec{m}, \vec{l} \rangle $$ for any $$ \vec{l}, \vec{m} \in V $$.
 2. $$ \langle r.\vec{l}, \vec{m} \rangle = r\langle \vec{l}, \vec{m} \rangle $$ and $$ \langle \vec{l} + \vec{m}, \vec{n} \rangle = \langle \vec{l}, \vec{n} \rangle + \langle \vec{m}, \vec{n} \rangle $$, for any $$ r\in \mathbb{r} $$ and $$ \vec{l}, \vec{m}, \vec{n} \in V $$.
 3. $$ \langle \vec{l}, \vec{l}\rangle > 0 $$ for any $$ \vec{l} \in V $$ and $$ \langle \vec{l}, \vec{l}\rangle = 0 \iff \vec{l} = \vec{0} $$.
