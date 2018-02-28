@@ -413,7 +413,7 @@ grad_functions((np.array([[1, 3], [2, 4]]),
                 np.array([[3, 2], [5, 6]])))
 ```
 
-__Remarks__: The complete API reference is available at [Keras documentation for backend](https://keras.io/backend/)
+__Remarks__: The complete API reference is available at [Keras documentation for backend](https://keras.io/backend/).
 
 ### Exercises
 
