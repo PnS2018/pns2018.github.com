@@ -8,7 +8,7 @@ In this session, we will revisit the basic concepts of linear algebra. Then, we 
 
 ## Linear Algebra
 
-This section will only provide a brief introduction to linear algebra. For those of you unfamiliar with the concepts of linear algebra, it is strongly recommended that you spend some time with a text book or a complete course on linear algebra. A strongly recommended text book would be [Introduction to Linear Algbera](math.mit.edu/~gs/linearalgebra/) by Gilbert Strang.
+This section will only provide a brief introduction to linear algebra. For those of you unfamiliar with the concepts of linear algebra, it is strongly recommended that you spend some time with a text book or a complete course on linear algebra. A strongly recommended text book would be [Introduction to Linear Algebra](math.mit.edu/~gs/linearalgebra/) by Gilbert Strang.
 
 Those of you who are well familiar with linear algebra may skip the next two sections.
 
@@ -72,9 +72,9 @@ np.ones(shape=(2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are f
 ### Basic Numpy
 The contents of this section are mainly based on the [quickstart tutorial](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) of Numpy from the official website.
 
-The main object in Numpy is the homogenous multi-dimensional array (or a tensor). The main difference between a python multi-dimensional list and the numpy array is that elements of a list can be of different types, while the elements of a numpy array are of the same type.
+The main object in Numpy is the homogeneous multi-dimensional array (or a tensor). The main difference between a python multi-dimensional list and the numpy array is that elements of a list can be of different types, while the elements of a numpy array are of the same type.
 
-Numpy's array class is called the `ndarray`, which also goes by the alias `array`. A few important attributes of the ndarray object are `ndarray.shape` which has the dimensions of the array, `ndarray.dtype` which has the type of elements in the array (e.g., numpy.int16, numpy.float16, numpu.float32, etc).
+Numpy's array class is called the `ndarray`, which also goes by the alias `array`. A few important attributes of the ndarray object are `ndarray.shape` which has the dimensions of the array, `ndarray.dtype` which has the type of elements in the array (e.g., numpy.int16, numpy.float16, numpy.float32, etc).
 
 Let us look at an example.
 
