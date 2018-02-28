@@ -423,4 +423,4 @@ __Remarks__: The complete API reference is available at [Keras documentation for
 
 1. Create shape (2,) variable $$\mathbf{w}$$ and the shape (1,) variable $$\mathbf{b}$$. Create shape (2,) placeholder $$\mathbf{x}$$. Now create the function corresponding to $$f(w_1 * x_1 + w_2 * x_2 + b)$$ where $$f(x) = \frac{1}{1+e^{-x}}$$ and compute the gradient with respect to $$\mathbf{w}$$. Analyse the implemented operation, and then observe how the function and the gradient behaves for different values of the variables and the placeholder.
 
-1. For an arbitrary n, create an n-degree polynomial for an input scalar variable $$\mathbf{x}$$ with (n+1) variables and compute the gradients of the polynomial with respect to each of the variables.
+1. For an arbitrary $$n$$, create an $$n$$-degree polynomial for an input scalar variable $$\mathbf{x}$$ with $$(n+1)$$ variables and compute the gradients of the polynomial with respect to each of the variables.
