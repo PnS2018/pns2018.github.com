@@ -9,22 +9,22 @@ layout: default
 Generally, you should use either a modern Linux or `*nix` distribution.
 For most users, we recommend [Ubuntu](https://www.ubuntu.com/).
 If you have a Mac, `macOS` is a custom flavor of `*nix` OS.
-Please do not try to install other system such as Ubuntu or Arch Linux
+Please do not try to install other systems such as Ubuntu or Arch Linux
 on a Mac if you don't know what you are doing.
 
 You should avoid using Windows as much as possible.
-In this module, we can only offer our limited help if you are using Windows.
+For this module, we can only offer our limited help if you are using Windows.
 
 ## Which Python Distribution Should I Use?
 
-If you are a newbie to Python, you will probably just go to the official Python website, download the installation file and install on your computer. In fact, this may be the worst thing you can do.
+If you are a newbie to Python, you will probably just go to the official Python website, download the installation file and install it on your computer. In fact, this may be the worst thing you can do.
 
-So, in most modern Linux and `*nix` operating system, the Python distribution is installed for managing some system services. The system-installed Python can be used by user for sure. However, because this distribution manages system services and needs writing privilege to some directories constantly, we strongly advice that you should not touch the system-installed Python for new user. Moreover, you could suffer a very big trouble when you are trying to install packages that
+So, in most modern Linux and `*nix` operating systems, the Python distribution is installed for managing some system services by default. The system-installed Python can be used by the user for sure. However, because this distribution manages system services and needs writing privilege to some directories constantly, we strongly advice that you should not touch the system-installed Python as a new user. Moreover, you could encounter a very big trouble when you are trying to install packages that
 build from scratch.
 
 Instead, what we need is a Python distribution that has its own environment and can be easily removed when we want to. So the answer is [Anaconda](https://anaconda.org/), a Python distribution that is built for Scientific Computing.
 
-Anaconda delivers a custom Python distribution that includes over 1000 data science related packages, check [here](https://docs.anaconda.com/anaconda/packages/py2.7_linux-64). After install, all the files of Anaconda is in a folder. And if you messed something up, simply remove that folder and Install it again!
+Anaconda delivers a custom Python distribution that includes over 1000 data science related packages, check [here](https://docs.anaconda.com/anaconda/packages/py2.7_linux-64). After install, all the files of Anaconda is in a folder. And if you messed something up, simply remove that folder and install it again!
 
 ### Anaconda setup instructions
 
@@ -44,7 +44,7 @@ Anaconda delivers a custom Python distribution that includes over 1000 data scie
     $ bash ./anaconda.sh
     ```
 
-    Follow the instruction and make sure Anaconda is added in your bash configuration file such as `.bashrc` or `.zshrc`.
+    Follow the instructions and make sure Anaconda is added in your bash configuration file such as `.bashrc` or `.zshrc`.
 
 3. Close the current terminal and open another one (so that the bash configuration is loaded again). Type `python`, you should see something similar to this:
 
@@ -87,7 +87,7 @@ Generally, with Anaconda, we have three ways of installing other Python packages
 
 ## Do I Need Anything Else?
 
-For a beginner who wants to learn Python for data science, No, you generally don't need to install additional softwares. Anaconda has taken care of software installation.
+For a beginner who wants to learn Python for data science, No, you generally don't need to install additional softwares. Anaconda has taken care of the software installation.
 
 However, you should be able to familiar with the software packaging system on your computer. For Debian family (including Ubuntu), that is `apt-get` or `apt`. For macOS, that is either `MacPorts` or `homebrew`.
 
@@ -109,14 +109,14 @@ But it is totally not designed for managing and engineering serious projects.
 
 Therefore, we advice that you simply quit Jupyter Notebook.
 
-### What do you generally need from an IDE?
+### What do you need from an IDE?
 
-+ Code auto-completion: let's just face it, no one is gonna remember hundreds or even thousands of commands.
-+ Code navigation: if you want to check some definition or file, you need to get there fast.
-+ Running the code: it should be easy to run the code.
-+ Debugging: if there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
-+ Source code version control: Make sure your code is maintained and updated in a timely and efficient manner.
-+ Static code checker: modern software engineering promotes the idea of producing high-quality _human readable_ code. Over the years, people has transformed specific coding styles into static code checker where the checker evaluates your code formatting and correct obvious errors.
++ __Code auto-completion__: let's just face it, no one is gonna remember hundreds or even thousands of commands.
++ __Code navigation__: if you want to check some definition or file, you need to get there fast.
++ __Running the code__: it should be easy to run the code.
++ __Debugging__: if there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
++ __Source code version control__: Make sure your code is maintained and updated in a timely and efficient manner.
++ __Static code checker__: modern software engineering promotes the idea of producing high-quality _human readable_ code. Over the years, people has transformed specific coding styles into static code checker where the checker evaluates your code formatting and correct obvious errors.
 
 ### Atom
 
