@@ -4,6 +4,17 @@ layout: default
 
 # Setup your laptop for Scientific Computing with Python
 
+## General Advice on Operating System
+
+Generally, you should use either a modern Linux or `*nix` distribution.
+For most users, we recommend [Ubuntu](https://www.ubuntu.com/).
+If you have a Mac, `macOS` is a custom flavor of `*nix` OS.
+Please do not try to install other system such as Ubuntu or Arch Linux
+on a Mac if you don't know what you are doing.
+
+You should avoid using Windows as much as possible.
+In this module, we can only offer our limited help if you are using Windows.
+
 ## Which Python Distribution Should I Use?
 
 If you are a newbie to Python, you will probably just go to the official Python website, download the installation file and install on your computer. In fact, this may be the worst thing you can do.
@@ -73,6 +84,12 @@ Generally, with Anaconda, we have three ways of installing other Python packages
     ```bash
     $ python setup.py install
     ```
+
+## Do I Need Anything Else?
+
+For a beginner who wants to learn Python for data science, No, you generally don't need to install additional softwares. Anaconda has taken care of software installation.
+
+However, you should be able to familiar with the software packaging system on your computer. For Debian family (including Ubuntu), that is `apt-get` or `apt`. For macOS, that is either `MacPorts` or `homebrew`.
 
 ## IDE
 
