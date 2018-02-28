@@ -111,8 +111,8 @@ Therefore, we advice that you simply quit Jupyter Notebook.
 
 ### What do you need from an IDE?
 
-+ __Code auto-completion__: let's just face it, no one is gonna remember hundreds or even thousands of commands.
-+ __Code navigation__: if you want to check some definition or file, you need to get there fast.
++ __Code auto-completion__: let's face it, no one is gonna remember hundreds or even thousands of commands.
++ __Code navigation__: if you want to check some definitions or files, you need to get there fast.
 + __Running the code__: it should be easy to run the code.
 + __Debugging__: if there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
 + __Source code version control__: Make sure your code is maintained and updated in a timely and efficient manner.
