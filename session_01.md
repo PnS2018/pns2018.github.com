@@ -77,7 +77,7 @@ np.ones(shape=(2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are f
 
 __Remarks__: We do not tend to present a full review for Linear Algebra. For people who needs to quickly learn the material, please read [Chapter 2 of the Deep Learning Book](http://www.deeplearningbook.org/contents/linear_algebra.html) or [Linear Algebra Review and Reference](http://www.cs.cmu.edu/~zkolter/course/15-884/linalg-review.pdf). Both resources give very good presentation on the topic.
 
-### Basic Numpy
+## Basic Numpy
 The contents of this section are mainly based on the [quickstart tutorial](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) of Numpy from the official website.
 
 The main object in Numpy is the homogeneous multi-dimensional array (or a tensor). The main difference between a python multi-dimensional list and the numpy array is that elements of a list can be of different types, while the elements of a numpy array are of the same type.
