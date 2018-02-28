@@ -249,6 +249,8 @@ c = a.reshape(4, 1) + b
 c.shape
 ```
 
+__Remarks__: For a more complete Python Numpy Tutorial, please check [this document](http://cs231n.github.io/python-numpy-tutorial/) from Stanford CS231n class.
+
 ### Basic Symbolic Computation
 
 While classical computing (numerical computing) defines variables and uses operations to modify their values, symbolic computation defines a graph of operations on symbols, which can be substituted for values later.
@@ -410,6 +412,8 @@ grad_functions = K.function(inputs=(variable_1, variable_2),
 grad_functions((np.array([[1, 3], [2, 4]]),
                 np.array([[3, 2], [5, 6]])))
 ```
+
+__Remarks__: The complete API reference is available at [Keras documentation for backend](https://keras.io/backend/)
 
 ### Exercises
 
