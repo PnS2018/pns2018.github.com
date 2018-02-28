@@ -30,6 +30,7 @@ Therefore, we advice that you simply quit Jupyter Notebook.
 + Running the code: it should be easy to run the code.
 + Debugging: if there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
 + Source code version control: Make sure your code is maintained and updated in a timely and efficient manner.
++ Static code checker: modern software engineering promotes the idea of producing high-quality _human readable_ code. Over the years, people has transformed specific coding styles into static code checker where the checker evaluates your code formatting and correct obvious errors.
 
 ### Atom
 
@@ -37,4 +38,12 @@ Therefore, we advice that you simply quit Jupyter Notebook.
 
 ### PyCharm
 
+[PyCharm](https://www.jetbrains.com/pycharm/) is a new Python IDE that has a beautiful interface and integrates all the features you will need for developing a Python project.
+
 ### Eclipse+PyDev
+
+If you are a [Eclipse](http://www.eclipse.org/) user, perhaps you would be very happy to know that there is a dedicate Eclipse plugin for Python. [PyDev](http://www.pydev.org/) takes advantages of the powerful Eclipse compiling and debugging framework.
+
+### Vim
+
+For experienced user, we recommend [Vim](https://www.vim.org/) or its community-driven fork [neovim](https://neovim.io/). By configuring Vim, you will be able to get a fast editor that has all the IDE features you want and being lightweight in some sense. Additionally, because Vim is a very flexible editor, you could do many things very efficient while other editors won't or can't do.
