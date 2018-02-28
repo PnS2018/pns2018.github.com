@@ -64,9 +64,19 @@ $ git checkout new-feature
 
 ## Respect the flow!
 
-[GitHub Flow](https://guides.github.com/introduction/flow/) 
+GitHub encourages a workflow paradigm while developing a project.
+The idea is to keep the `master` branch stable, and any changes to the master branch has to be tested and approved via code review. The details of the
+[GitHub Flow](https://guides.github.com/introduction/flow/) is here.
 
 ## Continuous Integration (Optional)
+
+Usually, we will assume some requirements for running a project.
+And if all the requirements are installed, a user should be able to compile or run the project without a problem.
+
+However, this assumption causes many problems because the programmer or the development team may not keep track the requirement list. This assumption also makes the testing harder. So, to resolve this problem, we encourage people to use _Continuous Integration_ (CI), a system that configure a building environment that meets all the requirements and then run tests. In this way, the team will know the exact configuration for building a project, and any extra
+additions to the project will be notified.
+
+The popular CI system for Linux and macOS is [Travis CI](https://travis-ci.org/) and for Windows is [AppVeyor](https://www.appveyor.com/).
 
 ## Further Readings
 
