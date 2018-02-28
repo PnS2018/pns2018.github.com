@@ -48,12 +48,11 @@ _If you have no idea about Machine Learning and Scientific Computing, I suggest 
 |:---- |:---------------|
 |[Machine Learning](https://www.coursera.org/course/ml)|Andrew Ng|
 |[Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)|Geoffrey Hinton|
-|[Deep Learning Tutorial](http://deeplearning.net/tutorial/)|LISA Lab, University of Montreal|
+|[Deep Learning Tutorial](http://deeplearning.net/tutorial/)|MILA Lab, University of Montreal|
 |[Unsupervised Feature Learning and Deep Learning Tutorial](http://deeplearning.stanford.edu/tutorial/)|AI Lab, Stanford University|
 |[CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)|Stanford University|
 |[CS224d: Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/)|Stanford University|
-|[Theano](http://deeplearning.net/software/theano/)|LISA Lab, University of Montreal|
-|[PyLearn2](http://deeplearning.net/software/pylearn2/)|LISA Lab, University of Montreal|
+|[Theano](http://deeplearning.net/software/theano/)|MILA Lab, University of Montreal|
 |[Caffe](http://caffe.berkeleyvision.org/)|Berkeley Vision and Learning Center (BVLC) and community contributor Yangqing Jia|
 |[Torch 7](http://torch.ch/)|active contributors|
 |[neon](http://neon.nervanasys.com/docs/latest/index.html)|Nervana|
@@ -62,3 +61,5 @@ _If you have no idea about Machine Learning and Scientific Computing, I suggest 
 |[DeepLearning4j](http://deeplearning4j.org/)||
 |[Chainer: Neural network framework](http://chainer.org/)|Preferred Networks, Inc|
 |[Keras](https://keras.io/)|fchollet and active contributors|
+|[TensorFlow](http://tensorflow.org/)|TensorFlow Team|
+|[PyTorch](http://pytorch.org/)|PyTorch Team|
