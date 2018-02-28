@@ -100,7 +100,7 @@ them that generally deliver fantastic coding experience.
 
 If you have taken a Python class or Python 101, you have probably seen that
 instructors like Jupyter Notebook as a default presentation tool.
-They even walk you though the steps so that you are comfortable with
+They even walk you through the steps so that you are comfortable with
 this kind of coding style.
 
 However, we are strongly against this paradigm of coding.
