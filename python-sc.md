@@ -4,6 +4,75 @@ layout: default
 
 # Setup your laptop for Scientific Computing with Python
 
+## Which Python Distribution Should I Use?
+
+If you are a newbie to Python, you will probably just go to the official Python website, download the installation file and install on your computer. In fact, this may be the worst thing you can do.
+
+So, in most modern Linux and `*nix` operating system, the Python distribution is installed for managing some system services. The system-installed Python can be used by user for sure. However, because this distribution manages system services and needs writing privilege to some directories constantly, we strongly advice that you should not touch the system-installed Python for new user. Moreover, you could suffer a very big trouble when you are trying to install packages that
+build from scratch.
+
+Instead, what we need is a Python distribution that has its own environment and can be easily removed when we want to. So the answer is [Anaconda](https://anaconda.org/), a Python distribution that is built for Scientific Computing.
+
+Anaconda delivers a custom Python distribution that includes over 1000 data science related packages, check [here](https://docs.anaconda.com/anaconda/packages/py2.7_linux-64). After install, all the files of Anaconda is in a folder. And if you messed something up, simply remove that folder and Install it again!
+
+### Anaconda setup instructions
+
+1. Open a terminal and download Anaconda
+
+    ```bash
+    $ wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh -O anaconda.sh  # for Linux
+    ```
+
+    ```bash
+    $ curl https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh -o anaconda.sh  # for macOS
+    ```
+
+2. Install Anaconda
+
+    ```bash
+    $ bash ./anaconda.sh
+    ```
+
+    Follow the instruction and make sure Anaconda is added in your bash configuration file such as `.bashrc` or `.zshrc`.
+
+3. Close the current terminal and open another one (so that the bash configuration is loaded again). Type `python`, you should see something similar to this:
+
+    ```
+    Python 2.7.14 |Anaconda custom (64-bit)| (default, Nov  8 2017, 22:44:41)
+    [GCC 7.2.0] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+    ```
+
+__Remark__: For Windows OS, please read the installation instruction [here](https://www.anaconda.com/download/#windows). Or, remove your Windows and install Linux.
+
+## Which Python Version Should I Use?
+
+Python 2.7
+
+## How to Install Other Python Packages?
+
+Generally, with Anaconda, we have three ways of installing other Python packages.
+
+1. Use `pip`. `pip` is the official Python packaging system that manages package installation, uninstallation, version control, custom package building, etc. You can install additional Python packages by
+
+    ```bash
+    $ pip install some-package-name
+    ```
+
+    If the package is available in [PyPi](https://pypi.org/), `pip` will automatically pull the software from the website and install it.
+
+2. Use `conda`. Anaconda uses the packaging system `conda` to manage packages and libraries installation. At heart, `conda` does package, dependency and environment management for any language. `conda` can pull and install pre-built package from a specific server and resolve dependency accordingly.
+
+    ```bash
+    $ conda install some-package-name
+    ```
+
+3. Use `setup.py`. A decent Python library usually has a `setup.py` script. With this script, you can install the package via
+
+    ```bash
+    $ python setup.py install
+    ```
 
 ## IDE
 
