@@ -4,7 +4,7 @@ layout: default
 
 Welcome to the first session of the course ['Deep Learning on Raspberry Pi'](../README.md).
 
-In this session, we will revisit the basic concepts of linear algebra. Then, after a small introduction to the scripting language Python, we will familiarize ourselves with Numpy, a Python package used for scientific computing. Then we will familiarize ourselves with a few basics of symbolic computation. At the end of this session, there will be a few exercises which will further help understanding the concepts introduced.
+In this session, we will revisit the basic concepts of linear algebra. Then, we will familiarize ourselves with Numpy, a Python package used for scientific computing. Then we will familiarize ourselves with a few basics of symbolic computation. At the end of this session, there will be a few exercises which will further help understanding the concepts introduced.
 
 ## Linear Algebra
 
@@ -48,7 +48,7 @@ np.array([1, 2, 3, 4, 5, 6])  # a row vector that has 6 elements
 
 __Technical Note__: by default, numpy can only represent row vector as numpy needs two dimensions to represent a column vector.
 
-+ A __Matrix__ is a 2D array of numbers. :
++ A __Matrix__ is a 2D array of numbers. Matrices are mainly used as linear operators to transform a vector space $$\mathbb{R}^m $$ to $$\mathbb{R}^n $$, which would be an $$ n\times m $$ matrix represented as:
 
 $$\mathbf{A}=\left[\begin{matrix}A_{11} & A_{12} & \cdots & A_{1m} \\
 A_{21} & A_{22} & \cdots & A_{2m} \\
@@ -66,7 +66,7 @@ np.array([[1, 2, 3, 4],
 + A multi-dimensional array is called a __tensor__. Note that scalars are 0-dimensional tensors, vectors are 1-dimensional tensors and matrices are 2-dimensional tensors.
 
 ```python
-np.ones((2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are filled as 1
+np.ones(shape=(2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are filled as 1
 ```
 
 ### Basic Numpy
@@ -86,31 +86,35 @@ import numpy as np
 # creates an array (0, 1, 2, ..., 14)
 a = np.arange(15)
 
+# should output (15,)
 a.shape
 
-# reshapes the above array of shape (15, ) into (3, 5)
+# reshapes the above array of shape (15,) into (3, 5)
 # notice the number of elements is still the same
 a = a.reshape(3, 5)
 
-# shape of the array
+# should output (3, 5)
 a.shape
 
 # type of the elements in the array
+# should output int64, since it is the default dtype for the function arange
 a.dtype
 
 # recasts the elements of a into type int8
 a = a.astype(np.int8)
 
+# should output int8
 a.dtype
 ```
 
-Arrays can be created in many ways.
+To operate on numpy arrays, they have to be created. Numpy arrays can be created in many ways.
 
 ```python
-# initialize from a list, the dtype unless unspecified is float32
+# initialize from a list with the dtype float32, the dtype unless specified is int64 since
+# the numbers in the list are integers
+np.array([[1, 2], [3, 4]], dtype=np.float32)
 
-np.array([[1, 2], [3, 4]], dtype=np.int8)
-# fill an array with zeros
+# created an array initialized with zeros, the default dtype is float64
 np.zeros(shape=(2, 3))
 
 # fill an array with ones
@@ -120,35 +124,75 @@ np.ones(shape=(2, 3))
 np.linspace(0, 15, 30)  # 30 numbers from 0 to 15
 ```
 
-The arithmetic operations on arrays are applied element wise.
+Now that the arrays are created, let us look at how the arrays can be operated on. The arithmetic operations on arrays are applied element wise.
 
 ```python
-a = np.array([[1, 2], [3, 4]])
-b = np.array([[1, 1], [2, 2]])
 
+a = np.array([[1, 2], [3, 4]], dtype=np.float32)
+b = np.array([[1, 1], [2, 2]], dtype=np.float32)
+# subtracting one array from another element wise
 a - b
 
+# adding two arrays element wise
 a + b
 
+# multiplying two arrays element wise
 a * b
 
+# squaring the elements of each array
 a ** 2
 
+# applying the sine function on the array multiplied with pi / 2
 np.sin(a * np.pi / 2)
 
+# for the matrix product, there is a dot function
 np.dot(a, b)
 
+# element wise exponential of the array subtracted by 2
 np.exp(a - 2)
 
+# square root of the array element wise
 np.sqrt(a)
+```
+Arrays of different types can be operated, the resulting array corresponds to the dtype of the more general or the more precise one.
+```python
+a = np.array([[1, 2], [3, 4]], dtype=np.float64)
+b = np.array([[1, 1], [2, 2]], dtype=np.float32)
+
+c = a + b
+
+# should be of type float 64
+c.dtype
+
+a = a.astype(np.int64)
+c = a + b
+
+# should be of type float 64
+c.dtype
+```
+Numpy also provides inplace operations to modify existing arrays.
+```python
+a = np.array([[1, 2], [3, 4]], dtype=np.float32)
+b = np.array([[1, 1], [2, 2]], dtype=np.int32)
+
+# adds the matrix b to the matrix a
+a += b
+
+# note that when trying to add a to b you get an error
+b += a
 ```
 There are many inbuilt unary operations as well, the names are self explanatory.
 ```python
 a = np.array([[1, 2], [3, 4]])
 
+# sum of all elements in the array
+a.sum()
+
+# sum of all elements along a particular axis
 a.sum(axis=0)
 
-a.min(axis=1)
+# minimum of all elements in the array
+a.min()
 
 # -1 corresponds to the last dimension, -2 for the last but one and so on
 # computes the cumulative sum along the last axis
@@ -156,7 +200,7 @@ a.cumsum(axis=-1)
 ```
 While 1D arrays can be indexed just like python native lists, multi-dimensional arrays can have one index per axis. These indices are in an n-length tuple for an n-dimensional array.
 ```python
-a = np.arange(12)**3
+a = np.arange(12)
 
 a[2:5]  # indexes the 2nd element to the 4th element
 # notice that the last element is the 4th element and not the 5th
@@ -168,6 +212,16 @@ a[:, 1, :]  # a simple colon represents all the elements in that dimension
 # 1: indexes the 1st element to the last element whole
 # :-1 indexes the 0th element to the last but one element
 a[1:, :, 0]
+```
+Iterating over multidimensional arrays is done with respect to the first axis.
+```python
+a = np.arange(12).reshape(3, 2, 2)
+
+for element in a:
+  print(element)
+
+for element in np.transpose(a, axes=[1, 0, 2]):
+  print(element)
 ```
 Numpy broadcasts arrays of different shapes during arithmetic operations. Broadcasting allows functions to deal with inputs that do not have the same shape but expects inputs that have the same shape.
 
@@ -202,9 +256,7 @@ First let us import the backend functions of keras in python and implement some 
 import numpy as np
 from keras import backend as K
 ```
-
-Now initialize two input scalars (shape () tensors) which can then be added together.
-
+Now initialize two input scalars (shape () tensors) which can then be added together. Placeholders are basic tensor variables which can later be substituted with numpy arrays during the evaluation of the further operations.
 ```python
 input_1 = K.placeholder(shape=())
 input_2 = K.placeholder(shape=())
@@ -353,10 +405,10 @@ grad_functions((np.array([[1, 3], [2, 4]]),
 
 ### Exercises
 
-1. Create three symbolic placeholder length 5 vectors (shape (5, ) tensors) $$\mathbf{a}$$, $$\mathbf{b}$$ and $$\mathbf{c}$$; and create a function to compute the expression $$\mathbf{a}^2 + \mathbf{b}^2 + \mathbf{c}^2 + 2\mathbf{b}\mathbf{c}$$.
+1. Create three symbolic placeholder length 5 vectors (shape (5,) tensors) $$\mathbf{a}$$, $$\mathbf{b}$$ and $$\mathbf{c}$$; and create a function to compute the expression $$\mathbf{a}^2 + \mathbf{b}^2 + \mathbf{c}^2 + 2\mathbf{b}\mathbf{c}$$.
 
 1. Create a scalar variable $$\mathbf{x}$$ and compute the tanh function on $$\mathbf{x}$$ using the exponential function. Then compute the derivate of the tanh with respect to $$\mathbf{x}$$ using the gradients function. Invoke the functions with the values -100, -1, 0, 1 and 100 to analyze the function and its derivative.
 
-1. Create shape (2, ) variable $$\mathbf{w}$$ and the shape (1, ) variable $$\mathbf{b}$$. Create shape (2, ) placeholder $$\mathbf{x}$$. Now create the function corresponding to $$f(w_1 * x_1 + w_2 * x_2 + b)$$ where $$f(x) = \frac{1}{1+e^{-x}}$$ and compute the gradient with respect to $$\mathbf{w}$$. Analyse the implemented operation, and then observe how the function and the gradient behaves for different values of the variables and the placeholder.
+1. Create shape (2,) variable $$\mathbf{w}$$ and the shape (1,) variable $$\mathbf{b}$$. Create shape (2,) placeholder $$\mathbf{x}$$. Now create the function corresponding to $$f(w_1 * x_1 + w_2 * x_2 + b)$$ where $$f(x) = \frac{1}{1+e^{-x}}$$ and compute the gradient with respect to $$\mathbf{w}$$. Analyse the implemented operation, and then observe how the function and the gradient behaves for different values of the variables and the placeholder.
 
-1. Two layer network example here.
+1. For an arbitrary n, create an n-degree polynomial for an input scalar variable $$\mathbf{x}$$ with (n+1) variables and compute the gradients of the polynomial with respect to each of the variables.
