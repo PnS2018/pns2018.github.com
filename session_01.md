@@ -2,24 +2,24 @@
 layout: default
 ---
 
-Welcome to the first session of the course ['Deep Learning on Raspberry Pi'](../README.md).
+Welcome to the first session of the module ['Deep Learning on Raspberry Pi'](../README.md).
 
-In this session, we will revisit the basic concepts of linear algebra. Then, we will familiarize ourselves with Numpy, a Python package used for scientific computing. Then we will familiarize ourselves with a few basics of symbolic computation. At the end of this session, there will be a few exercises which will further help understanding the concepts introduced.
+In this session, we will revisit the basic concepts of linear algebra. Then, we will familiarize ourselves with Numpy, a Python package used for scientific computing and some basics of symbolic computation. At the end of this session, there will be a few exercises which will further help the understanding of the concepts introduced here.
 
 ## Linear Algebra
 
-This section will only provide a brief introduction to linear algebra. For those of you unfamiliar with the concepts of linear algebra, it is strongly recommended that you spend some time with a text book or a complete course on linear algebra. A strongly recommended text book would be [Introduction to Linear Algebra](math.mit.edu/~gs/linearalgebra/) by Gilbert Strang.
+This section will only provide a brief introduction to linear algebra. For those of you who are unfamiliar with the concepts of linear algebra, it is strongly recommended that you spend some time with a text book or a complete course on linear algebra. A strongly recommended text book is [Introduction to Linear Algebra](math.mit.edu/~gs/linearalgebra/) by Gilbert Strang.
 
-Those of you who are well familiar with linear algebra may skip the next two sections.
+For those of you who are well familiar with linear algebra, you may skip the next two sections.
 
 ### Vector Space
-A vector space $$ V $$, over the set of real numbers $$ \mathbb{R} $$, is a set equipped with two operations, addition `+` and multiplication `.`, subject to the conditions,
+A vector space $$ V $$, over the set of real numbers $$ \mathbb{R} $$, is a set equipped with two operations, addition `+` and multiplication `.`, subject to the conditions that
 1. The set is closed under the addition operator, i.e. for any $$ \vec{l}, \vec{m} \in V $$, $$ \vec{l} + \vec{m} \in V $$.
 2. The addition operation is commutative, i.e. for any $$ \vec{l}, \vec{l} \in V $$, $$ \vec{l} + \vec{m} = \vec{m} + \vec{l} $$.
 3. The addition operation is associative, i.e. for any $$ \vec{l}, \vec{m}, \vec{n} \in V $$, $$ (\vec{l} + \vec{m}) + \vec{n} = \vec{l} + (\vec{m} + \vec{n}) $$.
 4. There exists a zero vector $$ \vec{0} \in V $$, which is the identity element of addition, i.e. for any $$ \vec{l} \in V $$, $$ \vec{l} + \vec{0} = \vec{l} $$.
 5. There should exist an inverse for every element in the set, i.e. for any $$ \vec{l} \in V $$, there exists a $$ \vec{m} \in V $$ such that $$ \vec{l} + \vec{m} = \vec{0} $$.
-6. The set is closed under the multiplication operation with any real valued scalar, i.e. for any $$ \vec{l} \in V $$ and $$ r\in \mathbb{R} $$, $$ r . \vec{l} \in V $$.
+6. The set is closed under the multiplication operation with any real-valued scalar, i.e. for any $$ \vec{l} \in V $$ and $$ r\in \mathbb{R} $$, $$ r . \vec{l} \in V $$.
 7. The multiplication operation is distributive with the addition operator, i.e. for any $$ r, s \in \mathbb{R} $$ and $$ \vec{l}, \vec{m} \in V $$, $$ (r + s).\vec{l} = r.\vec{l} + s.\vec{l} $$ and $$ r.(\vec{l} + \vec{m}) = r.\vec{l} + r.\vec{m} $$.
 8. The multiplication operation is compatible with the scalar multiplication operation, i.e. for any $$ r, s \in \mathbb{R} $$ and any $$ \vec{l} \in V $$, $$ r.(s.\vec{l}) = (rs).\vec{l} $$.
 9. There exists an identity element of scalar multiplication, i.e. for any $$ \vec{l} \in V $$, $$ 1.\vec{l} = \vec{l} $$.
@@ -75,12 +75,12 @@ A_transpose = A.T
 np.ones(shape=(2, 3, 4, 5))  # a 4D tensor that has 2x3x4x5 elements which are filled as 1
 ```
 
-__Remarks__: We do not tend to present a full review for Linear Algebra. For people who needs to quickly learn the material, please read [Chapter 2 of the Deep Learning Book](http://www.deeplearningbook.org/contents/linear_algebra.html) or [Linear Algebra Review and Reference](http://www.cs.cmu.edu/~zkolter/course/15-884/linalg-review.pdf). Both resources give very good presentation on the topic.
+__Remarks__: We do not intend to present a full review of Linear Algebra. For those who need to quickly learn the material, please read [Chapter 2 of the Deep Learning Book](http://www.deeplearningbook.org/contents/linear_algebra.html) or [Linear Algebra Review and Reference](http://www.cs.cmu.edu/~zkolter/course/15-884/linalg-review.pdf). Both resources give a very good presentation on the topic.
 
 ## Basic Numpy
 The contents of this section are mainly based on the [quickstart tutorial](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) of Numpy from the official website.
 
-The main object in Numpy is the homogeneous multi-dimensional array (or a tensor). The main difference between a python multi-dimensional list and the numpy array is that elements of a list can be of different types, while the elements of a numpy array are of the same type.
+The main object in Numpy is the homogeneous multi-dimensional array (or a tensor). The main difference between a Python multi-dimensional list and the numpy array is that elements of a list can be of different types, while the elements of a numpy array are of the same type.
 
 Numpy's array class is called the `ndarray`, which also goes by the alias `array`. A few important attributes of the ndarray object are `ndarray.shape` which has the dimensions of the array, `ndarray.dtype` which has the type of elements in the array (e.g., numpy.int16, numpy.float16, numpy.float32, etc).
 
@@ -256,7 +256,7 @@ __Remarks__: For a more complete Python Numpy Tutorial, please check [this docum
 While classical computing (numerical computing) defines variables and uses operations to modify their values, symbolic computation defines a graph of operations on symbols, which can be substituted for values later.
 These operations can include addition, subtraction, multiplication, matrix multiplication, differentiation, exponentiation, etc.
 
-Every operation takes in as inputs symbols (tensors), and outputs symbols that can be further operated upon.
+Every operation takes as input symbols (tensors), and output symbols that can be further operated upon.
 
 While there are multiple open sourced symbolic computation libraries, like Tensorflow, Theano, etc, we will be using Keras, a high level API running on top of Tensorflow or Theano. We will be using the backend of Tensorflow in our sessions.
 
@@ -417,10 +417,10 @@ __Remarks__: The complete API reference is available at [Keras documentation for
 
 ### Exercises
 
-1. Create three symbolic placeholder length 5 vectors (shape (5,) tensors) $$\mathbf{a}$$, $$\mathbf{b}$$ and $$\mathbf{c}$$; and create a function to compute the expression $$\mathbf{a}^2 + \mathbf{b}^2 + \mathbf{c}^2 + 2\mathbf{b}\mathbf{c}$$.
+1. Create three symbolic placeholder vectors of length 5 (shape (5,) tensors) $$\mathbf{a}$$, $$\mathbf{b}$$ and $$\mathbf{c}$$; then create a function to compute the expression $$\mathbf{a}^2 + \mathbf{b}^2 + \mathbf{c}^2 + 2\mathbf{b}\mathbf{c}$$.
 
-1. Create a scalar variable $$\mathbf{x}$$ and compute the tanh function on $$\mathbf{x}$$ using the exponential function. Then compute the derivate of the tanh with respect to $$\mathbf{x}$$ using the gradients function. Invoke the functions with the values -100, -1, 0, 1 and 100 to analyze the function and its derivative.
+1. Create a scalar variable $$\mathbf{x}$$ and compute the tanh function on $$\mathbf{x}$$ using the exponential function. Then compute the derivative of the tanh with respect to $$\mathbf{x}$$ using the gradients function. Invoke the functions with the values -100, -1, 0, 1 and 100 to analyze the function and its derivative.
 
-1. Create shape (2,) variable $$\mathbf{w}$$ and the shape (1,) variable $$\mathbf{b}$$. Create shape (2,) placeholder $$\mathbf{x}$$. Now create the function corresponding to $$f(w_1 * x_1 + w_2 * x_2 + b)$$ where $$f(x) = \frac{1}{1+e^{-x}}$$ and compute the gradient with respect to $$\mathbf{w}$$. Analyse the implemented operation, and then observe how the function and the gradient behaves for different values of the variables and the placeholder.
+1. Create shape (2,) variable $$\mathbf{w}$$ and the shape (1,) variable $$\mathbf{b}$$. Create shape (2,) placeholder $$\mathbf{x}$$. Now create the function corresponding to $$f(w_1 * x_1 + w_2 * x_2 + b)$$ where $$f(x) = \frac{1}{1+e^{-x}}$$ and compute the gradient with respect to $$\mathbf{w}$$. Analyse the implemented operation. Then see how the function and the gradient behave for different values of the variables and the placeholder.
 
 1. For an arbitrary $$n$$, create an $$n$$-degree polynomial for an input scalar variable $$\mathbf{x}$$ with $$(n+1)$$ variables and compute the gradients of the polynomial with respect to each of the variables.
