@@ -2,12 +2,12 @@
 layout: default
 ---
 
-This module instructs students to learn the basics of deep learning as well as faster networks to build better and faster classifiers for sensor data. The module is strongly project-based, with two main phases. In the first phase, students want to learn the basics of deep learning and Computer Vision, such as stochastic gradient descent, multi-layer perceptron, convolutional neural networks, filtering, and corner detection. At the end of this first phase, students should be ready to run simple networks in Keras and also implement basic computer vision methods in Python. In the second half of their module, students divide up into teams of 2 or 3 to tackle a problem of their choosing, from fields like computer vision, pattern recognition, distributed computing. Example projects include face recognition, emotion recognition.
+This module instructs students on the basics of deep learning as well as building better and faster deep network classifiers for sensor data. The module is strongly project-based, with two main phases. In the first phase, students will learn the basics of deep learning and Computer Vision, e.g. stochastic gradient descent, multi-layer perceptron, convolutional neural networks, filtering, and corner detection. At the end of this first phase, students should be ready to run simple networks in Keras and implement basic computer vision methods in Python. In the second phase, students will be divided into teams of 2 or 3. Each team will tackle a problem of their choosing, from fields such as computer vision, pattern recognition, distributed computing. Example projects include face recognition and emotion recognition.
 
 + __Instructor__: PD. Dr. Shih-Chii Liu
 + __Language of Instruction__: English
 + __Prerequisites__ Basic programming (e.g. Python, C++), Basics in Linear Algebra
-+ __TA__: Yuhuang Hu and Jithendar Anumula
++ __TA__: Yuhuang Hu, Jithendar Anumula, and Stefan Braun
 
 ---
 <div>
@@ -48,20 +48,20 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 # Projects
 
-+ __Baby Jarvis__: Apply face recognition using Keras, OpenCV, and Raspberry Pi. The device will shout the names when it sees you.
++ __Baby Jarvis__: Implement a face recognition system using Keras, OpenCV, and Raspberry Pi. The device will voice the name of the face it sees.
 
-+ __Baby Jarvis II__: Distinguish happy faces and sad faces using Keras, OpenCV and Raspberry Pi.
++ __Baby Jarvis II__: Distinguish between happy and sad faces using Keras, OpenCV and Raspberry Pi.
 
-+ __Distributed Training on a low-cost computer cluster__: Training Deep Learning Networks on a 3-node Raspberry Pi cluster with Tensorflow.
++ __Distributed Training on a low-cost computer cluster__: Training Deep Learning Networks on a 3-node Raspberry Pi cluster using Tensorflow.
 
-+ __Where’s Waldo?__: Find Waldo from the original picture given a query using OpenCV.
++ __Where’s Waldo?__: Find Waldo in the original picture given a query using OpenCV.
 
-+ __(Advanced) Raspberry that talks__: Analysis image via image captioning, then broadcast it to audio.
++ __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker.
 
 # Acknowledgment
 
-This module has taken many online resources on Deep Learning and Raspberry Pi.
-We would like to acknowledge following resources:
+This module uses many online resources on Deep Learning and Raspberry Pi.
+We would like to acknowledge the following resources:
 
 + [Deep Learning](http://www.deeplearningbook.org/)
 + [Unsupervised Feature Learning and Deep Learning Tutorial](http://ufldl.stanford.edu/tutorial/)
