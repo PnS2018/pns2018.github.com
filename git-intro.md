@@ -72,6 +72,15 @@ Switch to another branch, use:
 $ git checkout new-feature
 ```
 
+After you've done coding and testing the new features in the branch `new-feature`. You would merge the changes to the master branch. The way you do it is through following commands:
+
+```branch
+$ git checkout master  # switch to master branch
+$ git merge new-feature  # merge the new-feature branch
+```
+
+Note that you would be able to automatically merge two branches together in most cases. However, if someone changed that same file in the mean time, then you will need to resolve the conflicts between different changes. In fact, this situation happens all the time if you are working on a very active project.
+
 ## Respect the flow!
 
 GitHub encourages a workflow paradigm while developing a project.
