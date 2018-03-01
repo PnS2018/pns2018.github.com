@@ -17,7 +17,7 @@ For this module, we can only offer limited help if you are using Windows.
 
 ## Which Python Distribution Should I Use?
 
-If you are a newbie to Python, go to the official Python website, download the installation file and install it on your computer. In fact, this may be the worst thing you can do.
+If you are a newbie to Python, you would go to the official Python website, download the installation file and install it on your computer. In fact, this may be the worst thing you can do.
 
 So, in most modern Linux and `*nix` operating systems, the Python distribution is installed for managing some system services by default. The system-installed Python can be used by the user for sure. However, because this distribution manages system services and needs constant writing privileges to some directories, we strongly recommend that you do not touch the system-installed Python as a new user. Moreover, you could encounter big problems when you are trying to install packages that build from scratch.
 
