@@ -282,7 +282,7 @@ Now we can instantiate an add function from the symbols created above.
 
 ```python
 add_function = K.function(inputs=[input_1, input_2],
-                          outputs=[inputs_added])
+                          outputs=(inputs_added,))
 print(add_function)
 ```
 
@@ -406,7 +406,6 @@ grad_3_tensor = K.gradients(loss=exp_tensors_added,
 # we can now create functions corresponding to these operations
 grad_functions = K.function(inputs=(variable_1, variable_2),
                              outputs=(grad_1_tensor[0],
-                                      grad_2_tensor[0],
                                       grad_3_tensor[0],
                                       grad_3_tensor[1]))
 
