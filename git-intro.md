@@ -10,8 +10,8 @@ You can learn how to use `Git` in 15 steps!
 ## Why do I need Git? And what is Git?
 
 [Git](https://git-scm.com/) is a source code version control system.
-The main purpose of having such system is to maintain the code changes.
-With Git, you can track the history, save you from a post-catastrophic situation (e.g, the precious laptop is destroyed because you eat in front of it), integrate others work, make a copy of existing work along with all the history, and many other useful features.
+The main purpose of having such a system is to maintain the code changes.
+With Git, you can track the history, save yourself from a post-catastrophic situation (e.g, the precious laptop is destroyed because you ate in front of it), integrate the work from others, make a copy of existing work along with all the history, and many other useful features.
 
 ## Clone, commit and push!
 
@@ -47,7 +47,7 @@ So there is another "pulling" command `fetch` in `git`. In the simplest terms, `
 $ git fetch
 ```
 
-Branching is an important feature of Git. Initially, you have a default branch `master`. Say you want to add some feature / fix a bug to your project (e.g., let it say something funny, make sure it does not curse anyone). Generally, the idea is to make `master` branch as stable as possible. You want to avoid any untested changes. So the way you do it is to create a branch where this branch has all the previous history. Your work on this branch will not affect the master branch.
+Branching is an important feature of Git. Initially, you have a default branch `master`. Say you want to add some feature / fix a bug to your project (e.g., let it say something funny, make sure it does not curse anyone). Generally, the idea is to make the `master` branch as stable as possible. You want to avoid any untested changes. So the way you do it, is to create a branch where this branch has all the previous history. Your work on this branch will not affect the master branch.
 After you properly tested this new feature, you can then merge the changes to master branch.
 
 To create a new branch, use:
@@ -71,10 +71,9 @@ The idea is to keep the `master` branch stable, and any changes to the master br
 ## Continuous Integration (Optional)
 
 Usually, we will assume some requirements for running a project.
-And if all the requirements are installed, a user should be able to compile or run the project without a problem.
+If all the requirements are installed, a user should be able to compile or run the project without a problem.
 
-However, this assumption causes many problems because the programmer or the development team may not keep track the requirement list. This assumption also makes the testing harder. So, to resolve this problem, we encourage people to use _Continuous Integration_ (CI), a system that configure a building environment that meets all the requirements and then run tests. In this way, the team will know the exact configuration for building a project, and any extra
-additions to the project will be notified.
+However, this assumption causes many problems because the programmer or the development team may not keep track of the requirement list. This assumption also makes the testing harder. So, to resolve this problem, we encourage people to use _Continuous Integration_ (CI), a system that configures a building environment that meets all the requirements and then run tests. In this way, the team will know the exact configuration for building a project, and any extra additions to the project will be notified.
 
 The popular CI system for Linux and macOS is [Travis CI](https://travis-ci.org/) and for Windows is [AppVeyor](https://www.appveyor.com/).
 
