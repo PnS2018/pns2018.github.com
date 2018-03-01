@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Setup your laptop for Scientific Computing with Python
+# Setting up your laptop for Scientific Computing with Python
 
 ## General Advice on Operating System
 
@@ -13,18 +13,17 @@ Please do not try to install other systems such as Ubuntu or Arch Linux
 on a Mac if you don't know what you are doing.
 
 You should avoid using Windows as much as possible.
-For this module, we can only offer our limited help if you are using Windows.
+For this module, we can only offer limited help if you are using Windows.
 
 ## Which Python Distribution Should I Use?
 
-If you are a newbie to Python, you will probably just go to the official Python website, download the installation file and install it on your computer. In fact, this may be the worst thing you can do.
+If you are a newbie to Python, go to the official Python website, download the installation file and install it on your computer. In fact, this may be the worst thing you can do.
 
-So, in most modern Linux and `*nix` operating systems, the Python distribution is installed for managing some system services by default. The system-installed Python can be used by the user for sure. However, because this distribution manages system services and needs writing privilege to some directories constantly, we strongly advice that you should not touch the system-installed Python as a new user. Moreover, you could encounter a very big trouble when you are trying to install packages that
-build from scratch.
+So, in most modern Linux and `*nix` operating systems, the Python distribution is installed for managing some system services by default. The system-installed Python can be used by the user for sure. However, because this distribution manages system services and needs constant writing privileges to some directories, we strongly recommend that you do not touch the system-installed Python as a new user. Moreover, you could encounter big problems when you are trying to install packages that build from scratch.
 
 Instead, what we need is a Python distribution that has its own environment and can be easily removed when we want to. So the answer is [Anaconda](https://anaconda.org/), a Python distribution that is built for Scientific Computing.
 
-Anaconda delivers a custom Python distribution that includes over 1000 data science related packages, check [here](https://docs.anaconda.com/anaconda/packages/py2.7_linux-64). After install, all the files of Anaconda is in a folder. And if you messed something up, simply remove that folder and install it again!
+Anaconda delivers a custom Python distribution that includes over 1000 data science related packages, check [here](https://docs.anaconda.com/anaconda/packages/py2.7_linux-64). After installation, all the Anaconda files are in a folder. If you messed something up, simply remove that folder and install it again!
 
 ### Anaconda setup instructions
 
@@ -73,7 +72,7 @@ Generally, with Anaconda, we have three ways of installing other Python packages
 
     If the package is available in [PyPi](https://pypi.org/), `pip` will automatically pull the software from the website and install it.
 
-2. Use `conda`. Anaconda uses the packaging system `conda` to manage packages and libraries installation. At heart, `conda` does package, dependency and environment management for any language. `conda` can pull and install pre-built package from a specific server and resolve dependency accordingly.
+2. Use `conda`. Anaconda uses the packaging system `conda` to manage packages and libraries installation. At heart, `conda` does package, dependency and environment management for any language. `conda` can pull and install a pre-built package from a specific server and resolve the dependency accordingly.
 
     ```bash
     $ conda install some-package-name
@@ -87,9 +86,9 @@ Generally, with Anaconda, we have three ways of installing other Python packages
 
 ## Do I Need Anything Else?
 
-For a beginner who wants to learn Python for data science, No, you generally don't need to install additional softwares. Anaconda has taken care of the software installation.
+For a beginner who wants to learn Python for data science, you generally don't need to install additional software packages. Anaconda has taken care of the software installation.
 
-However, you should be able to familiar with the software packaging system on your computer. For Debian family (including Ubuntu), that is `apt-get` or `apt`. For macOS, that is either `MacPorts` or `homebrew`.
+However, you should familiarize yourself with the software packaging system on your computer. For Debian family (including Ubuntu), that is `apt-get` or `apt`. For macOS, that is either `MacPorts` or `homebrew`.
 
 ## IDE
 
@@ -105,22 +104,22 @@ this kind of coding style.
 
 However, we are strongly against this paradigm of coding.
 It is true that the Jupyter Notebook offered a nice presentation style.
-But it is totally not designed for managing and engineering serious projects.
+But it is not designed for managing and engineering serious projects.
 
-Therefore, we advice that you simply quit Jupyter Notebook.
+Therefore, we advice that you do not use Jupyter Notebook.
 
 ### What do you need from an IDE?
 
-+ __Code auto-completion__: let's face it, no one is gonna remember hundreds or even thousands of commands.
-+ __Code navigation__: if you want to check some definitions or files, you need to get there fast.
-+ __Running the code__: it should be easy to run the code.
-+ __Debugging__: if there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
++ __Code auto-completion__: Let's face it, no one is gonna remember hundreds or even thousands of commands.
++ __Code navigation__: If you want to check on some definitions or files, you need to get there fast.
++ __Running the code__: It should be easy to run the code.
++ __Debugging__: If there is anything wrong with the code, you should be able to find out which line is doing things wrongly.
 + __Source code version control__: Make sure your code is maintained and updated in a timely and efficient manner.
-+ __Static code checker__: modern software engineering promotes the idea of producing high-quality _human readable_ code. Over the years, people has transformed specific coding styles into static code checker where the checker evaluates your code formatting and correct obvious errors.
++ __Static code checker__: Modern software engineering promotes the idea of producing high-quality _human readable_ code. Over the years, people have transformed specific coding styles into a static code checker where the checker evaluates your code formatting and corrects obvious errors.
 
 ### Atom
 
-[Atom](https://atom.io/) is a very popular text editor that is built and maintained mainly by GitHub. This editor is modern and naturally integrates some of best software engineering practices. You can find tons of additional packages that helps you configure the editor to a Python IDE.
+[Atom](https://atom.io/) is a very popular text editor that is built and maintained mainly by GitHub. This editor is modern and naturally integrates some of the best software engineering practices. You can find tons of additional packages that help you configure the editor to a Python IDE.
 
 ### PyCharm
 
@@ -132,7 +131,7 @@ If you are a [Eclipse](http://www.eclipse.org/) user, perhaps you would be very 
 
 ### Vim
 
-For experienced user, we recommend [Vim](https://www.vim.org/) or its community-driven fork [neovim](https://neovim.io/). By configuring Vim, you will be able to get a fast editor that has all the IDE features you want and being lightweight in some sense. Additionally, because Vim is a very flexible editor, you could do many things very efficient while other editors won't or can't do.
+For the experienced user, we recommend [Vim](https://www.vim.org/) or its community-driven fork [neovim](https://neovim.io/). By configuring Vim, you will be able to get a fast editor that has all the IDE features you want and being lightweight in some sense. Additionally, because Vim is a very flexible editor, you could do many things very efficient while other editors won't or can't do.
 
 ## Further Readings
 
