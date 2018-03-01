@@ -15,23 +15,33 @@ With Git, you can track the history, save yourself from a post-catastrophic situ
 
 ## Clone, commit and push!
 
-Suppose you have a directory that is
+Suppose you have a directory that hots your project, you can initialize a Git environment by the following command:
 
 ```
 $ git init
 ```
 
+The above command only initializes the local Git environment where you can update your project and preserve your history using Git's commands. However, to backup your projects in some remote server (e.g., GitHub), you will have to configure the `remote`. We will skip this part of configuration for now.
+
+The other way of working on a project is to `clone`. This is in fact the most common situation where you have a project on the remote server and you would like to work on it with your own personal computer. To do so, you need to download the project using `git clone` command:
+
 ```
 $ git clone https://github.com/PnS2018/git-hello-world
 ```
 
+Note that `git clone` not only downloads the project, but also configure the remote connections. Hence, if you have any modifications (e.g., commits) to the project, you can now `push` to the remote server.
+
+Following lines demonstrate how you can stage your first file:
+
 ```bash
 $ touch hello-world.txt  # create a file named hello-world.txt
 $ echo "Hello World!" > hello-world.txt  # append the string "Hello World!" to the document
-$ git add hello-world.txt  # Add the file so that git can track it
+$ git add hello-world.txt  # Add (stage) the file so that git can track it
 $ git commit -m "first commit"  # make the commit, now this change is a part of history
 $ git push origin master  # push it to master branch if there is a remote server
 ```
+
+Normally, Git first tracks the difference between the current version and the most recent version in the history (you can see the changes with `git status`), then you have to make a decision if you want to stage these changes through `git add`. After you staged the changes, you would need to record this change to the history via `git commit`.
 
 ## Pulling, Branching, Fetching and Merging
 
