@@ -365,7 +365,7 @@ variable_1 = K.ones(shape=(2, 2))
 variable_2 = K.ones(shape=(2, 2))
 
 add_tensor = variable_1 + variable_2
-subtract_tensor = variable_1 + variable_2
+subtract_tensor = variable_1 - variable_2
 square_1_tensor = variable_1 ** 2
 exp_2_tensor = K.exp(variable_2)
 
