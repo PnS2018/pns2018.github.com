@@ -281,8 +281,8 @@ print(inputs_added)
 Now we can instantiate an add function from the symbols created above.
 
 ```python
-add_function = K.function(inputs=(input_1, input_2),
-                          outputs=(inputs_added))
+add_function = K.function(inputs=[input_1, input_2],
+                          outputs=[inputs_added])
 print(add_function)
 ```
 
