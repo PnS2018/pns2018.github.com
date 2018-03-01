@@ -91,7 +91,7 @@ For a beginner who wants to learn Python for data science, No, you generally don
 
 However, you should be able to familiar with the software packaging system on your computer. For Debian family (including Ubuntu), that is `apt-get` or `apt`. For macOS, that is either `MacPorts` or `homebrew`.
 
-## IDE
+## IDE (Integrated Development Environment)
 
 There are many different IDEs for Python on the market. Here, we list some of
 them that generally deliver fantastic coding experience.
