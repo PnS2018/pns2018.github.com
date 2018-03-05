@@ -127,7 +127,7 @@ $$
 J(\mathbf{W})=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})\right)^{2}
 $$
 
-By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \mathbf{W}^{\star}$$ can perform well on unseen examples in the testing dataset.
+By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \mathbf{W}^{\star})$$ can perform well on unseen examples in the testing dataset.
 
 __Remarks__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
 
@@ -219,3 +219,5 @@ Many machine leanring problems become exceedingly difficult when the number of d
 
 ---
 
+
+## Exercises
