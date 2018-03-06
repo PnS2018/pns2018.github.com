@@ -115,7 +115,7 @@ y = Linear(1, name="linear layer")  # implement linear function
 model = Model(x, y)  # compile the hypothesis function
 ```
 
-To find a linear relationship that has $$y^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$W^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$J$$ that measures the error made by the hypothesis function, our goal can be formulated into:
+To find a linear relationship that has $$y^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$\textbf{W}^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$J$$ that measures the error made by the hypothesis function, our goal can be formulated into:
 
 $$
 \mathbf{W}^{\star}=\arg\min_{\mathbf{W}}J(\mathbf{W})
@@ -129,11 +129,11 @@ $$
 
 By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \mathbf{W}^{\star})$$ can perform well on unseen examples in the testing dataset.
 
-__Remarks__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
+__Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
 
-__Remarks__: Linear Regression is a class of learning model that are extensively studied in history.
+__Remark__: Linear Regression is a class of learning model that are extensively studied in history.
 
-__Remarks__: The math in this module choses to use a column-vector based system, which means each vector is assumed to be a column vector. This convention is also applied by many books and tutorials. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for row. For example,
+__Remark__: The math in this module choses to use a column-vector based system, which means each vector is assumed to be a column vector. This convention is also applied by many books and tutorials. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for row. For example,
 
 ```python
 A = np.array([1, 2, 3, 4, 5])
@@ -141,19 +141,13 @@ A = np.array([1, 2, 3, 4, 5])
 
 The array `A` is actually a row vector. We assume that the readers know this fact and can modify the code accordingly.
 
-## Generalization, Capacity, Overfitting, Underfitting
-
-+   __Generalization__ abaility to perform well on previously unobserved inputs.
-+   __Capacity__ abaility to fit a wide varity of functions.
-+   __Overfitting__ occurs when the gap between training error and test error is too large
-+   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
-
 ## Logistic Regression
 
+In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. 
 
 $$
 \begin{aligned}
-f(\mathbf{x}) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
+f(\mathbf{x}; \textb{W}) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
 \Pr(y=1|\mathbf{x}) =& f(\mathbf{x}) \\
 \Pr(y=0|\mathbf{x}) =& 1-f(\mathbf{x})
 \end{aligned}
@@ -203,6 +197,13 @@ $$
 \hat{\mathbf{w}} =& \mathbf{w}+\hat{\mathbf{v}}
 \end{aligned}
 $$
+
+## Generalization, Capacity, Overfitting, Underfitting
+
++   __Generalization__ abaility to perform well on previously unobserved inputs.
++   __Capacity__ abaility to fit a wide varity of functions.
++   __Overfitting__ occurs when the gap between training error and test error is too large
++   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
 
 ## Hyperparameters, Validation sets
 
