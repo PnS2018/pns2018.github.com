@@ -145,7 +145,7 @@ __Remarks__: Linear Regression is a class of learning model that are extensively
 
 $$
 \begin{aligned}
-f(\mathbf{x}) =& \frac{1}{1-\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
+f(\mathbf{x}) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
 \Pr(y=1|\mathbf{x}) =& f(\mathbf{x}) \\
 \Pr(y=0|\mathbf{x}) =& 1-f(\mathbf{x})
 \end{aligned}
@@ -174,7 +174,7 @@ $$
 ```python
 x = Input((10,), name="input_layer")
 y = Linear(1, name="linear layer")
-y = Activation("softmax")
+y = Activation("sigmoid")
 model = Model(x, y)
 ```
 
