@@ -100,12 +100,12 @@ As the name suggested, Linear Regression has a hypothesis function that is a lin
 
 $$
 \begin{aligned}
-y^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}\cdot x_{n}+b \\
+y^{(i)}=f(\mathbf{x}^{(i)};\{\mathbf{W}, b\})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}\cdot x_{n}+b \\
 =&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}^{(i)}+b
 \end{aligned}
 $$
 
-Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points.
+Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points. The parameters $$\theta=\{\mathbf{W}, b\}$$ consists of weights $$\mathbf{W}$$ and a bias $$b$$.
 
 Suppose that the target value is a scalar (a.k.a $$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
 
@@ -115,19 +115,19 @@ y = Linear(1, name="linear layer")  # implement linear function
 model = Model(x, y)  # compile the hypothesis function
 ```
 
-To find a linear relationship that has $$y^{(i)}\approx f(\mathbf{x}^{(i)};\mathbf{W})$$, we need to find a set of parameters $$\textbf{W}^{\star}$$ from the parameter space $$\mathbf{W}$$ where the optimized function $$f(\mathbf{x};\mathbf{W}^{\star})$$ generate least error as possible. Suppose we have a cost function $$J$$ that measures the error made by the hypothesis function, our goal can be formulated into:
+To find a linear relationship that has $$y^{(i)}\approx f(\mathbf{x}^{(i)};\theta)$$, we need to find a set of parameters $$\theta^{\star}$$ from the parameter space $$\theta$$ where the optimized function $$f(\mathbf{x};\theta^{\star})$$ generate least error as possible. Suppose we have a cost function $$J$$ that measures the error made by the hypothesis function, our goal can be formulated into:
 
 $$
-\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}J(\mathbf{W})
+\theta^{\star}=\arg\min_{\theta}J(\theta)
 $$
 
 For Linear Regression, one possible formulation of the cost function is Mean-Squared Error (MSE), this cost function measures the mean error caused by each data sample:
 
 $$
-J(\mathbf{W})=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\mathbf{W})\right)^{2}
+J(\theta)=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\theta)\right)^{2}
 $$
 
-By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \mathbf{W}^{\star})$$ can perform well on unseen examples in the testing dataset.
+By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \theta^{\star})$$ can perform well on unseen examples in the testing dataset.
 
 __Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
 
