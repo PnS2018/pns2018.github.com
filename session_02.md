@@ -143,11 +143,11 @@ The array `A` is actually a row vector. We assume that the readers know this fac
 
 ## Logistic Regression
 
-In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. 
+In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we will wish to make a decision whether the input feature $$\mathbf{x}$$ belongs to some category. And in the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoes or skirt). And _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
 
 $$
 \begin{aligned}
-f(\mathbf{x}; \textb{W}) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x})} \\
+f(\mathbf{x}; \theta) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x}+b)} \\
 \Pr(y=1|\mathbf{x}) =& f(\mathbf{x}) \\
 \Pr(y=0|\mathbf{x}) =& 1-f(\mathbf{x})
 \end{aligned}
