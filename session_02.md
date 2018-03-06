@@ -167,12 +167,14 @@ $$
 \end{aligned}
 $$
 
-Now, we need to design the cost function. A desired function 
-
+Now, we need to design the cost function. A desired function for measuring the quality of the prediction is _binary cross-entropy_:
 
 $$
 J(\theta) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
 $$
+
+Intuitively, when model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theory point of view, the _cross-entropy_ between a "true" distribution $$p$$ and a estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
+and cost function $$J(\theta)$$ is 0, we cannot distinguish the estimation distribution from the "true" distribution.
 
 $$
 \mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
