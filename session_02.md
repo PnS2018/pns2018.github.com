@@ -207,7 +207,7 @@ $$
 
 $$\mathbf{1}\{\cdot\}$$ is the "indicator function" so that $$\mathbf{1}\{\text{a true statement}\}=1$$ and $$0$$ otherwise.
 
-Note that we do not explain this loss function here in detail. The _Deep Learning_ book has a very nice explanation over Softmax function in [Section 6.2.2.3](http://www.deeplearningbook.org/contents/mlp.html)
+Note that we do not explain this loss function here in detail. The _Deep Learning_ book has a very nice explanation over Softmax function in [Section 6.2.2.3](http://www.deeplearningbook.org/contents/mlp.html).
 
 The optimization algorithm finds a set of parameters $$\theta^{\star}$$ that minimizes the cost function:
 
@@ -228,21 +228,49 @@ __Remark__: we will revisit the logistic function in the session 3 when we intro
 
 ## Stochastic Gradient Descent and its variants
 
-$$\mathbf{w}^{\star}=\mathbf{w}-\alpha\frac{\partial\mathcal{L}}{\partial \mathbf{w}}$$
+Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function defined in above sections. In this section, we introduce the most popular set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
+
+Almost all modern deep neural networks are trained by the variants of SGD. In some particular cases, there are deep learning models are trained with second-order gradient based methods (e.g., Hessian optimization).
+
+To describe SGD, we first need to understand its parent method - Gradient Descent.
+
+$$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
+
+### Momentum SGD
 
 $$
 \begin{aligned}
-\hat{\mathbf{v}}=&\mu\mathbf{v}-\alpha\nabla\mathcal{L}(\mathbf{w}) \\
-\hat{\mathbf{w}}=&w+\hat{\mathbf{v}}
+\hat{\mathbf{v}}=&\mu\mathbf{v}-\alpha\nabla J(\theta) \\
+\hat{theta}=&\theta+\hat{\mathbf{v}}
 \end{aligned}
 $$
 
+### Nesterov's accelerated SGD
+
 $$
 \begin{aligned}
-\hat{\mathbf{v}} =& \mu\mathbf{v}-\alpha\nabla\mathbf{L}(\mathbf{w}+\mu\mathbf{v}) \\
-\hat{\mathbf{w}} =& \mathbf{w}+\hat{\mathbf{v}}
+\hat{\mathbf{v}} =& \mu\mathbf{v}-\alpha\nabla J(\theta+\mu\mathbf{v}) \\
+\theta =& \theta+\hat{\mathbf{v}}
 \end{aligned}
 $$
+
+### Adaptive SGD
+
+Choosing learning rate $$\alpha$$ for SGD is mainly empirical. Therefore, we will have to perform a manual search from a list of possible learning rates. This process is usually very expensive and time-consuming. In recent years, researchers developed a set of SGD variants that adjust the learning rate $$\alpha$$ automatically.
+
+The notable examples are RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al., 2011), Adadelta (Zeiler, 2012), Adam (Kingma & Ba, 2014).
+
+Note that motivation of having these different variants is not entirely because of the dissatisfaction of the SGD and brute-force search for the learning rate. For example, RMSprop is proposed to deal with _the vanishing gradient problem_ where some very deep networks cannot be trained with standard SGD.
+
+Empirically, one should use Adam optimizer as a start point.
+
+### Learning Rate Scheduling
+
+Above sections discuss the methods that have a fixed initial learning rate. The learning rate is either static or adjusted by the training algorithm itself. Recent research suggested that instead of using these optimizers, it is better to schedule the learning rate throughout the training. Normally, this involves even more expensive parameter searching because the researcher has to predefine the "schedule" of the use of learning rate at different stage of training.
+
+We do not discuss this in detail since this is out of scope of this module.
+
+__Remark__: SGD and its variants represent the most popular group of training algorithms. However, there are other optimization algorithms available and extensively studied by Machine Learning researchers, such as energy based models, evolutionary algorithms, genetic algorithms, Bayesian optimization.
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
