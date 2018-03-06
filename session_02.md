@@ -143,15 +143,24 @@ The array `A` is actually a row vector. We assume that the readers know this fac
 
 ## Logistic Regression
 
-In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we will wish to make a decision whether the input feature $$\mathbf{x}$$ belongs to some category. And in the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoes or skirt). And _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
+In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we will wish to make a decision whether the input feature $$\mathbf{x}$$ belongs to some category. And in the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoe or skirt). And _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
+
+Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assign the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function":
+
+$$
+\sigma(\mathbf{x}; \theta) =& \frac{1}{1+\exp(-(\mathbf{W}^{\top}\mathbf{x}+b))}
+$$
+
+Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{W}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
 
 $$
 \begin{aligned}
-f(\mathbf{x}; \theta) =& \frac{1}{1+\exp(-\mathbf{W}^{\top}\mathbf{x}+b)} \\
-\Pr(y=1|\mathbf{x}) =& f(\mathbf{x}) \\
-\Pr(y=0|\mathbf{x}) =& 1-f(\mathbf{x})
+\Pr(y=1|\mathbf{x}) =& \sigma(\mathbf{x}; \theta) \\
+\Pr(y=0|\mathbf{x}) =& 1-\sigma(\mathbf{x}; \theta)
 \end{aligned}
 $$
+
+
 
 $$
 \mathcal{L}(\mathcal{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
