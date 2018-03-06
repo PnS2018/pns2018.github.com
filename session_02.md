@@ -151,10 +151,12 @@ $$
 \sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{W}^{\top}\mathbf{x}+b))}
 $$
 
+<hr>
 <div align="center">
-<img src="./images/sigmoid.jpeg"></img>
+<img src="./images/sigmoid.jpeg">
 <p>The logistic function.</p>
 </div>
+<hr>
 
 Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{W}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
 
@@ -169,7 +171,7 @@ Now, we need to design the cost function. A desired function
 
 
 $$
-\mathcal{L}(\mathcal{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
+J(\theta) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
 $$
 
 $$
