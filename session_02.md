@@ -78,7 +78,7 @@ Strictly speaking, the hypothesis function defines a large family of functions t
 A cost function $$J$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech). The cost function reflects the performance measure $$P$$ directly or indirectly. In most cases, the performance of a learning algorithm gets higher
 when the cost function $$J$$ becomes lower.
 
-When the cost function is differentiable (such as in DNNs presented in this module), a class of _Gradient-Based Optimization_ algorithms can be applied to optimize the hypothesis functions $$f(\cdot)$$. Thanks to specialized hardware such as GPUs and TPUs, these algorithms can be computed very efficiently.
+When the cost function is differentiable (such as in DNNs presented in this module), a class of _Gradient-Based Optimization_ algorithms can be applied to minimize the cost function $$J$$. Thanks to specialized hardware such as GPUs and TPUs, these algorithms can be computed very efficiently.
 
 Particularly, Gradient Descent (Cauchy, 1847) and its variants, such as
 RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al., 2011), Adadelta
