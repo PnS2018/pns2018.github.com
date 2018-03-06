@@ -133,6 +133,14 @@ __Remarks__: there are other cost functions for regression tasks, such as Mean A
 
 __Remarks__: Linear Regression is a class of learning model that are extensively studied in history.
 
+__Remarks__: The math in this module choses to use a column-vector based system, which means each vector is assumed to be a column vector. This convention is also applied by many books and tutorials. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for row. For example,
+
+```python
+A = np.array([1, 2, 3, 4, 5])
+```
+
+The array `A` is actually a row vector. We assume that the readers know this fact and can modify the code accordingly.
+
 ## Generalization, Capacity, Overfitting, Underfitting
 
 +   __Generalization__ abaility to perform well on previously unobserved inputs.
