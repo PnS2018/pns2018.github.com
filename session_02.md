@@ -152,7 +152,7 @@ $$
 $$
 
 <div align="center">
-<img src="./images/sigmoid.jpeg", alt="sigmoid">
+<img src="./images/sigmoid.jpeg"></img>
 <p>The logistic function.</p>
 </div>
 
