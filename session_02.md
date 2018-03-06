@@ -274,8 +274,8 @@ __Remark__: SGD and its variants represent the most popular group of training al
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
-+   __Generalization__ abaility to perform well on previously unobserved inputs.
-+   __Capacity__ abaility to fit a wide varity of functions.
++   __Generalization__ ability to perform well on previously unobserved inputs.
++   __Capacity__ ability to fit a wide variety of functions.
 +   __Overfitting__ occurs when the gap between training error and test error is too large
 +   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
 
@@ -289,7 +289,7 @@ __Remark__: SGD and its variants represent the most popular group of training al
 
 ---
 
-The no free lunch theorm for machine learning (Wolpert, 1996) states that, average ove rall possible data generating distributions, every classification algorithm has the same error rate when classifying previous unobserved points. In some sence, no ML algorithm is universally any better than any other.
+The no free lunch theorem for machine learning (Wolpert, 1996) states that, average ove rall possible data generating distributions, every classification algorithm has the same error rate when classifying previous unobserved points. In some sense, no ML algorithm is universally any better than any other.
 
 ---
 
@@ -303,4 +303,16 @@ Many machine leanring problems become exceedingly difficult when the number of d
 ---
 
 
-## Exercises
+## Exercise
+
+In this exercise, you will need to implement Logistic Regression to distinguish two classes from [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) using only Keras backend functions (in other words, do not use Keras layers). To help you, please follow the steps below:
+
+1. We provide some useful functions for accessing the Fashion-MNIST datasets in `pnslib`, please first clone and install the `pnslib` by:
+
+    ```bash
+    $ git clone https://github.com/PnS2018/pnslib
+    $ cd pnslib
+    $ python setup.py develop
+    ```
+
+2. We provide a [template script]() that consists necessary setup and help codes, please fill up your codes in blanks.
