@@ -151,14 +151,10 @@ $$
 \sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{W}^{\top}\mathbf{x}+b))}
 $$
 
----
-
 <div align="center">
-<img src="./images/sigmoid.jpeg", alt=sigmoid>
+<img src="./images/sigmoid.jpeg", alt="sigmoid">
 <p>The logistic function.</p>
 </div>
-
----
 
 Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{W}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
 
