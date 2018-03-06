@@ -63,3 +63,4 @@ _If you have no idea about Machine Learning and Scientific Computing, I suggest 
 |[Keras](https://keras.io/)|fchollet and active contributors|
 |[TensorFlow](http://tensorflow.org/)|TensorFlow Team|
 |[PyTorch](http://pytorch.org/)|PyTorch Team|
+|[CoLaboratory](https://colab.research.google.com)|Google|
