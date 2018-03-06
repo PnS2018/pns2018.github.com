@@ -170,32 +170,57 @@ $$
 Now, we need to design the cost function. A desired function for measuring the quality of the prediction is _binary cross-entropy_:
 
 $$
-J(\theta) = -\frac{1}{N}\sum_{i}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
+J(\theta) = -\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
 $$
 
-Intuitively, when model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theory point of view, the _cross-entropy_ between a "true" distribution $$p$$ and a estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
+Intuitively, when the model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theory point of view, the _cross-entropy_ between a "true" distribution $$p$$ and a estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
 and cost function $$J(\theta)$$ is 0, we cannot distinguish the estimation distribution from the "true" distribution.
 
-$$
-\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
-$$
+Our optimization algorithm is expected to find a best set of parameters that minimizes the cost function $$J(\theta)$$:
 
 $$
-\text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \mathbf{W}) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x})}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x})}
+\theta^{\star}=\arg\min_{\theta}J(\theta)
 $$
 
-$$
-\mathcal{L}(\mathcal{X}, \mathbf{y}|\mathbf{W}) = -\frac{1}{N}\sum_{i}\sum_{k=1}^{K}\mathbf{1}\{y^{(i)}=k\}\log\Pr(y^{(i)}=k|\mathbf{x}^{(i)}, \mathbf{W})
-$$
-
-$$
-\mathbf{W}^{\star}=\arg\min_{\mathbf{W}}\mathcal{L}(\mathcal{X}, \mathbf{y})
-$$
+Note that there is a close tie between the Logistic Regression and the Linear Regression. The Logistic Regression is nothing but adding a non-linear function on the top of the linear function. Here is an example of logistic regression in Keras:
 
 ```python
 x = Input((10,), name="input_layer")
 y = Linear(1, name="linear layer")
 y = Activation("sigmoid")
+model = Model(x, y)
+```
+
+Logistic Regression is designed to solve Binary Classification tasks. However, the above formulation can be generalized to solve Multi-class Classification tasks. The following equation defines the hypothesis function for _Softmax Regression_:
+
+$$
+\text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \theta) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x}+b_{k})}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x}+b_{k})}
+$$
+
+where $$\mathbf{W}^{k}$$ is the $$k$$-th column of a weight matrix $$\mathbf{W}\in\mathbb{R}^{n\times k}$$ and $$b_{k}$$ is the corresponding bias value.
+
+The cost function is defined with _categorical cross-entropy_ function:
+
+$$
+J(\theta) = -\frac{1}{N}\sum_{i=1}^{N}\sum_{k=1}^{K}\mathbf{1}\{y^{(i)}=k\}\log\Pr(y^{(i)}=k|\mathbf{x}^{(i)}, \theta)
+$$
+
+$$\mathbf{1}\{\cdot\}$$ is the "indicator function" so that $$\mathbf{1}\{\text{a true statement}\}=1$$ and $$0$$ otherwise.
+
+Note that we do not explain this loss function here in detail. The _Deep Learning_ book has a very nice explanation over Softmax function in [Section 6.2.2.3](http://www.deeplearningbook.org/contents/mlp.html)
+
+The optimization algorithm finds a set of parameters $$\theta^{\star}$$ that minimizes the cost function:
+
+$$
+\theta^{\star}=\arg\min_{\theta}J(\theta)
+$$
+
+Here is a Keras Example
+
+```python
+x = Input((10,), name="input_layer")
+y = Linear(5, name="linear layer")  # suppose there are 5 classes
+y = Activation("softmax")
 model = Model(x, y)
 ```
 
