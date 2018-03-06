@@ -100,7 +100,7 @@ As the name suggested, Linear Regression has a hypothesis function that is a lin
 
 $$
 \begin{aligned}
-y^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}+x_{n}+b \\
+y^{(i)}=f(\mathbf{x}^{(i)};\mathbf{W})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}\cdot x_{n}+b \\
 =&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}^{(i)}+b
 \end{aligned}
 $$
