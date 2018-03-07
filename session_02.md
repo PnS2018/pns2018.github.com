@@ -138,8 +138,6 @@ By minimizing this cost function via training algorithm such as Stochastic Gradi
 
 __Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
 
-__Remark__: Linear Regression is a class of learning model that are extensively studied in history.
-
 __Remark__: The math in this module choses to use a column-vector based system, which means each vector is assumed to be a column vector. This convention is also applied by many books and tutorials. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for row. For example,
 
 ```python
