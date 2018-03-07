@@ -338,14 +338,14 @@ __Remark__: The `fit` function is not the only way you can do training, when you
 
 ## Generalization
 
-Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_. With a performance measure $$P$$, we can compute the error that is made on the training dataset. This error is called _training error_. We can also compute the _testing error_ with the validation dataset or the testing dataset if available. This _testing error_ quantifies the level of
-generalization of a certain model. Our goal is to minimize this _testing error_, and improve the generalization.
+Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_. With a performance measure $$P$$, we can compute the error that is made over the training dataset. This error is called _training error_. We can also compute the _testing error_ with the validation dataset or the testing dataset if available. This _testing error_ quantifies the level of
+generalization of a certain model. Our goal is to minimize this _testing error_ and improve the generalization.
 
 Because we can only observe the training dataset during training, our trained model may suffer from either _overfitting_ or _underfitting_. Overfitting occurs when the gap between the training error and testing error is too large. Underfitting occurs when the model is not able to obtain a sufficiently low error value on the training dataset.
 
-We can control whether a model is more likely to overfit or underfit by altering its _capacity_. Informally, a model's capacity is its ability to fit a wide variety of functions. Ideally, we want to find a model that has the right capacity where the model generates the smallest gap between the training error and the testing error.
+We can control whether a model is more likely to overfit or underfit by altering its _capacity_. Informally, a model's capacity is its ability to fit a wide variety of functions. Ideally, we want to find a model that has the optimal capacity where the model generates the smallest gap between the training error and the testing error.
 
-Normally, Deep Learning models have large capacity. These models almost always overfit the dataset given enough training time. Strangely, these models also exhibit strong generalization over testing dataset with the help of different training techniques. One straightforward technique is _Early Stopping_. The Early Stopping technique stops the training when the model starts to overfit.
+Usually, Deep Learning models have tremendous capacity. These models almost always overfit the dataset given enough training time. Strangely, these models also exhibit strong generalization over testing dataset with the help of different training techniques. One straightforward technique is _Early Stopping_. The Early Stopping technique stops the training when the model starts to overfit.
 
 ## No Free Lunch Theorem and Curse of Dimensionality
 
@@ -362,6 +362,7 @@ Many machine learning problems become exceedingly difficult when the number of d
 
 ---
 
+__Remark__: For elaborated description of these two challenges, please refer to the [Chapter 5](http://www.deeplearningbook.org/contents/ml.html) of the Deep Learning book and Chapter 1 of the book [Machine Learning: A probabilistic perspective](https://mitpress.mit.edu/books/machine-learning-0).
 
 ## Exercises
 
