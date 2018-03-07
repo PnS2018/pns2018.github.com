@@ -237,7 +237,7 @@ __Remark__: Although we do not explain the Softmax Regression in details, in fac
 
 ## Stochastic Gradient Descent and its variants
 
-Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function defined in above sections. In this section, we introduce the most popular set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
+Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function described in above sections. In this section, we introduce the most famous set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
 
 Almost all modern deep neural networks are trained by the variants of SGD. In some particular cases, there are deep learning models are trained with second-order gradient based methods (e.g., Hessian optimization).
 
