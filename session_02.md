@@ -183,7 +183,7 @@ $$
 Intuitively, when the model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theory point of view, the _cross-entropy_ between a "true" distribution $$p$$ and an estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
 and cost function $$J(\theta)=0$$, we cannot distinguish the estimation distribution from the "true" distribution.
 
-Our optimization algorithm is expected to find a best set of parameters that minimizes the cost function $$J(\theta)$$:
+Our learning algorithm is expected to find a best set of parameters that minimizes the cost function $$J(\theta)$$:
 
 $$
 \theta^{\star}=\arg\min_{\theta}J(\theta)
@@ -198,7 +198,9 @@ y = Activation("sigmoid")
 model = Model(x, y)
 ```
 
-Logistic Regression is designed to solve Binary Classification tasks. However, the above formulation can be generalized to solve Multi-class Classification tasks. The following equation defines the hypothesis function for _Softmax Regression_:
+__Remark__: we will revisit the logistic function in the session 3 when we introduce the first neural network model: Multi-layer Perceptron.
+
+Logistic Regression is designed to solve Binary Classification tasks. The above formulation can be generalized to solve Multi-class Classification tasks. The following equation defines the hypothesis function for the extension of the Logistic Regression - _Softmax Regression_:
 
 $$
 \text{softmax}(\mathbf{x})=\Pr(y=k|\mathbf{x}, \theta) = \frac{\exp(\mathbf{W}^{k\top}\mathbf{x}+b_{k})}{\sum_{j=1}^{K}\exp(\mathbf{W}^{(j)\top}\mathbf{x}+b_{k})}
@@ -214,7 +216,7 @@ $$
 
 $$\mathbf{1}\{\cdot\}$$ is the "indicator function" so that $$\mathbf{1}\{\text{a true statement}\}=1$$ and $$0$$ otherwise.
 
-Note that we do not explain this loss function here in detail. The _Deep Learning_ book has a very nice explanation over Softmax function in [Section 6.2.2.3](http://www.deeplearningbook.org/contents/mlp.html).
+Note that we do not explain this loss function here in detail. The _Deep Learning_ book has a very nice explanation of Softmax function in [Section 6.2.2.3](http://www.deeplearningbook.org/contents/mlp.html).
 
 The optimization algorithm finds a set of parameters $$\theta^{\star}$$ that minimizes the cost function:
 
@@ -231,7 +233,7 @@ y = Activation("softmax")
 model = Model(x, y)
 ```
 
-__Remark__: we will revisit the logistic function in the session 3 when we introduce the first neural network model: Multi-layer Perceptron.
+__Remark__: Although we do not explain the Softmax Regression in details, in fact, the function is widely used by many modern deep learning systems for solving fundamental problems such as classification to complicated tasks such as neural machine translation.
 
 ## Stochastic Gradient Descent and its variants
 
