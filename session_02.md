@@ -152,7 +152,7 @@ In this section, we discuss the solution to another Supervised Learning task - _
 
 __Remark__: Commonly, we call a learning algorithm that solves binary classification a _Binary Classifier_.
 
-Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assign the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function":
+Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assign the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function". The hypothesis function is then as follows:
 
 $$
 \sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{W}^{\top}\mathbf{x}+b))}
