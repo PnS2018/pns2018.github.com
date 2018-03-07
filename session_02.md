@@ -46,14 +46,13 @@ The performance measure $$P$$ is usually specific to the task $$T$$ (e.g. accura
 
 ### The experience $$E$$
 
-Experience is what learning algorithms are allowed to have during learning process.
-
-+ Experience is usually an _dataset_, a collection of _examples_.
+Experience is what learning algorithms are allowed to have during learning process. The experience is usually an _dataset_ that is a collection of _examples_. Normally, we call this dataset as the _training dataset_. Here we give the structure of the training dataset to Unsupervised Learning and Supervised Learning algorithms.
 
 + _Unsupervised Learning algorithms_ experience a dataset containing many features, learning useful structure of the dataset (estimate $$\Pr(\mathbf{x})$$).
 
 + _Supervised Learning algorithms_ experience a dataset containing features, but each example is also associated with a _label_ or _target_ (estimate $$\Pr(\mathbf{y}\vert\mathbf{x})$$).
 
+__Remark__: In most real world cases, we would not have the access to the _testing dataset_ and the _validation dataset_. In the absence of the _validation dataset_, we usually split 20% of the training dataset to be the _validation dataset_.
 
 ### Hypothesis function
 
