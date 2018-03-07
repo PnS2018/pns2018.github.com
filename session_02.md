@@ -340,7 +340,6 @@ __Remark__: The `fit` function is not the only way you can do training, when you
 
 Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_.
 
-<!-- ## Generalization, Capacity, Overfitting, Underfitting -->
 
 +   __Generalization__ ability to perform well on previously unobserved inputs.
 +   __Capacity__ ability to fit a wide variety of functions.
@@ -349,18 +348,16 @@ Typically, we expect that the trained model can be used to predict _new, unseen 
 
 ## No Free Lunch Theorem and Curse of Dimensionality
 
----
+### No Free Lunch Theorem
 
-The no free lunch theorem for machine learning (Wolpert, 1996) states that, average ove rall possible data generating distributions, every classification algorithm has the same error rate when classifying previous unobserved points. In some sense, no ML algorithm is universally any better than any other.
+To solve one particular task, we can choose from many different models and learning algorithms. Empirically, we can evaluate the performance of these models and algorithms using the validation dataset. However, there is no universally best model -- this is the famous _no free lunch theorem_ (Wolpert, 1996). The reasons for this is that different models make different assumptions. These assumptions may work well in one domain and work poorly in another domain. As a consequence,
+rather than focusing on developing the universal model, we seek the solution for some relevant domains or distributions that performs well in practical scenario.
 
----
-
-__Seek solution for some relevant distributions, NOT universal distribution.__
-
+### Curse of Dimensionality
 
 ---
 
-Many machine leanring problems become exceedingly difficult when the number of dimensions in the data is high. The phenomenon is known as the _curse of dimensionality_. Of particualr concern is that the number of possible distinct configurations of the variables of interest increases __exponentially__ as the dimensionality increases.
+Many machine learning problems become exceedingly difficult when the number of dimensions in the data is high. The phenomenon is known as the _curse of dimensionality_. Of particular concern is that the number of possible distinct configurations of the variables of interest increases __exponentially__ as the dimensionality increases.
 
 ---
 
