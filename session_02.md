@@ -274,8 +274,8 @@ Empirically, one should use Adam optimizer as a start point.
 
 <hr>
 <div align="center">
-    <p>"<img width="49%", src="./images/opt1.gif">
-    <img width="49%", src="./images/opt2.gif">"</p>
+    <p><img src="./images/opt1.gif", width="49%">
+    <img src="./images/opt2.gif", width="49%"></p>
     <p>Comparing different gradient optimization methods. Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
 </div>
 <hr>
