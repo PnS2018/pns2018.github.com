@@ -85,6 +85,8 @@ design and train arbitrary learning models.
 
 __Remark__: in this module, we use the term "cost function", "objective function" and "loss function" interchangeably. Usually, the loss function is denoted as $$\mathcal{L}$$.
 
+### Ingredients to Solve a Machine Learning Task
+
 We will revisit this topic at the end of this session. In next sections, we will look closely into __Linear Regression__ (Regression) and __Logistic Regression__ (Classification).
 
 ## Linear Regression
