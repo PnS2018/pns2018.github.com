@@ -364,4 +364,4 @@ $ git pull origin master
 
 1. We provide a [template script](./res/code/logistic-regression-with-keras-layers-template.py) that has the barebone structure of implementing Logistic Regression in Keras. You will need to complete the script and get it running. You are expected to define a Logistic Regression model, compile the model with binary cross-entropy loss and a optimizer, and train the model. If you can successfully train the model, try to change the choice of optimizer, what do you observe?
 
-2. In this exercise, you will implement the Logistic Regression from scratch. We provide a [template script]() that contains necessary setup code, you need to complete the code and run.
+2. In this exercise, you will implement the Logistic Regression from scratch. We provide a [template script](./res/code/logistic-regression-basic-template.py) that contains necessary setup code, you need to complete the code and run.
