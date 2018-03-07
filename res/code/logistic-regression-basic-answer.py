@@ -76,8 +76,8 @@ loss_tensor = K.mean(K.binary_crossentropy(target_tensor,
                                            output_tensor))
 
 # getting the gradients of the mean loss with respect to the weight and bias
-gradient_tensors = K.gradients(loss=loss_tensor, variables= [weight_variable,
-                                                             bias_variable])
+gradient_tensors = K.gradients(loss=loss_tensor, variables=[weight_variable,
+                                                            bias_variable])
 
 # creating the updates based on stochastic gradient descent rule
 updates = [(weight_variable, weight_variable - lr * gradient_tensors[0]),
@@ -89,7 +89,8 @@ train_function = K.function(inputs=(input_tensor, target_tensor),
                             outputs=(loss_tensor,),
                             updates=updates)
 
-# for logistic regression, the prediction is 1 if greater than 0.5 and 0 if less
+# for logistic regression, the prediction is 1 if greater
+# than 0.5 and 0 if less
 prediction_tensor = K.cast(K.greater(output_tensor, 0.5), dtype='float32')
 
 # computing the accuracy based on how many prediction tensors equal the target
@@ -114,7 +115,8 @@ for epoch in range(num_epochs):
         batch_loss, = train_function((batch_input, batch_target))
         epoch_loss += batch_loss
     epoch_loss /= num_batches
-    print('Epoch {}, loss {} on {} batches'.format(epoch + 1, epoch_loss, num_batches))
+    print('Epoch {}, loss {} on {} batches'.format(
+        epoch + 1, epoch_loss, num_batches))
 
 num_batches = num_test_samples // batch_size
 indices = range(num_test_samples)
@@ -124,7 +126,8 @@ for batch_idx in range(num_batches):
                             (batch_idx + 1) * batch_size]
     batch_input = test_X[batch_indices]
     batch_target = np.expand_dims(test_y[batch_indices], axis=-1)
-    batch_accuracy, batch_prediction = test_function((batch_input, batch_target))
+    batch_accuracy, batch_prediction = test_function(
+        (batch_input, batch_target))
     overall_accuracy += batch_accuracy.mean()
 overall_accuracy /= num_batches
 print('Overall test accuracy {}'.format(overall_accuracy))
