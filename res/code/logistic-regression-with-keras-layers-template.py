@@ -16,6 +16,7 @@ from pnslib import ml
 # Load T-shirt/top and Trouser classes from Fashion MNIST
 # complete label description is at
 # https://github.com/zalandoresearch/fashion-mnist#labels
+# >>>>> Try to change the class list for other classes <<<<<
 (train_x, train_y, test_x, test_y) = utils.binary_fashion_mnist_load(
     class_list=[0, 1],
     flatten=True)

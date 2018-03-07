@@ -272,6 +272,18 @@ We do not discuss this in detail since this is out of scope of this module.
 
 __Remark__: SGD and its variants represent the most popular group of training algorithms. However, there are other optimization algorithms available and extensively studied by Machine Learning researchers, such as energy based models, evolutionary algorithms, genetic algorithms, Bayesian optimization.
 
+### Training model in Keras
+
+After you defined a model by using the `Model` class (see above model examples for linear regression, logistic regression and softmax regression), you will need to compile the model with some loss function and a optimizer. In Keras, this can be done by using the `compile` API:
+
+```python
+model.compile(loss="mean_squared_error",
+              optimizer="sgd",
+              metrics=["mse"])
+```
+
+Above example compiled a Linear Regression model that uses MSE as the loss function and default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We use also MSE as the metric for evaluation. If you have a classification task, perhaps 
+
 ## Generalization, Capacity, Overfitting, Underfitting
 
 +   __Generalization__ ability to perform well on previously unobserved inputs.
@@ -307,13 +319,21 @@ Many machine leanring problems become exceedingly difficult when the number of d
 
 In this exercise, you will need to implement Logistic Regression to distinguish two classes from the [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset.
 
+We provide some useful functions for accessing the Fashion-MNIST datasets in `pnslib`, please first clone and install the `pnslib` by:
 
-1. We provide some useful functions for accessing the Fashion-MNIST datasets in `pnslib`, please first clone and install the `pnslib` by:
+```bash
+$ git clone https://github.com/PnS2018/pnslib
+$ cd pnslib
+$ python setup.py develop
+```
 
-    ```bash
-    $ git clone https://github.com/PnS2018/pnslib
-    $ cd pnslib
-    $ python setup.py develop
-    ```
+Note that we are going to use `pnslib` package for both exercises and projects in future. You will need to update the package for the latest changes.
 
-2. We provide a [template script]() that consists necessary setup and help codes, please fill up your codes in blanks.
+```bash
+$ cd pnslib
+$ git pull origin master
+```
+
+1. We provide a [template script](./res/code/logistic-regression-with-keras-layers-template.py) that has the barebone structure of implementing Logistic Regression in Keras. You will need to complete the script and get it running. You are expected to define a Logistic Regression model, compile the model with binary cross-entropy loss and a optimizer, and train the model. If you can successfully train the model, try to change the choice of optimizer, what do you observe?
+
+2. In this exercise, you will implement the Logistic Regression from scratch. We provide a [template script]() that contains necessary setup code, you need to complete the code and run.
