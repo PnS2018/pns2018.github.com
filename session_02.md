@@ -305,7 +305,7 @@ Many machine leanring problems become exceedingly difficult when the number of d
 
 ## Exercise
 
-In this exercise, you will need to implement Logistic Regression to distinguish two classes from [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) using only Keras backend functions (in other words, do not use Keras layers). To help you, please follow the steps below:
+In this exercise, you will need to implement Logistic Regression to distinguish two classes from [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) using only Keras backend functions (in other words, not using Keras layers). To help you, please follow the steps below:
 
 1. We provide some useful functions for accessing the Fashion-MNIST datasets in `pnslib`, please first clone and install the `pnslib` by:
 
