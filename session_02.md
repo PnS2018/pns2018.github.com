@@ -239,18 +239,27 @@ __Remark__: Although we do not explain the Softmax Regression in details, in fac
 
 Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function described in above sections. In this section, we introduce the most famous set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
 
-Almost all modern deep neural networks are trained by the variants of SGD. In some particular cases, there are deep learning models are trained with second-order gradient based methods (e.g., Hessian optimization).
+Almost all modern Deep Learning models are trained by the variants of SGD. In some particular cases, there are deep learning models are trained with second-order gradient-based methods (e.g., Hessian optimization).
 
-To describe SGD, we first need to understand its parent method - Gradient Descent.
+To describe SGD, we first need to understand its parent method - Gradient Descent. The idea of the Gradient Descent is very simple: suppose that we need to iteratively refine the parameters $$\theta$$ so that we can minimize the cost function $$J$$. The _best_ direction that we should take follows the direction of the steepest descend. And, this direction can be computed by evaluating the _gradient_ of the loss function. The core idea of the Gradient Descent can be described as follows:
 
 $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
+
+where $$\hat{\theta}$$ is the updated parameters, $$\frac{\partial J(\theta)}{\partial \theta}$$ computes the updating directions and the learning rate $$\alpha$$ control the step size that is taken at the current update. Note that the cost function $$J$$ is a data-driven function where the training data is used to calculate the update.
+
+The learning rate $$\alpha$$ is arguably the most important _hyperparameter_ in training Deep Learning models. If you set the learning rate too large, then the step update may overshoot and leads to worse performance. On the other hand, if you set the learning rate too small, then the training process may take longer time to complete.
+
+__Remark__: Hyperparameters are settings that control the behavior of the learning algorithm. Usually we choose them empirically.
 
 <hr>
 <div align="center">
 <img src="./images/stepsize.jpg">
-<p>Visualizing the effect of step size. Image credit: <a href="http://cs231n.github.io/optimization-1/">CS231n</a></p>
+<p>Visualizing the effect of step size. The white arrow points to the steepest direction. Image credit: <a href="http://cs231n.github.io/optimization-1/">CS231n</a></p>
 </div>
 <hr>
+
+In most cases, it is not feasible to use Gradient Descent because the training dataset is too large to evaluate. Instead, a very common practice is to compute the gradient over _batches_ of training examples. The parameters are updated after evaluating each batch of data. The reason this practice works is that the samples in the training dataset are correlated. However, this technique also introduces stochasticity into the parameter update, hence this type of training algorithm is
+called _Stochastic Gradient Descent_ (SGD). And because we most commonly use mini-batches, sometimes people also refer this training algorithm as _mini-batch SGD_.
 
 ### Momentum SGD
 
