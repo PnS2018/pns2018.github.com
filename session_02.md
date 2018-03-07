@@ -330,7 +330,9 @@ model.fit(
 ```
 
 The API `fit` essentially takes your training data and schedule them into a training routine. First, you need to specify your training inputs `x` and training target `y`. And then you will need to define the mini-batch size and number of epochs. The `fit` API will run for number of `epochs` times and then at each step of a epoch, the function will fetch a batch of training examples (in this case, 64) and then use them to compute the gradient update. The parameters are updated after the
-gradient is computed.
+gradient is computed. Finally, we can supply a set of validation data (in this case, `(test_X, test_y)`. After each training epoch, Keras evaluates the model's performance using the validation data.
+
+__Remark__: the `fit` function essentially implements mini-batch SGD and its variants. A _training step_ is performed when one batch of training examples are used to update the parameters. Once all batches of training examples are used, the training finishes one _training epoch_.
 
 __Remark__: The `fit` function is not the only way you can do training, when you are dealing with larger dataset or have some preprocessing for the data, you can use `fit_generator` to schedule your training.
 
