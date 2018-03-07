@@ -245,7 +245,7 @@ To describe SGD, we first need to understand its parent method - Gradient Descen
 
 $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
 
-where $$\hat{\theta}$$ is the updated parameters, $$\frac{\partial J(\theta)}{\partial \theta}$$ computes the updating directions and the learning rate $$\alpha$$ control the step size that is taken at the current update. Note that the cost function $$J$$ is a data-driven function where the training data is used to calculate the update.
+where $$\hat{\theta}$$ is the updated parameters, $$\frac{\partial J(\theta)}{\partial \theta}$$ computes the updating directions and the learning rate $$\alpha$$ control the step size that is taken at the current update. Note that the cost function $$J$$ is a data-driven function where the training data is used to calculate the update. We sometimes call the above formulation as "vanilla" Gradient Descent.
 
 The learning rate $$\alpha$$ is arguably the most important _hyperparameter_ in training Deep Learning models. If you set the learning rate too large, then the step update may overshoot and leads to worse performance. On the other hand, if you set the learning rate too small, then the training process may take longer time to complete.
 
@@ -258,26 +258,26 @@ __Remark__: Hyperparameters are settings that control the behavior of the learni
 </div>
 <hr>
 
-In most cases, it is not feasible to use Gradient Descent because the training dataset is too large to evaluate. Instead, a very common practice is to compute the gradient over _batches_ of training examples. The parameters are updated after evaluating each batch of data. The reason this practice works is that the samples in the training dataset are correlated. However, this technique also introduces stochasticity into the parameter update, hence this type of training algorithm is
+In most cases, it is not feasible to use Gradient Descent because the training dataset is too large to evaluate. Instead, a common practice is to compute the gradient over _batches_ of training examples. The parameters are updated after evaluating each batch of data. The reason this technique works is that the samples in the training dataset are correlated. However, this technique also introduces stochasticity into the parameter update. Hence this type of training algorithm is
 called _Stochastic Gradient Descent_ (SGD). And because we most commonly use mini-batches, sometimes people also refer this training algorithm as _mini-batch SGD_.
+
+Gradient Descent is guaranteed to converge to the global minimum if the cost function is a convex function. And in most cases, the cost functions are non-convex functions.
+In these cases, Gradient Descent can only find the local-minima.
 
 ### Momentum SGD
 
-$$
-\begin{aligned}
-\hat{\mathbf{v}}=&\mu\mathbf{v}-\alpha\nabla J(\theta) \\
-\hat{\theta}=&\theta+\hat{\mathbf{v}}
-\end{aligned}
-$$
-
-### Nesterov's accelerated SGD
+The vanilla SGD can be easily trapped in a local minimum point. For example, in such case, all the directions around the local region seems steeply. And the parameters oscillates around this local region during training. To get out from the local minima, we can use a variant of the vanilla SGD - Momentum SGD. The formulation is as follows:
 
 $$
 \begin{aligned}
-\hat{\mathbf{v}} =& \mu\mathbf{v}-\alpha\nabla J(\theta+\mu\mathbf{v}) \\
-\theta =& \theta+\hat{\mathbf{v}}
+\hat{\mathbf{v}}=&\mu\mathbf{v}+\alpha\nabla_{\theta} J(\theta) \\
+\hat{\theta}=&\theta-\hat{\mathbf{v}}
 \end{aligned}
 $$
+
+The basic idea is that if we allow the gradient update to accumulate, at some point, the energy of the update is powerful enough to jump out from the local minima. With momentum, we gain faster convergence and less oscillation behavior. Empirically, the momentum parameter $$\mu$$ is set to 0.9 or 0.99.
+
+__Remark__: $$\nabla_{\theta} J(\theta)=\frac{\partial J(\theta)}{\partial \theta}$$.
 
 ### Adaptive SGD
 
@@ -294,7 +294,7 @@ Empirically, one should use Adam optimizer as a start point.
 <div align="center">
     <p><img src="./images/opt1.gif" width="49%">
     <img src="./images/opt2.gif" width="49%"></p>
-    <p>Comparing different gradient optimization methods. Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
+    <p>Comparing different gradient optimization methods. Left: SGD optimization on loss surface contours. Right: SGD optimization on saddle point. Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
 </div>
 <hr>
 
@@ -305,6 +305,8 @@ Above sections discuss the methods that have a fixed initial learning rate. The 
 We do not discuss this in detail since this is out of scope of this module.
 
 __Remark__: SGD and its variants represent the most popular group of training algorithms. However, there are other optimization algorithms available and extensively studied by Machine Learning researchers, such as energy based models, evolutionary algorithms, genetic algorithms, Bayesian optimization.
+
+__Remark__: Sebastian Ruder surveyed almost all popular variants of SGDs in a [blog post](http://ruder.io/optimizing-gradient-descent/index.html)
 
 ### Training model in Keras
 
