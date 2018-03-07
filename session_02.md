@@ -114,7 +114,7 @@ $$
 
 Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points. The parameters $$\theta=\{\mathbf{W}, b\}$$ consists of weights $$\mathbf{W}$$ and a bias $$b$$.
 
-Suppose that the target value is a scalar (a.k.a $$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
+Suppose that the target value is a scalar ($$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
 
 ```python
 x = Input((10,), name="input layer")  # the input feature has 10 values
