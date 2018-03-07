@@ -314,20 +314,18 @@ gradient is computed.
 
 __Remark__: The `fit` function is not the only way you can do training, when you are dealing with larger dataset or have some preprocessing for the data, you can use `fit_generator` to schedule your training.
 
-## Generalization, Capacity, Overfitting, Underfitting
+## Generalization
+
+Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_.
+
+<!-- ## Generalization, Capacity, Overfitting, Underfitting -->
 
 +   __Generalization__ ability to perform well on previously unobserved inputs.
 +   __Capacity__ ability to fit a wide variety of functions.
 +   __Overfitting__ occurs when the gap between training error and test error is too large
 +   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
 
-## Hyperparameters, Validation sets
-
-+   __Hyperparameters__ controls the behavior of the learning algorithm. Usually choose empirically.
-
-+   __Validation sets__ is a subset of data used to guide the selection of hyperparameters. (split from training dataset, usually 20%)
-
-## No Free Lunch Theorem, Curse of Dimensionality
+## No Free Lunch Theorem and Curse of Dimensionality
 
 ---
 
