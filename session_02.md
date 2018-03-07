@@ -300,17 +300,17 @@ Empirically, one should use Adam optimizer as a start point.
 
 ### Learning Rate Scheduling
 
-Above sections discuss the methods that have a fixed initial learning rate. The learning rate is either static or adjusted by the training algorithm itself. Recent research suggested that instead of using these optimizers, it is better to schedule the learning rate throughout the training. Normally, this involves even more expensive parameter searching because the researcher has to predefine the "schedule" of the use of learning rate at different stage of training.
+Above sections discuss the methods that have a fixed initial learning rate. The learning rate is either static or adjusted by the training algorithm itself. Recent research suggested that instead of using these optimizers, it is better to schedule the learning rate throughout the training. Normally, this involves even more expensive parameter searching because the researcher has to predefine the "schedule" of the use of learning rate at the different stage of training.
 
-We do not discuss this in detail since this is out of scope of this module.
+Fortunately, over the years, there are some empirical training schedules that work fine across the tasks. We do not discuss this in detail since this is out of scope of this module. However, we do encourage readers to find some recent papers in large scale image recognition and natural language processing papers where they employ such training schedules.
 
 __Remark__: SGD and its variants represent the most popular group of training algorithms. However, there are other optimization algorithms available and extensively studied by Machine Learning researchers, such as energy based models, evolutionary algorithms, genetic algorithms, Bayesian optimization.
 
-__Remark__: Sebastian Ruder surveyed almost all popular variants of SGDs in a [blog post](http://ruder.io/optimizing-gradient-descent/index.html)
+__Remark__: Sebastian Ruder surveyed almost all popular variants of SGDs in a [blog post](http://ruder.io/optimizing-gradient-descent/index.html).
 
 ### Training model in Keras
 
-After you defined a model by using the `Model` class (see above model examples for linear regression, logistic regression and softmax regression), you will need to compile the model with some loss function and a optimizer. In Keras, this can be done by using the `compile` API:
+After you defined a model by using the `Model` class (see above model examples for linear regression, logistic regression, and softmax regression), you will need to compile the model with some loss function and an optimizer. In Keras, we can use the `compile` API:
 
 ```python
 model.compile(loss="mean_squared_error",
@@ -318,9 +318,9 @@ model.compile(loss="mean_squared_error",
               metrics=["mse"])
 ```
 
-The above example compiled a Linear Regression model that uses MSE as the loss function and the default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We use also MSE as the metric for evaluation. If you have a classification task, you can change the `loss` and `metrics` to other options. You can find more about [losses](https://keras.io/losses/) and [metrics](https://keras.io/metrics/) in Keras documentation.
+The above example compiled a Linear Regression model that uses MSE as the loss function and the default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We also use MSE as the metric for evaluation. If you have a classification task, you can change the `loss` and `metrics` to other options. You can find more about [losses](https://keras.io/losses/) and [metrics](https://keras.io/metrics/) in Keras documentation.
 
-You can train the model with the data once the model is compiled. Here is an example:
+You can then train the model with the data once the model is compiled. Here is an example:
 
 ```python
 model.fit(
@@ -329,7 +329,7 @@ model.fit(
     validation_data=(test_X, test_y))
 ```
 
-The API `fit` essentially takes your data and schedule them into a training routine. First, you need to specify your training inputs `x` and training target `y`. And then you will need to specify mini-batch size and number of epochs. The `fit` API will run for `epochs` times of training epochs and then at each step in a epoch, the function will fetch a batch of training examples (in this case, 64) and then use them to compute the gradient update. The model then updated after the
+The API `fit` essentially takes your training data and schedule them into a training routine. First, you need to specify your training inputs `x` and training target `y`. And then you will need to define the mini-batch size and number of epochs. The `fit` API will run for number of `epochs` times and then at each step of a epoch, the function will fetch a batch of training examples (in this case, 64) and then use them to compute the gradient update. The parameters are updated after the
 gradient is computed.
 
 __Remark__: The `fit` function is not the only way you can do training, when you are dealing with larger dataset or have some preprocessing for the data, you can use `fit_generator` to schedule your training.
