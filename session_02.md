@@ -266,7 +266,7 @@ In these cases, Gradient Descent can only find the local-minima.
 
 ### Momentum SGD
 
-The vanilla SGD can be easily trapped in a local minimum point. For example, in such case, all the directions around the local region seems steeply. And the parameters oscillates around this local region during training. To get out from the local minima, we can use a variant of the vanilla SGD - Momentum SGD. The formulation is as follows:
+The vanilla SGD can be easily trapped in a local minimum point. For example, in such case, all the directions around the local region seems steep. And the parameters oscillates around this local region during training. To get out from the local minima, we can use a variant of the vanilla SGD - Momentum SGD. The formulation is as follows:
 
 $$
 \begin{aligned}
@@ -281,7 +281,7 @@ __Remark__: $$\nabla_{\theta} J(\theta)=\frac{\partial J(\theta)}{\partial \thet
 
 ### Adaptive SGD
 
-Choosing learning rate $$\alpha$$ for SGD is mainly empirical. Therefore, we will have to perform a manual search from a list of possible learning rates. This process is usually very expensive and time-consuming. In recent years, researchers developed a set of SGD variants that adjust the learning rate $$\alpha$$ automatically.
+Choosing learning rate $$\alpha$$ for SGD is mainly empirical. Therefore, we will have to perform a manual search from a list of possible learning rates. This process is usually costly and time-consuming. In recent years, researchers developed a set of SGD variants that adjust the learning rate $$\alpha$$ automatically.
 
 The notable examples are RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al., 2011), Adadelta (Zeiler, 2012), Adam (Kingma & Ba, 2014).
 
@@ -294,7 +294,7 @@ Empirically, one should use Adam optimizer as a start point.
 <div align="center">
     <p><img src="./images/opt1.gif" width="49%">
     <img src="./images/opt2.gif" width="49%"></p>
-    <p>Comparing different gradient optimization methods. Left: SGD optimization on loss surface contours. Right: SGD optimization on saddle point. Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
+    <p>Comparing different gradient optimization methods. Left: SGD optimization on saddle point. Right: SGD optimization on loss surface contours.  Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
 </div>
 <hr>
 
