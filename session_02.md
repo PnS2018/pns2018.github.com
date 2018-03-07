@@ -310,7 +310,9 @@ model.fit(
 ```
 
 The API `fit` essentially takes your data and schedule them into a training routine. First, you need to specify your training inputs `x` and training target `y`. And then you will need to specify mini-batch size and number of epochs. The `fit` API will run for `epochs` times of training epochs and then at each step in a epoch, the function will fetch a batch of training examples (in this case, 64) and then use them to compute the gradient update. The model then updated after the
-gradient is uploaded.
+gradient is computed.
+
+__Remark__: The `fit` function is not the only way you can do training, when you are dealing with larger dataset or have some preprocessing for the data, you can use `fit_generator` to schedule your training.
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
@@ -365,3 +367,4 @@ $ git pull origin master
 1. We provide a [template script](./res/code/logistic-regression-with-keras-layers-template.py) that has the barebone structure of implementing Logistic Regression in Keras. You will need to complete the script and get it running. You are expected to define a Logistic Regression model, compile the model with binary cross-entropy loss and a optimizer, and train the model. If you can successfully train the model, try to change the choice of optimizer, what do you observe?
 
 2. In this exercise, you will implement the Logistic Regression from scratch. We provide a [template script](./res/code/logistic-regression-basic-template.py) that contains necessary setup code, you need to complete the code and run.
+You are expected to write a training loop that can loop over the data for some number of epochs.
