@@ -352,7 +352,7 @@ Usually, Deep Learning models have tremendous capacity. These models almost alwa
 ### No Free Lunch Theorem
 
 To solve one particular task, we can choose from many different models and learning algorithms. Empirically, we can evaluate the performance of these models and algorithms using the validation dataset. However, there is no universally best model -- this is the famous _no free lunch theorem_ (Wolpert, 1996). The reasons for this is that different models make different assumptions. These assumptions may work well in one domain and work poorly in another domain. As a consequence,
-rather than focusing on developing the universal model, we seek the solution for some relevant domains or distributions that performs well in practical scenario.
+rather than focusing on developing the universal model, we seek the solution that performs well in a practical scenario for some relevant domains or distributions.
 
 ### Curse of Dimensionality
 
