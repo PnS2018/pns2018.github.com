@@ -22,3 +22,17 @@ I (Yuhuang) personally believe that this is another example where computer scien
 Programming" in a recent [Facebook post](https://www.facebook.com/yann.lecun/posts/10155003011462143). I think this is by far the most accurate definition. First, all modern deep learning models up to date are differentiable. And the optimization algorithms finds a set of optimal parameters that "program" the model to exhibit some desired behaviors.
 
 We have to remember that DL consists of many extremely useful and powerful tools. However, DL alone is not AI, or Machine Learning.
+
+## Multi-layer Perceptron
+
+## Convolutional Nerual Networks
+
+## Regularization
+
+### $$L_{1}$$ and $$L_{2}$$ Regularization
+
+### Dropout
+
+### Batch Normalization
+
+## Exercises
