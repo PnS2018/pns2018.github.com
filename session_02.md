@@ -60,13 +60,14 @@ Mathematically, this computer program with respect to the learning task $$T$$ ca
 as a hypothesis function that takes an input $$\mathbf{x}$$ and transforms it to
 an output $$\mathbf{y}$$.
 
-$$\mathbf{y}=f(\mathbf{x}; \mathbf{W})$$
+$$\mathbf{y}=f(\mathbf{x}; \theta)$$
 
-The function may be parameterized by a group of parameters $$\mathbf{W}$$.
-Note that $$\mathbf{W}$$ includes both trainable and non-trainable parameters.
+The function may be parameterized by a group of parameters $$\theta$$.
+Note that $$\theta$$ includes both trainable and non-trainable parameters.
 All the DNN architectures discussed in this module can be formulated in this paradigm.
 
-Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\mathbf{W}^{\star}$$ that yields the highest performance according to the performance measure $$P$$ of the given task.
+Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\theta^{\star}$$ that yields the highest performance according to the performance measure $$P$$ of the given task. Conventionally, we call the hypothesis function that equips the optimal parameters $$\theta^{\star}$$ the
+_trained model_.
 
 ### The Cost Function
 
@@ -87,7 +88,16 @@ __Remark__: in this module, we use the term "cost function", "objective function
 
 ### Ingredients to Solve a Machine Learning Task
 
-We will revisit this topic at the end of this session. In next sections, we will look closely into __Linear Regression__ (Regression) and __Logistic Regression__ (Classification).
+Given a Machine Learning task, you need to have
+
++ A hypothesis function that maps the input features to outputs.
++ A loss function that defines the objectives.
++ A training algorithm that can optimize the loss function.
++ A training dataset that contains a collection of training examples.
++ A validation dataset that is used to evaluate the performance of the trained model.
++ (Optional) A testing dataset that evaluates the performance of the trained model after deployment.
+
+In this module, we will identify these ingredients while solving different tasks.
 
 ## Linear Regression
 
