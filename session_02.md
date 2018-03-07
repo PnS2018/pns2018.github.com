@@ -345,6 +345,8 @@ Because we can only observe the training dataset during training, our trained mo
 
 We can control whether a model is more likely to overfit or underfit by altering its _capacity_. Informally, a model's capacity is its ability to fit a wide variety of functions. Ideally, we want to find a model that has the right capacity where the model generates the smallest gap between the training error and the testing error.
 
+Normally, Deep Learning models have large capacity. These models almost always overfit the dataset given enough training time. Strangely, these models also exhibit strong generalization over testing dataset with the help of different training techniques. One straightforward technique is _Early Stopping_. The Early Stopping technique stops the training when the model starts to overfit.
+
 ## No Free Lunch Theorem and Curse of Dimensionality
 
 ### No Free Lunch Theorem
