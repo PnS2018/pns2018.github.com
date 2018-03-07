@@ -239,7 +239,7 @@ $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
 <hr>
 <div align="center">
 <img src="./images/stepsize.jpg">
-<p>Visualizing the effect of step size. Image credit: [CS231n](http://cs231n.github.io/optimization-1/)</p>
+<p>Visualizing the effect of step size. Image credit: <a href="http://cs231n.github.io/optimization-1/">CS231n</a></p>
 </div>
 <hr>
 
@@ -274,9 +274,9 @@ Empirically, one should use Adam optimizer as a start point.
 
 <hr>
 <div align="center">
-<img src="./images/opt1.gif">
-<img src="./images/opt2.gif">
-<p>Comparing different gradient optimization methods. Image credit: [Alec Radford](https://twitter.com/alecrad)</p>
+<img src="./images/opt1.gif", width="49%">
+<img src="./images/opt2.gif", width="49%">
+<p>Comparing different gradient optimization methods. Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a></p>
 </div>
 <hr>
 
