@@ -9,7 +9,7 @@ Learning (ML). We will dive into two historically very influential learning mode
 
 ## What is a "Learning Algorithm"?
 
-A broadly adopted definition of _learning algorithm_ is given by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
+A broadly adopted definition of the _learning algorithm_ is given by Tom M. Mitchell in his classical book _Machine Learning_ in 1997:
 
 ---
 
@@ -23,30 +23,26 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 
 ---
 
-__Remark__: This book is really fun to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in 1980s and 1990s.
+__Remark__: This book is enjoyable to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in the 1980s and 1990s.
 
 Many popular machine learning textbooks have in-depth discussions of this
 definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016).
 
 ### The task $$T$$
 
+The task $$T$$ is usually a specific problem that cannot be easily solved by conventional methods (e.g, array sorting problem can be easily solved by using quick sort). Here we provide some canonical examples of Machine Learning tasks:
+
 + __Classification__ specifies which $$k$$ categories some input belongs to. ($$f:\mathbb{R}^{n}\rightarrow\{1,\ldots, K\}$$)
 
 + __Regression__ predicts a numerical value given some input. ($$f: \mathbb{R}^{n}\rightarrow\mathbb{R}$$)
 
-+ __Transcription__ outputs a sequence of symbols, rather than a category code. (similar to classification, e.g. speech recognition, machine translation, image captioning)
++ __Transcription__ outputs a sequence of symbols, rather than a category code. (similar to classification, e.g., speech recognition, machine translation, image captioning)
 
 + __Denoising__ predicts clean samples $$\mathbf{x}$$ from _corrupted_ samples $$\tilde{\mathbf{x}}$$. (estimate $$\Pr(\mathbf{x}\vert\tilde{\mathbf{x}})$$)
 
-And many more types are not listed here.
-
 ### The performance measure $$P$$
 
-+ Measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification).
-
-+ Batches of unseen _validation_ data is introduced to measure performance.
-
-+ Design measure $$P$$ can be very subtle. It should be effective.
+The performance measure $$P$$ is usually specific to the task $$T$$ (e.g. accuracy to classification). Unlike optimization, the learning algorithm is evaluated based on _previously unseen_ data. We often have a set of _validation_ data to conduct this evaluation. The design of a measure $$P$$ can be very subtle. The measure should be effective so that we can anticipate how well the learning algorithm would perform after deployment.
 
 ### The experience $$E$$
 
