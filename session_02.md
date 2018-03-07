@@ -136,15 +136,15 @@ $$
 
 By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \theta^{\star})$$ can perform well on unseen examples in the testing dataset.
 
-__Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square Error (RMSE). Interested readers are encouraged to find out what they are.
+__Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square-Error (RMSE). Interested readers are encouraged to find out what they are.
 
-__Remark__: The math in this module choses to use a column-vector based system, which means each vector is assumed to be a column vector. This convention is also applied by many books and tutorials. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for row. For example,
+__Remark__: The math in this module chooses to use a column-vector based system, which means each vector is assumed to be a column vector. Many books and tutorials also apply this convention. However, in practice, most `ndarray` packages use the row-vector based system because the first dimension of a multi-dimensional array is for the row axis. For example,
 
 ```python
 A = np.array([1, 2, 3, 4, 5])
 ```
 
-The array `A` is actually a row vector. We assume that the readers know this fact and can modify the code accordingly.
+The array `A` is a row vector and has only the row axis. We assume that the readers know this fact and can modify the code accordingly.
 
 ## Logistic Regression
 
