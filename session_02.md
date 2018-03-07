@@ -241,7 +241,7 @@ $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
 $$
 \begin{aligned}
 \hat{\mathbf{v}}=&\mu\mathbf{v}-\alpha\nabla J(\theta) \\
-\hat{theta}=&\theta+\hat{\mathbf{v}}
+\hat{\theta}=&\theta+\hat{\mathbf{v}}
 \end{aligned}
 $$
 
