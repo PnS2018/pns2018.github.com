@@ -126,8 +126,6 @@ for batch_idx in range(num_batches):
     batch_target = np.expand_dims(test_y[batch_indices], axis=-1)
     batch_accuracy, batch_prediction = test_function((batch_input, batch_target))
     overall_accuracy += batch_accuracy.mean()
-    print(batch_prediction[10:20])
-    print(batch_target[10:20])
 overall_accuracy /= num_batches
 print('Overall test accuracy {}'.format(overall_accuracy))
 

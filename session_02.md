@@ -298,7 +298,19 @@ model.compile(loss="mean_squared_error",
               metrics=["mse"])
 ```
 
-Above example compiled a Linear Regression model that uses MSE as the loss function and default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We use also MSE as the metric for evaluation. If you have a classification task, perhaps 
+The above example compiled a Linear Regression model that uses MSE as the loss function and the default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We use also MSE as the metric for evaluation. If you have a classification task, you can change the `loss` and `metrics` to other options. You can find more about [losses](https://keras.io/losses/) and [metrics](https://keras.io/metrics/) in Keras documentation.
+
+You can train the model with the data once the model is compiled. Here is an example:
+
+```python
+model.fit(
+    x=train_X, y=train_y,
+    batch_size=64, epochs=10,
+    validation_data=(test_X, test_y))
+```
+
+The API `fit` essentially takes your data and schedule them into a training routine. First, you need to specify your training inputs `x` and training target `y`. And then you will need to specify mini-batch size and number of epochs. The `fit` API will run for `epochs` times of training epochs and then at each step in a epoch, the function will fetch a batch of training examples (in this case, 64) and then use them to compute the gradient update. The model then updated after the
+gradient is uploaded.
 
 ## Generalization, Capacity, Overfitting, Underfitting
 
