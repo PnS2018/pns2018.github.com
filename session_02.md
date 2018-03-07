@@ -236,6 +236,13 @@ To describe SGD, we first need to understand its parent method - Gradient Descen
 
 $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
 
+<hr>
+<div align="center">
+<img src="./images/stepsize.jpg">
+<p>Visualizing the effect of step size. Image credit: [CS231n](http://cs231n.github.io/optimization-1/)</p>
+</div>
+<hr>
+
 ### Momentum SGD
 
 $$
@@ -263,6 +270,15 @@ The notable examples are RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al
 Note that motivation of having these different variants is not entirely because of the dissatisfaction of the SGD and brute-force search for the learning rate. For example, RMSprop is proposed to deal with _the vanishing gradient problem_ where some very deep networks cannot be trained with standard SGD.
 
 Empirically, one should use Adam optimizer as a start point.
+
+
+<hr>
+<div align="center">
+<img src="./images/opt1.gif">
+<img src="./images/opt2.gif">
+<p>Comparing different gradient optimization methods. Image credit: [Alec Radford](https://twitter.com/alecrad)</p>
+</div>
+<hr>
 
 ### Learning Rate Scheduling
 
