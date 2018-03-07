@@ -88,7 +88,7 @@ __Remark__: in this module, we use the term "cost function", "objective function
 
 ### Ingredients to Solve a Machine Learning Task
 
-Given a Machine Learning task, you need to have
+Given a Machine Learning task, you need to have following ingredients for solving the task:
 
 + A hypothesis function that maps the input features to outputs.
 + A loss function that defines the objectives.
