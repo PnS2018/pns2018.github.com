@@ -338,13 +338,12 @@ __Remark__: The `fit` function is not the only way you can do training, when you
 
 ## Generalization
 
-Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_.
+Typically, we expect that the trained model can be used to predict _new, unseen samples_. This ability to perform well on previously unobserved data is called _generalization_. With a performance measure $$P$$, we can compute the error that is made on the training dataset. This error is called _training error_. We can also compute the _testing error_ with the validation dataset or the testing dataset if available. This _testing error_ quantifies the level of
+generalization of a certain model. Our goal is to minimize this _testing error_, and improve the generalization.
 
+Because we can only observe the training dataset during training, our trained model may suffer from either _overfitting_ or _underfitting_. Overfitting occurs when the gap between the training error and testing error is too large. Underfitting occurs when the model is not able to obtain a sufficiently low error value on the training dataset.
 
-+   __Generalization__ ability to perform well on previously unobserved inputs.
-+   __Capacity__ ability to fit a wide variety of functions.
-+   __Overfitting__ occurs when the gap between training error and test error is too large
-+   __Underfitting__ occurs when the model is not able to obtain a sufficiently low error value on the training set.
+We can control whether a model is more likely to overfit or underfit by altering its _capacity_. Informally, a model's capacity is its ability to fit a wide variety of functions. Ideally, we want to find a model that has the right capacity where the model generates the smallest gap between the training error and the testing error.
 
 ## No Free Lunch Theorem and Curse of Dimensionality
 
