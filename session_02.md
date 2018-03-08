@@ -233,7 +233,7 @@ y = Activation("softmax")
 model = Model(x, y)
 ```
 
-__Remark__: Although we do not explain the Softmax Regression in details, in fact, the function is widely used by many modern deep learning systems for solving fundamental problems such as classification to complicated tasks such as neural machine translation.
+__Remark__: Although we do not explain the Softmax Regression in details, in fact, the function is widely used by many modern deep learning systems for solving fundamental problems such as classification, and complicated tasks such as neural machine translation.
 
 ## Stochastic Gradient Descent and its variants
 
