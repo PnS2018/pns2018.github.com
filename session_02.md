@@ -228,8 +228,8 @@ Here is a Keras example
 
 ```python
 x = Input((10,), name="input_layer")
-y = Linear(5, name="linear layer")  # suppose there are 5 classes
-y = Activation("softmax")
+y = Dense(5, name="linear layer")(x)  # suppose there are 5 classes
+y = Activation("softmax")(y)
 model = Model(x, y)
 ```
 
