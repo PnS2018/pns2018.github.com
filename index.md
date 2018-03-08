@@ -21,7 +21,7 @@ This module instructs students on the basics of deep learning as well as buildin
 + __Session__: Thursdays 1-5pm
 + __Starting date__: March 1st, 2018
 + __Place__: Institute of Neuroinformatics, Dungeon Lab, Y35 E 30, University Zurich Irchel Campus
-+ __Module ends__: May 24th, 2018
++ __Module ends__: May 31th, 2018
 
 # [Session 01](./session_01.md)
 Basics of Linear Algebra (vector, matrix, tensors, etc), Introduction to Python, numpy basics, symbolic computation basics.
