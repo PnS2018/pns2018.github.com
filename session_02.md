@@ -54,7 +54,7 @@ Experience is what learning algorithms are allowed to have during learning proce
 
 __Remark__: In most real world cases, we would not have the access to the _testing dataset_ and the _validation dataset_. In the absence of the _validation dataset_, we usually split 20% of the training dataset to be the _validation dataset_.
 
-### Hypothesis function
+### Hypothesis Function
 
 Mathematically, this computer program with respect to the learning task $$T$$ can be defined
 as a hypothesis function that takes an input $$\mathbf{x}$$ and transforms it to
@@ -69,7 +69,7 @@ All the DNN architectures discussed in this module can be formulated in this par
 Strictly speaking, the hypothesis function defines a large family of functions that could be the solution to the task $$T$$. At the end of training, the hypothesis function is expected to be parameterized by a set of optimal parameters $$\theta^{\star}$$ that yields the highest performance according to the performance measure $$P$$ of the given task. Conventionally, we call the hypothesis function that equips the optimal parameters $$\theta^{\star}$$ the
 _trained model_.
 
-### The Cost Function
+### Cost Function
 
 A cost function $$J$$ is selected according to the objective(s) of the hypothesis function in which it defines the constraints. The cost function is minimized during the training so that the hypothesis function can be optimized and exhibits the desired behaviors (e.g., classify images, predict houshold value, text-to-speech). The cost function reflects the performance measure $$P$$ directly or indirectly. In most cases, the performance of a learning algorithm gets higher
 when the cost function $$J$$ becomes lower.
@@ -114,7 +114,7 @@ $$
 
 Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points. The parameters $$\theta=\{\mathbf{w}, b\}$$ consists of weights $$\mathbf{w}$$ and a bias $$b$$.
 
-Suppose that the target value is a scalar ($$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
+Suppose that the target value is a scalar ($$y^{(i)}\in\mathbb{R}$$), we can easily define such a model in Keras:
 
 ```python
 x = Input((10,), name="input layer")  # the input feature has 10 values
@@ -150,7 +150,7 @@ The array `A` is a row vector and has only the row axis. We assume that the read
 
 In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we wish to decide whether the input feature $$\mathbf{x}$$ belongs to some category. In the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoe or skirt).  _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
 
-__Remark__: Commonly, we call a learning algorithm that solves binary classification a _Binary Classifier_.
+__Remark__: Usually, we call a learning algorithm that solves binary classification a _Binary Classifier_.
 
 Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assigns the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function". The hypothesis function is then described as follows:
 
@@ -165,7 +165,7 @@ $$
 </div>
 <hr>
 
-Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{w}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
+Here, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{w}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
 
 $$
 \begin{aligned}
@@ -224,7 +224,7 @@ $$
 \theta^{\star}=\arg\min_{\theta}J(\theta)
 $$
 
-Here is a Keras Example
+Here is a Keras example
 
 ```python
 x = Input((10,), name="input_layer")
@@ -235,7 +235,7 @@ model = Model(x, y)
 
 __Remark__: Although we do not explain the Softmax Regression in details, in fact, the function is widely used by many modern deep learning systems for solving fundamental problems such as classification, and complicated tasks such as neural machine translation.
 
-## Stochastic Gradient Descent and its variants
+## Stochastic Gradient Descent and its Variants
 
 Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function described in the above sections. In this section, we introduce the most famous set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
 
@@ -318,7 +318,7 @@ model.compile(loss="mean_squared_error",
               metrics=["mse"])
 ```
 
-The above example compiled a Linear Regression model that uses MSE as the loss function and the default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We also use MSE as the metric for evaluation. If you have a classification task, you can change the `loss` and `metrics` to other options. You can find more about [losses](https://keras.io/losses/) and [metrics](https://keras.io/metrics/) in Keras documentation.
+The above example compiled a Linear Regression model that uses MSE as the loss function and the default SGD as the optimizer. The performance measure $$P$$ here is called `metrics`. You can have different metrics for evaluating the performance of the model. We also use MSE as the metric for evaluation. If you have a classification task, you can change the `loss` and `metrics` to other options. You can find more about [losses](https://keras.io/losses/) and [metrics](https://keras.io/metrics/) in the Keras documentation.
 
 You can then train the model with the data once the model is compiled. Here is an example:
 
