@@ -373,7 +373,7 @@ We provide some useful functions for accessing the Fashion-MNIST datasets in `pn
 ```bash
 $ git clone https://github.com/PnS2018/pnslib
 $ cd pnslib
-$ python setup.py develop
+$ python setup.py develop  # add sudo in front if there is a permission error.
 ```
 
 Note that we are going to use `pnslib` package for both exercises and projects in future. You will need to update the package for the latest changes.
