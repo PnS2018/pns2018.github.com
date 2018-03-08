@@ -23,7 +23,7 @@ if its performance at tasks in $$T$$, as measured by $$P$$, improves with experi
 
 ---
 
-__Remark__: This book is enjoyable to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did in the 1980s and 1990s.
+__Remark__: This book is enjoyable to read and introduced many ML algorithms that were very popular back then. It reflects how researchers thought and did about ML in the 1980s and 1990s.
 
 Many popular machine learning textbooks have in-depth discussions of this
 definition (Mitchell, 1997; Murphy, 2012; Goodfellow et al., 2016).
@@ -103,7 +103,7 @@ In this module, we will identify these ingredients while solving different tasks
 
 Regression is a task of Supervised Learning. The goal is to take a input vector $$\mathbf{x}\in\mathbb{R}^{n}$$ (a.k.a, features) and predict a target value $$y\in\mathbb{R}$$. In this section, we will learn how to implement _Linear Regression_.
 
-As the name suggested, Linear Regression has a hypothesis function that is a linear function. The goal is to find a linear relationship between the input features and the target value:
+As the name suggests, Linear Regression has a hypothesis function that is a linear function. The goal is to find a linear relationship between the input features and the target value:
 
 $$
 \begin{aligned}
@@ -128,13 +128,13 @@ $$
 \theta^{\star}=\arg\min_{\theta}J(\theta)
 $$
 
-For Linear Regression, one possible formulation of the cost function is Mean-Squared Error (MSE), this cost function measures the mean error caused by each data sample:
+For Linear Regression, one possible formulation of the cost function is Mean-Squared Error (MSE). This cost function measures the mean error caused by each data sample:
 
 $$
 J(\theta)=\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)}-f(\mathbf{x}^{(i)};\theta)\right)^{2}
 $$
 
-By minimizing this cost function via training algorithm such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \theta^{\star})$$ can perform well on unseen examples in the testing dataset.
+By minimizing this cost function via training algorithms such as Stochastic Gradient Descent (SGD), we hope that the trained model $$f(\mathbf{x}; \theta^{\star})$$ can perform well on unseen examples in the testing dataset.
 
 __Remark__: there are other cost functions for regression tasks, such as Mean Absolute Error (MAE) and Root-Mean-Square-Error (RMSE). Interested readers are encouraged to find out what they are.
 
@@ -148,11 +148,11 @@ The array `A` is a row vector and has only the row axis. We assume that the read
 
 ## Logistic Regression
 
-In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we will wish to decide whether the input feature $$\mathbf{x}$$ belongs to some category. And in the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoe or skirt). And _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
+In this section, we discuss the solution to another Supervised Learning task - _Binary Classification_. Instead of predicting continuous values (e.g., how many pairs of shoes you have), we wish to decide whether the input feature $$\mathbf{x}$$ belongs to some category. In the case of Binary Classification, we have only two classes (e.g., to be or not to be, shoe or skirt).  _Logistic Regression_ is a simple learning algorithm that solves this kind of tasks.
 
 __Remark__: Commonly, we call a learning algorithm that solves binary classification a _Binary Classifier_.
 
-Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assign the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function". The hypothesis function is then as follows:
+Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assigns the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function". The hypothesis function is then described as follows:
 
 $$
 \sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{w}^{\top}\mathbf{x}+b))}
@@ -180,7 +180,7 @@ $$
 J(\theta) = -\frac{1}{N}\sum_{i=1}^{N}\left(y^{(i)} \log(\Pr(y=1|\mathbf{x}^{(i)}))+(1-y^{(i)})\log(\Pr(y=0|\mathbf{x}^{(i)}))\right)
 $$
 
-Intuitively, when the model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theory point of view, the _cross-entropy_ between a "true" distribution $$p$$ and an estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
+Intuitively, when the model makes a correct decision (suppose the true label is 1), then the $$\Pr(y=1|\mathbf{x})$$ is also high, this generates a lower cost when the model makes a wrong decision and the $$\Pr(y=1|\mathbf{x})$$ is low. From the information theoretic point of view, the _cross-entropy_ between a "true" distribution $$p$$ and an estimated distribution $$q$$ measures the "similarity" between two distributions. Ideally, when the number of sample $$N\rightarrow\infty$$
 and cost function $$J(\theta)=0$$, we cannot distinguish the estimation distribution from the "true" distribution.
 
 Our learning algorithm is expected to find a best set of parameters that minimizes the cost function $$J(\theta)$$:
@@ -189,7 +189,7 @@ $$
 \theta^{\star}=\arg\min_{\theta}J(\theta)
 $$
 
-Note that there is a close tie between the Logistic Regression and the Linear Regression. The Logistic Regression is nothing but adding a non-linear function on the top of the linear function. Here is an example of logistic regression in Keras:
+Note that there is a close tie between the Logistic Regression and the Linear Regression. The Logistic Regression is nothing more than adding a non-linear function on top of the linear function. Here is an example of logistic regression in Keras:
 
 ```python
 x = Input((10,), name="input_layer")
@@ -198,7 +198,7 @@ y = Activation("sigmoid")
 model = Model(x, y)
 ```
 
-__Remark__: we will revisit the logistic function in the session 3 when we introduce the first neural network model: Multi-layer Perceptron.
+__Remark__: we will revisit the logistic function in Session 3 when we introduce the first neural network model: Multi-layer Perceptron.
 
 Logistic Regression is designed to solve Binary Classification tasks. The above formulation can be generalized to solve Multi-class Classification tasks. The following equation defines the hypothesis function for the extension of the Logistic Regression - _Softmax Regression_:
 
@@ -237,17 +237,17 @@ __Remark__: Although we do not explain the Softmax Regression in details, in fac
 
 ## Stochastic Gradient Descent and its variants
 
-Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function described in above sections. In this section, we introduce the most famous set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
+Previous sections define the learning models for Regression and Binary Classification tasks. We now need a training algorithm that minimizes the cost function described in the above sections. In this section, we introduce the most famous set of _Gradient-based Optimization_ algorithms -- Stochastic Gradient Descent (SGD) and its variants.
 
-Almost all modern Deep Learning models are trained by the variants of SGD. In some particular cases, there are deep learning models are trained with second-order gradient-based methods (e.g., Hessian optimization).
+Almost all modern Deep Learning models are trained by the variants of SGD. In some particular cases, there are deep learning models  that are trained with second-order gradient-based methods (e.g., Hessian optimization).
 
-To describe SGD, we first need to understand its parent method - Gradient Descent. The idea of the Gradient Descent is very simple: suppose that we need to iteratively refine the parameters $$\theta$$ so that we can minimize the cost function $$J$$. The _best_ direction that we should take follows the direction of the steepest descend. And, this direction can be computed by evaluating the _gradient_ of the loss function. The core idea of the Gradient Descent can be described as follows:
+To describe SGD, we first need to understand its parent method - Gradient Descent. The idea of Gradient Descent is very simple: Suppose that we need to iteratively refine the parameters $$\theta$$ so that we can minimize the cost function $$J$$. The _best_ direction that we should take follows the direction of the steepest descent. This direction can be computed by evaluating the _gradient_ of the loss function. The core idea of the Gradient Descent can be described as follows:
 
 $$\hat{\theta}=\theta-\alpha\frac{\partial J(\theta)}{\partial \theta}$$
 
-where $$\hat{\theta}$$ is the updated parameters, $$\frac{\partial J(\theta)}{\partial \theta}$$ computes the updating directions and the learning rate $$\alpha$$ control the step size that is taken at the current update. Note that the cost function $$J$$ is a data-driven function where the training data is used to calculate the update. We sometimes call the above formulation as "vanilla" Gradient Descent.
+where $$\hat{\theta}$$ is the updated parameters, $$\frac{\partial J(\theta)}{\partial \theta}$$ computes the updating directions and the learning rate $$\alpha$$ controls the step size that is taken at the current update. Note that the cost function $$J$$ is a data-driven function where the training data is used to calculate the update. We sometimes call the above formulation as "vanilla" Gradient Descent.
 
-The learning rate $$\alpha$$ is arguably the most important _hyperparameter_ in training Deep Learning models. If you set the learning rate too large, then the step update may overshoot and leads to worse performance. On the other hand, if you set the learning rate too small, then the training process may take longer time to complete.
+The learning rate $$\alpha$$ is arguably the most important _hyperparameter_ in training Deep Learning models. If you set the learning rate too large, then the step update may overshoot and leads to worse performance. On the other hand, if you set the learning rate too small, then the training process may take a longer time to complete.
 
 __Remark__: Hyperparameters are settings that control the behavior of the learning algorithm. Usually we choose them empirically.
 
@@ -261,12 +261,12 @@ __Remark__: Hyperparameters are settings that control the behavior of the learni
 In most cases, it is not feasible to use Gradient Descent because the training dataset is too large to evaluate. Instead, a common practice is to compute the gradient over _batches_ of training examples. The parameters are updated after evaluating each batch of data. The reason this technique works is that the samples in the training dataset are correlated. However, this technique also introduces stochasticity into the parameter update. Hence this type of training algorithm is
 called _Stochastic Gradient Descent_ (SGD). And because we most commonly use mini-batches, sometimes people also refer this training algorithm as _mini-batch SGD_.
 
-Gradient Descent is guaranteed to converge to the global minimum if the cost function is a convex function. And in most cases, the cost functions are non-convex functions.
+Gradient Descent is guaranteed to converge to the global minimum if the cost function is a convex function. In most cases, the cost functions are non-convex functions.
 In these cases, Gradient Descent can only find the local-minima.
 
 ### Momentum SGD
 
-The vanilla SGD can be easily trapped in a local minimum point. For example, in such case, all the directions around the local region seems steep. And the parameters oscillates around this local region during training. To get out from the local minima, we can use a variant of the vanilla SGD - Momentum SGD. The formulation is as follows:
+The vanilla SGD can lead easily to traps around a local minimum point. For example, in such a case, all the directions around the local region seem steep. The parameters then oscillate around this local region during training. To get out of the local minima, we can use a variant of the vanilla SGD - Momentum SGD. The formulation is as follows:
 
 $$
 \begin{aligned}
@@ -275,19 +275,19 @@ $$
 \end{aligned}
 $$
 
-The basic idea is that if we allow the gradient update to accumulate, at some point, the energy of the update is powerful enough to jump out from the local minima. With momentum, we gain faster convergence and less oscillation behavior. Empirically, the momentum parameter $$\mu$$ is set to 0.9 or 0.99.
+The basic idea is that if we allow the gradient update to accumulate, at some point, the energy of the update is powerful enough to jump out from the local minima. With momentum, we gain faster convergence and less oscillatory behavior. Empirically, the momentum parameter $$\mu$$ is set to 0.9 or 0.99.
 
 __Remark__: $$\nabla_{\theta} J(\theta)=\frac{\partial J(\theta)}{\partial \theta}$$.
 
 ### Adaptive SGD
 
-Choosing learning rate $$\alpha$$ for SGD is mainly empirical. Therefore, we will have to perform a manual search from a list of possible learning rates. This process is usually costly and time-consuming. In recent years, researchers developed a set of SGD variants that adjust the learning rate $$\alpha$$ automatically.
+Choosing the learning rate $$\alpha$$ for SGD is mainly empirical. Therefore, we will have to perform a manual search from a list of possible learning rates. This process is usually costly and time-consuming. In recent years, researchers developed a set of SGD variants that adjust the learning rate $$\alpha$$ automatically.
 
 The notable examples are RMSprop (Tieleman & Hinton, 2012), Adagrad (Duchi et al., 2011), Adadelta (Zeiler, 2012), Adam (Kingma & Ba, 2014).
 
-Note that motivation of having these different variants is not entirely because of the dissatisfaction of the SGD and brute-force search for the learning rate. For example, RMSprop is proposed to deal with _the vanishing gradient problem_ where some very deep networks cannot be trained with standard SGD.
+Note that the motivation of having these different variants is not entirely because of the dissatisfaction of the SGD and brute-force search for the learning rate. For example, RMSprop is proposed to deal with _the vanishing gradient problem_ where some very deep networks cannot be trained with standard SGD.
 
-Empirically, one should use Adam optimizer as a start point.
+Empirically, one should use Adam optimizer as a starting point.
 
 
 <hr>
@@ -300,9 +300,9 @@ Empirically, one should use Adam optimizer as a start point.
 
 ### Learning Rate Scheduling
 
-Above sections discuss the methods that have a fixed initial learning rate. The learning rate is either static or adjusted by the training algorithm itself. Recent research suggested that instead of using these optimizers, it is better to schedule the learning rate throughout the training. Normally, this involves even more expensive parameter searching because the researcher has to predefine the "schedule" of the use of learning rate at the different stage of training.
+The above sections discuss the methods that have a fixed initial learning rate. The learning rate is either static or adjusted by the training algorithm itself. Recent research suggests that instead of using these optimizers, it is better to schedule the learning rate throughout the training. Normally, this involves even more expensive parameter searching because the researcher has to predefine the "schedule" of the use of learning rate at the different stages of training.
 
-Fortunately, over the years, there are some empirical training schedules that work fine across the tasks. We do not discuss this in detail since this is out of scope of this module. However, we do encourage readers to find some recent papers in large scale image recognition and natural language processing papers where they employ such training schedules.
+Fortunately, over the years, there are some empirical training schedules that work well across the tasks. We do not discuss this in detail since this is out of scope of this module. However, we do encourage readers to find some recent papers in large scale image recognition and natural language processing papers where they employ such training schedules.
 
 __Remark__: SGD and its variants represent the most popular group of training algorithms. However, there are other optimization algorithms available and extensively studied by Machine Learning researchers, such as energy based models, evolutionary algorithms, genetic algorithms, Bayesian optimization.
 
@@ -310,7 +310,7 @@ __Remark__: Sebastian Ruder surveyed almost all popular variants of SGDs in a [b
 
 ### Training model in Keras
 
-After you defined a model by using the `Model` class (see above model examples for linear regression, logistic regression, and softmax regression), you will need to compile the model with some loss function and an optimizer. In Keras, we can use the `compile` API:
+After you have defined a model by using the `Model` class (see above model examples for linear regression, logistic regression, and softmax regression), you will need to compile the model with some loss function and an optimizer. In Keras, we can use the `compile` API:
 
 ```python
 model.compile(loss="mean_squared_error",
