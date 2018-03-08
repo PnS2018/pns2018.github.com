@@ -107,12 +107,12 @@ As the name suggested, Linear Regression has a hypothesis function that is a lin
 
 $$
 \begin{aligned}
-y^{(i)}=f(\mathbf{x}^{(i)};\{\mathbf{W}, b\})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}\cdot x_{n}+b \\
-=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{W}^{\top}\mathbf{x}^{(i)}+b
+y^{(i)}=f(\mathbf{x}^{(i)};\{\mathbf{w}, b\})=&w_{1}\cdot x_{1}+w_{2}\cdot x_{2}+\ldots+w_{i}\cdot x_{i}+\ldots+w_{n}\cdot x_{n}+b \\
+=&\sum_{i=1}^{n}w_{i}\cdot x_{i}+b = \mathbf{w}^{\top}\mathbf{x}^{(i)}+b
 \end{aligned}
 $$
 
-Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points. The parameters $$\theta=\{\mathbf{W}, b\}$$ consists of weights $$\mathbf{W}$$ and a bias $$b$$.
+Note that $$\{\mathbf{x}^{(i)}, y^{(i)}\}$$ is the $$i$$-th sample in the dataset $$\{\mathcal{X}, \mathbf{y}\}$$ that has $$N$$ data points. The parameters $$\theta=\{\mathbf{w}, b\}$$ consists of weights $$\mathbf{w}$$ and a bias $$b$$.
 
 Suppose that the target value is a scalar ($$y^{(i)}\in\mathbb{R}$$), we can easily define such model in Keras:
 
@@ -155,7 +155,7 @@ __Remark__: Commonly, we call a learning algorithm that solves binary classifica
 Suppose our input feature $$\mathbf{x}$$ is a $$n$$-dimensional vector and the output class label $$y\in\{0, 1\}$$ (0 and 1 are abstract labels, we can associate meanings for these labels, such as 0 is shoe and 1 is skirt). The Logistic Regression constructs a hypothesis function that assign the probability that $$\mathbf{x}$$ belongs to the class $$y=1$$. Specifically, the Logistic Regression uses the "logistic function". The hypothesis function is then as follows:
 
 $$
-\sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{W}^{\top}\mathbf{x}+b))}
+\sigma(\mathbf{x}; \theta) = \frac{1}{1+\exp(-(\mathbf{w}^{\top}\mathbf{x}+b))}
 $$
 
 <hr>
@@ -165,7 +165,7 @@ $$
 </div>
 <hr>
 
-Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{W}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
+Commonly, we use the symbol $$\sigma(\cdot)$$ to represent the logistic function. Furthermore, $$\sigma(\cdot)$$ is often called the "sigmoid" function as well. The logistic function has a nice property where it can map the input $$\mathbf{w}^{\top}\mathbf{x}+b$$ into the range $$(0, 1)$$ so that we can interpret the output of this function as probability:
 
 $$
 \begin{aligned}
