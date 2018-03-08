@@ -118,7 +118,7 @@ Suppose that the target value is a scalar ($$y^{(i)}\in\mathbb{R}$$), we can eas
 
 ```python
 x = Input((10,), name="input layer")  # the input feature has 10 values
-y = Linear(1, name="linear layer")  # implement linear function
+y = Dense(1, name="linear layer")(x)  # implement linear function
 model = Model(x, y)  # compile the hypothesis function
 ```
 
@@ -193,8 +193,8 @@ Note that there is a close tie between the Logistic Regression and the Linear Re
 
 ```python
 x = Input((10,), name="input_layer")
-y = Linear(1, name="linear layer")
-y = Activation("sigmoid")
+y = Dense(1, name="linear layer")(x)
+y = Activation("sigmoid")(y)
 model = Model(x, y)
 ```
 
