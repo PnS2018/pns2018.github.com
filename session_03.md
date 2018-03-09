@@ -33,7 +33,7 @@ $$
 \begin{cases}
     \text{sigmoid} & f(z)=\frac{1}{1+\exp(-z}) \\
     \text{tanh} & f(z) = \frac{\exp(z)-\exp(-z)}{\exp(z)+\exp(-z)} \\
-    \text{ReLU} & f(z) = max(0, z)
+    \text{ReLU} & f(z) = \max(0, z)
 \end{cases}
 $$
 
