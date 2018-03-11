@@ -13,7 +13,7 @@ from keras.utils import to_categorical
 from pnslib import utils
 from pnslib import ml
 
-# Load T-shirt/top and Trouser classes from Fashion MNIST
+# Load all the ten classes from Fashion MNIST
 # complete label description is at
 # https://github.com/zalandoresearch/fashion-mnist#labels
 (train_x, train_y, test_x, test_y) = utils.fashion_mnist_load(
@@ -109,6 +109,8 @@ print('Overall test accuracy {}'.format(overall_accuracy))
 
 # visualize the ground truth and prediction
 # take first 64 examples in the testing dataset
+# note that we are processing the 64 samples here, instead of just the 10
+# examples like in the keras example
 test_X_vis = test_X[:batch_size]  # fetch first 64 samples
 # fetch first 64 ground truth prediction
 ground_truths = test_y[:batch_size]

@@ -13,7 +13,7 @@ from keras.utils import to_categorical
 from pnslib import utils
 from pnslib import ml
 
-# Load T-shirt/top and Trouser classes from Fashion MNIST
+# Load all the ten classes from Fashion MNIST
 # complete label description is at
 # https://github.com/zalandoresearch/fashion-mnist#labels
 (train_x, train_y, test_x, test_y) = utils.fashion_mnist_load(
@@ -118,17 +118,73 @@ output_tensor = K.dot(output_tensor, weight_variables[num_layers])
 output_tensor += bias_variables[num_layers]
 output_tensor = K.softmax(output_tensor)
 
+"""
+We can combine the variable creation routine with defining the operations
+to optimize the script. But the majority of the run time in the code is
+spent on training, so we can ignore this. But nevertheless, in the comments
+below, you can find the implementation.
+
+# defining the lists to store the weight and bias variables across the layers
+weight_variables, bias_variables = [], []
+
+# defining the weight and bias variable for the first layer
+weight_variable = K.random_uniform_variable(shape=(input_dim, num_units[0]),
+                                            low=-1., high=1.,
+                                            dtype='float32')
+bias_variable = K.zeros(shape=(num_units[0],), dtype='float32')
+
+# defining the first layer operation
+output_tensor = K.dot(input_tensor, weight_variable) + bias_variable
+output_tensor = K.relu(output_tensor)
+
+weight_variables.append(weight_variable)
+bias_variables.append(bias_variable)
+
+# looping to create the weight and bias variable for the hidden to hidden
+for idx in range(1, num_layers):
+    weight_variable = K.random_uniform_variable(shape=(num_units[idx - 1],
+                                                       num_units[idx]),
+                                                low=-1., high=1.,
+                                                dtype='float32')
+    bias_variable = K.zeros(shape=(num_units[idx],), dtype='float32')
+
+    output_tensor = K.dot(output_tensor, weight_variable)
+    output_tensor += bias_variable
+    output_tensor = K.relu(output_tensor)
+
+    weight_variables.append(weight_variable)
+    bias_variables.append(bias_variable)
+
+# creating the weight and bias variable for the final layer
+weight_variable = K.random_uniform_variable(shape=(num_units[num_layers - 1],
+                                                   num_classes),
+                                            low=-1., high=1.,
+                                            dtype='float32')
+bias_variable = K.zeros(shape=(num_classes,), dtype='float32')
+
+output_tensor = K.dot(output_tensor, weight_variable)
+output_tensor += bias_variable
+output_tensor = K.softmax(output_tensor)
+
+weight_variables.append(weight_variable)
+bias_variables.append(bias_variable)
+
+"""
+
 # defining the mean loss tensor
 loss_tensor = K.mean(K.categorical_crossentropy(target_tensor,
                                                 output_tensor))
 
+# combining the weights and biases into a single list of variables for the model
+variables = weight_variables + bias_variables
+
 # getting the gradients of the mean loss with respect to the weight and bias
-gradient_tensors = K.gradients(loss=loss_tensor,
-                               variables=weight_variables + bias_variables)
+gradient_tensors = K.gradients(loss=loss_tensor, variables=variables)
 
 # creating the updates based on stochastic gradient descent rule
+# you can play around with other rules if you are interested
 updates = [(variable, variable - lr * gradient) for (variable, gradient)
-    in zip(weight_variables + bias_variables, gradient_tensors)]
+    in zip(variables, gradient_tensors)]
 
 # creating a training function which also updates the variables when the
 # function is called based on the lists of updates provided

@@ -14,7 +14,7 @@ from keras.utils import to_categorical
 from pnslib import utils
 from pnslib import ml
 
-# Load T-shirt/top and Trouser classes from Fashion MNIST
+# Load all the ten classes from Fashion MNIST
 # complete label description is at
 # https://github.com/zalandoresearch/fashion-mnist#labels
 (train_x, train_y, test_x, test_y) = utils.fashion_mnist_load(

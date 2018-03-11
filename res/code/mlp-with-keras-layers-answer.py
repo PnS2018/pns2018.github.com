@@ -14,7 +14,7 @@ from keras.utils import to_categorical
 from pnslib import utils
 from pnslib import ml
 
-# Load T-shirt/top and Trouser classes from Fashion MNIST
+# Load all the ten classes from Fashion MNIST
 # complete label description is at
 # https://github.com/zalandoresearch/fashion-mnist#labels
 (train_x, train_y, test_x, test_y) = utils.fashion_mnist_load(
@@ -50,6 +50,10 @@ test_Y = to_categorical(test_y, num_classes=num_classes)
 print("[MESSAGE] Converted labels to categorical labels.")
 
 # define a model
+
+batch_size = 64
+num_epochs = 10
+
 num_train_samples = train_X.shape[0]
 num_test_samples = test_X.shape[0]
 input_dim = train_X.shape[1]
@@ -78,7 +82,7 @@ print ("[MESSAGE] Model is compiled.")
 # train the model
 history = model.fit(
     x=train_X, y=train_Y,
-    batch_size=64, epochs=10,
+    batch_size=batch_size, epochs=num_epochs,
     validation_data=(test_X, test_Y))
 
 print("[MESSAGE] Model is trained.")
