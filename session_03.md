@@ -77,6 +77,39 @@ A group of artificial neurons can be organized into a layer. A layer is the buil
 
 ## Multi-layer Perceptron
 
+The Multi-layer Perceptron (MLP) network is a canonical Feedforward ANN architecture. Let's firstly define its parent class - FeedForward Neural Network (FNNs) before discussing MLP networks.
+
+FNNs are a class of ANNs where the computation flows in a single direction: there is no _feedback_ connection between layers. An FNN consists of $$L$$ layers where each layer $$l$$ is defined by its parameters $$\{W^{l}, b^{l}\}$$, which are referred to as weights and biases respectively. An activation function $$f^{l}(\cdot)$$ maps the layer input $$\mathbf{h}^{l-1}$$ to layer output $$\mathbf{h}^{l}$$:
+
+$$
+\begin{aligned}
+    \mathbf{h}^{0} &= \mathbf{x} \\
+    \mathbf{y} &= \mathbf{h}^{L} \\
+    \mathbf{h}^{l} = f^{l}\left(\mathbf{h}^{l-1}; \mathbf{W}^{l}, \mathbf{b}^{l}\right),\quad 1\leq l\leq L
+\end{aligned}
+$$
+
+An alternative view of FNNs is that the network computes a composition of functions (Goodfellow et al., 2016; Poggio et al., 2017):
+
+$$
+\mathbf{y}=f^{L}(f^{L-1}(f^{L-2}(\cdots(f^{2}(f^{1}(\mathbf{x})))\cdots)))
+$$
+
+Now, we can describe the MLP network in a similar manner. Suppose the $$l$$-th layer has $$m$$ neurons and $$(l-1)$$-th layer has $$n$$ neurons, and the parameters $$\mathbf{W}^{l}\in\mathbb{R}^{m\times n}$$, $$\mathbf{b}^{l}\in\mathbb{R}^{m}$$. The input activation from $$(l-1)$$-th layer $$\mathbf{h}^{l-1}\in\mathbb{R}^{n}$$, the activation of $$l$$-th layer can be computed by:
+
+$$
+\mathbf{h}^{l}=f^{l}\left(\mathbf{W}^{l}h^{l-1}+\mathbf{b}^{l}\right)
+$$
+
+---
+
+<div align="center">
+    <p><img src="./images/mlp-layer.png" width="32%"></p>
+    <p>Example of MLP hidden layers.</p>
+</div>
+
+---
+
 ## Convolutional Nerual Networks
 
 Convolutional Neural Networks (ConvNets) are a generalization of MLP networks. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
