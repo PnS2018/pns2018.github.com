@@ -113,6 +113,9 @@ $$
 Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks without any hidden layer. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
+The most profound mathematical argument on the MLP network may be the Universal Approximation Theorem. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
+Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
+
 ## Convolutional Nerual Networks
 
 Convolutional Neural Networks (ConvNets) are a generalization of MLP networks. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
@@ -128,6 +131,15 @@ $$
 
 The above equations demonstrate the convolution operation by using the $$k+{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and sub-sampling parameters (strides). There are variants of convolution operations according to different parameter settings. Readers can find
 a detailed discussion in Goodfellow et al. (2016).
+
+---
+
+<div align="center">
+    <p><img src="./images/convnet.png" width="32%"></p>
+    <p>ConvNets usually consist of convolution layers, pooling layers and fully connected layers.</p>
+</div>
+
+---
 
 Another important component of ConvNets is pooling. The pooling operation is inspired by the complex cells in the Primary Visual Cortex (V1) (Hubel
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
