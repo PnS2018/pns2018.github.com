@@ -34,7 +34,7 @@ Artificial Neural Networks (ANNs) are machine learning models that are inspired 
 ---
 
 <div align="center">
-    <p><img src="./images/neuron.png" width="32%">
+    <p><img src="./images/neuron.png" width="32%"></p>
     <p>An artificial neuron.</p>
 </div>
 
@@ -56,12 +56,14 @@ where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Not
 
 <div align="center">
     <p><img src="./images/sigmoid.jpeg" width="32%">
-    <img src="./images/tanh.jpeg" width="32%"></p>
+    <img src="./images/tanh.jpeg" width="32%">
     <img src="./images/relu.jpeg" width="32%"></p>
     <p><b>Left</b>: the Sigmoid function; <b>Middle</b>: the tanh function; <b>Right</b>: the ReLU function.</p>
 </div>
 
 ---
+
+Sigmoid function was very popular because (a) the function has a range between 0 to 1 so that one can interpret the level of activation to some meaning; (b) the function is more "biological plausible" than other activation functions for our artificial neuron model. However, in practice, Sigmoid function has some very undesirable properties. First,
 
 A group of artificial neurons can be organized into a layer. A layer is the building block and ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
