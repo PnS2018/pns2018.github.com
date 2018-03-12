@@ -188,6 +188,10 @@ are both applied throughout this thesis. A more informative review of regulariza
 
 ### $$L^{1}$$ Regularization
 
+$$
+\hat{J}(\theta, \lambda)=J(\theta)+\lambda\|\theta\|_{1}
+$$
+
 ### $$L^{2}$$ Regularization
 
 $$L^{2}$$ regularization is commonly referred to as _weight decay_. It has been broadly applied in DNNs in order to control the squared sum of the trainable parameters $$\theta$$. To apply $$L^{2}$$ regularization, one modifies the original cost function $$J$$ to $$\hat{J}$$:
@@ -199,6 +203,14 @@ $$
 where $$\lambda$$ is a small constant that controls the weight decay speed.
 
 ### Dropout
+
+$$
+\begin{aligned}
+    \mathbf{r}^{l}&\sim\text{Bernoulli}(p) \\
+    \tilde{\mathbf{h}}^{l-1}&=\mathbf{r}^{l}*\mathbf{h}^{l-1} \\
+    \tilde{\mathbf{h}}^{l}&=f(\tilde{\mathbf{h}}^{l-1})
+\end{aligned}
+$$
 
 ### Batch Normalization
 
