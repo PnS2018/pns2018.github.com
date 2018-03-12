@@ -31,6 +31,15 @@ __Remark__: To be exact, differentiable models are the largest family of DL mode
 
 Artificial Neural Networks (ANNs) are machine learning models that are inspired by neuroscience findings and are constructed by a mathematical abstraction of functionality of biological neurons.
 
+---
+
+<div align="center">
+    <p><img src="./images/neuron.png" width="32%">
+    <p>An artificial neuron.</p>
+</div>
+
+---
+
 An artificial neuron receives a vector of input $$\mathbf{x}$$, and the output is determined by the activation function of the _weighted_ sum of the input vector and an optional bias value. Popular choices of activation functions are
 
 $$
@@ -46,9 +55,9 @@ where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Not
 ---
 
 <div align="center">
-    <p><img src="./images/sigmoid.gif" width="32%">
-    <img src="./images/tanh.gif" width="32%"></p>
-    <img src="./images/relu.gif" width="32%"></p>
+    <p><img src="./images/sigmoid.jpeg" width="32%">
+    <img src="./images/tanh.jpeg" width="32%"></p>
+    <img src="./images/relu.jpeg" width="32%"></p>
     <p><b>Left</b>: the Sigmoid function; <b>Middle</b>: the tanh function; <b>Right</b>: the ReLU function.</p>
 </div>
 
