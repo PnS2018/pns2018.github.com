@@ -85,7 +85,7 @@ $$
 \begin{aligned}
     \mathbf{h}^{0} &= \mathbf{x} \\
     \mathbf{y} &= \mathbf{h}^{L} \\
-    \mathbf{h}^{l} = f^{l}\left(\mathbf{h}^{l-1}; \mathbf{W}^{l}, \mathbf{b}^{l}\right),\quad 1\leq l\leq L
+    \mathbf{h}^{l} &= f^{l}\left(\mathbf{h}^{l-1}; \mathbf{W}^{l}, \mathbf{b}^{l}\right),\quad 1\leq l\leq L
 \end{aligned}
 $$
 
