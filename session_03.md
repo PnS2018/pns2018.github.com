@@ -153,7 +153,7 @@ operations can be found in Goodfellow et al. (2016) as well.
 
 [TODO] To integrate following paragraphs into the main text
 
-TO give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathbcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
+TO give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
 computed by:
 
 $$
