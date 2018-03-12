@@ -4,7 +4,7 @@ layout: default
 
 In this session, we are going to learn two types of __Artificial Neural Networks__ (ANNs): Multi-layer Perceptron (MLP) and Convolutional Neural Networks (ConvNets). These ANN architectures are also __Feedforward Networks__ (FNNs). We will show how they works and the links between them. In addition, we will also learn _regularization_ techniques that improve generalization during training.
 
-## Deep Learning: Another Jon Snow in CS Naming Logic
+## Deep Learning: Another Victim of the CS Naming Logic
 
 __Deep Learning__ (DL) is a terrible name. First of all, no one has defined a concrete definition of "deep" that everyone agrees. In the influential review article _Deep Learning in Neural Networks: An Overview_, Schmidhuber says:
 
@@ -14,7 +14,7 @@ At which problem depth does _Shallow Learning_ end, and _Deep Learning_ begin? D
 
 ---
 
-__Remark__: We encourage you to check out this fascinating review of Deep Learning. We also strongly encourage you to check out the author Jurgen Schmidhuber who is one of the founding fathers of DL.
+__Remark__: We encourage you to check out this fascinating review of Deep Learning.
 
 Instead of the term "deep", a term that might be more suitable is "hierarchical". However, modern (in last 2 years) deep learning models cannot simply be characterized by "hierarchical" anymore (e.g, Neural Turning Machine models).
 
@@ -114,6 +114,7 @@ where the equation takes the layer's output activation $$\mathbf{h}$$ and normal
 
 The use of BN in DNNs greatly smooths the network training in practice. It is not used as a default component in many DNNs architectures (e.g., ResNets). The application of BN in RNNs is recently explored in Cooijmans et al. (2016).
 
+## Credit Assignment and the Vanishing Gradient Problem
 
 ## Exercises
 
