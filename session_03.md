@@ -149,6 +149,27 @@ zero-padding parameters, e.g., overlapping pooling when pooling strides are
 smaller than pooling sub-region shape. A more informative review of pooling
 operations can be found in Goodfellow et al. (2016) as well.
 
+---
+
+[TODO] To integrate following paragraphs into the main text
+
+TO give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathbcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
+computed by:
+
+$$
+\hat{f}^{(i)}=\text{MaxPooling}(f^{(i)}, w)
+$$
+
+The output feature map $$\hat{f}^{(i)}$$ is arranged in rectangular shape with the size $$(\lfloor(n-d_{v}-2p_{v})/s_{v}+1\rfloor], \lfloor(m-d_{h}-2p_{h})/s_{h}+1\rfloor)$$. Each entry $$\hat{f}_{(x,y)}^{(i)}$$ contains the maximum activation value from a subset of input feature map $$f^{(i)}$$'s entries:
+
+$$
+\hat{f}_{(x,y)}^{(i)} = \max\left\{f_{(x',y')}^{(i)};x'\in[xs_{v}, xs_{v}+d_{v}-1], y'\in[ys_{h}, ys_{h}+d_{h}-1]\right\}
+$$
+
+where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
+
+---
+
 ConvNets are largely responsible for the renaissance of neural networks
 (Krizhevsky et al., 2012). They have proven to be great architectures for
 achieving state-of-the art results on visual recognition tasks, e.g., image and
