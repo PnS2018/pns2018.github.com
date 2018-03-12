@@ -113,7 +113,7 @@ $$
 Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks without any hidden layer. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
-The most profound mathematical argument on the MLP network may be the Universal Approximation Theorem. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
+The most profound mathematical argument on the MLP network may be the _Universal Approximation Theorem_. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
 Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
 
 ## Convolutional Nerual Networks
@@ -135,7 +135,7 @@ a detailed discussion in Goodfellow et al. (2016).
 ---
 
 <div align="center">
-    <p><img src="./images/convnet.png" width="32%"></p>
+    <p><img src="./images/convnet.png" width="70%"></p>
     <p>ConvNets usually consist of convolution layers, pooling layers and fully connected layers.</p>
 </div>
 
