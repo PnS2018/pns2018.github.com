@@ -98,7 +98,7 @@ $$
 Now, we can describe the MLP network in a similar manner. Suppose the $$l$$-th layer has $$m$$ neurons and $$(l-1)$$-th layer has $$n$$ neurons, and the parameters $$\mathbf{W}^{l}\in\mathbb{R}^{m\times n}$$, $$\mathbf{b}^{l}\in\mathbb{R}^{m}$$. The input activation from $$(l-1)$$-th layer $$\mathbf{h}^{l-1}\in\mathbb{R}^{n}$$, the activation of $$l$$-th layer can be computed by:
 
 $$
-\mathbf{h}^{l}=f^{l}\left(\mathbf{W}^{l}h^{l-1}+\mathbf{b}^{l}\right)
+\mathbf{h}^{l}=f^{l}\left(\mathbf{W}^{l}\mathbf{h}^{l-1}+\mathbf{b}^{l}\right)
 $$
 
 ---
@@ -109,6 +109,9 @@ $$
 </div>
 
 ---
+
+Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks without any hidden layer. Furthermore, the activation functions of the Linear Regression and Logistic Regression
+is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
 ## Convolutional Nerual Networks
 
