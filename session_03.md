@@ -27,13 +27,11 @@ We have to remember that DL consists of many extremely useful and powerful tools
 
 __Remark__: To be exact, differentiable models are the largest family of DL models. However, there are DL models that are not differentiable and do not use SGD to optimize (e.g., some Reinforcement Learning algorithms).
 
-In this module, we only investigates _Deep Neural Networks_ that represent the state-of-the-art performance among Deep Learning models.
-
 ## Artificial Neuron
 
 Artificial Neural Networks (ANNs) are machine learning models that are inspired by neuroscience findings and are constructed by a mathematical abstraction of functionality of biological neurons.
 
-An artificial neuron receives a vector of input $$\mathbf{x}$$, and the output is determined by the activation function of the _weighted_ sum of the iput vector and an optional bias value.. Popular choices of activation functions are
+An artificial neuron receives a vector of input $$\mathbf{x}$$, and the output is determined by the activation function of the _weighted_ sum of the input vector and an optional bias value. Popular choices of activation functions are
 
 $$
 \begin{cases}
@@ -43,7 +41,18 @@ $$
 \end{cases}
 $$
 
-where $$z=\mathbf{w}\mathbf{x}+b$$. Note that in practice there are more activation functions available (e.g., Leaky ReLU, ELU, softplus).
+where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Note that in practice there are more activation functions available (e.g., Leaky ReLU, ELU, softplus).
+
+---
+
+<div align="center">
+    <p><img src="./images/sigmoid.gif" width="32%">
+    <img src="./images/tanh.gif" width="32%"></p>
+    <img src="./images/relu.gif" width="32%"></p>
+    <p><b>Left</b>: the Sigmoid function; <b>Middle</b>: the tanh function; <b>Right</b>: the ReLU function.</p>
+</div>
+
+---
 
 A group of artificial neurons can be organized into a layer. A layer is the building block and ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
