@@ -44,9 +44,9 @@ An artificial neuron receives a vector of input $$\mathbf{x}$$, and the output i
 
 $$
 \begin{cases}
-    \text{sigmoid} & f(z)=\frac{1}{1+\exp(-z}) \\
-    \text{tanh} & f(z) = \frac{\exp(z)-\exp(-z)}{\exp(z)+\exp(-z)} \\
-    \text{ReLU} & f(z) = \max(0, z)
+    \text{sigmoid} & \sigma(z)=\frac{1}{1+\exp(-z}) \\
+    \text{tanh} & \tanh(z) = \frac{\exp(z)-\exp(-z)}{\exp(z)+\exp(-z)} \\
+    \text{ReLU} & \text{ReLU}(z) = \max(0, z)
 \end{cases}
 $$
 
@@ -63,7 +63,15 @@ where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Not
 
 ---
 
-Sigmoid function was very popular because (a) the function has a range between 0 to 1 so that one can interpret the level of activation to some meaning; (b) the function is more "biological plausible" than other activation functions for our artificial neuron model. However, in practice, Sigmoid function has some very undesirable properties. First,
+Sigmoid function was very popular because (a) the function has a range between 0 to 1 so that one can interpret the level of activation to some meaning; (b) the function is more "biological plausible" than other activation functions for our artificial neuron model. However, in practice, Sigmoid function has some very undesirable properties. One of the greatest issues is that the gradient of the neuron reaches to zero when the activation of the neuron saturates at the tails of the function. When the gradient is
+close zero, the parameters that is associated with the neuron can not be effectively updated.
+
+$$\tanh$$ is the scaled and shifted version of the Sigmoid function ($$\tanh(x)=2\sigma(2x)-1$$). This function squashes the function input to the range $$(-1, 1)$$. Compared to the Sigmoid function, the $$\tanh$$ function is zero-centered although it still has the saturation problem. In practice, the $$tanh$$ function is always preferred to the Sigmoid function.
+
+ReLU becomes very popular in the last few years after the seminal work _ImageNet Classification with Deep Convolutional Neural Networks_ by Alex Krizhevsky, et al. is published in 2014. The function greatly accelerates the training compared to the Sigmoid or $$\tanh$$ functions. Additionally, ReLU is very cheap to compute. The ReLU function has its own problems as well. For example, a neuron may not be activated by any inputs (e.g., always outputs zero) from the entire
+dataset if the neuron experienced a large gradient flow. And because the ReLU is an open-ended function, the training may suffer from instability if the network has too many layers.
+
+__Remarks__: Although ReLU function is the most-common choice of the activation function, Sigmoid or $$\tanh$$ function have their own market of use. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
 
 A group of artificial neurons can be organized into a layer. A layer is the building block and ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
@@ -93,7 +101,7 @@ zero-padding parameters, e.g., overlapping pooling when pooling strides are
 smaller than pooling sub-region shape. A more informative review of pooling
 operations can be found in Goodfellow et al. (2016) as well.
 
-onvNets are largely responsible for the renaissance of neural networks
+ConvNets are largely responsible for the renaissance of neural networks
 (Krizhevsky et al., 2012). They have proven to be great architectures for
 achieving state-of-the art results on visual recognition tasks, e.g., image and
 video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
