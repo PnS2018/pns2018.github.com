@@ -6,7 +6,7 @@ In this session, we are going to learn two types of __Artificial Neural Networks
 
 ## Deep Learning: Another Victim of the CS Naming Logic
 
-__Deep Learning__ (DL) is a terrible name. First of all, no one has defined a concrete definition of "deep" that everyone agrees. In the influential review article _Deep Learning in Neural Networks: An Overview_, Schmidhuber says:
+__Deep Learning__ (DL) is a terrible name. First of all, there is no concrete definition of the term "deep". In the influential review article _Deep Learning in Neural Networks: An Overview_, Schmidhuber says:
 
 ---
 
@@ -16,14 +16,18 @@ At which problem depth does _Shallow Learning_ end, and _Deep Learning_ begin? D
 
 __Remark__: We encourage you to check out this fascinating review of Deep Learning.
 
-Instead of the term "deep", a term that might be more suitable is "hierarchical". However, modern (in last 2 years) deep learning models cannot simply be characterized by "hierarchical" anymore (e.g, Neural Turning Machine models).
+Instead of the term "deep", "hierarchical" might be more suitable. However, modern (in last two years) DL models cannot simply be characterized by "hierarchical" anymore (e.g., Neural Turning Machine models).
 
-The second part of the name "Learning" is also a misleading word. If you look at the models we present in this module closely, there is nothing in the models that is associated with "learning" in the biological sense. The entire "learning" process is carried out by some powerful optimization algorithms (we called them "training" algorithms).
+The second part of the name "Learning" is also a misleading word. The "learning" process (via training) intends to improve the generalization in unseen examples. However, the concept does not associate with "learning" in the biological sense. The entire "learning" process is carried out by some powerful optimization algorithms (we called them "training" algorithms).
 
-I (Yuhuang) personally believe that this is another example where computer scientists gave a terrible yet catchy name (the first example is "Computer Science" itself, check [here](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/1a-overview-and-introduction-to-lisp/) for reason). Yann Lecun, another founding father of DL, proposed to rename "Deep Learning" to "Differentiable
-Programming" in a recent [Facebook post](https://www.facebook.com/yann.lecun/posts/10155003011462143). I think this is by far the most accurate definition. First, all modern deep learning models up to date are differentiable. And the optimization algorithms finds a set of optimal parameters that "program" the model to exhibit some desired behaviors.
+This is another example where computer scientists gave a terrible yet catchy name (the first example is "Computer Science" itself, check [here](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/1a-overview-and-introduction-to-lisp/) for reason). Yann Lecun, one of the founding fathers of DL, proposed to rename "Deep Learning" to "Differentiable
+Programming" in a recent [Facebook post](https://www.facebook.com/yann.lecun/posts/10155003011462143). This is by far the most accurate definition. First, all modern DL models up to date are differentiable. And the optimization algorithms finds a set of optimal parameters that "program" the model to exhibit some desired behaviors.
 
 We have to remember that DL consists of many extremely useful and powerful tools. However, DL alone is not AI, or Machine Learning.
+
+__Remark__: To be exact, differentiable models are the largest family of DL models. However, there are DL models that are not differentiable and do not use SGD to optimize (e.g., some Reinforcement Learning algorithms).
+
+In this module, we only investigates _Deep Neural Networks_ that represent the state-of-the-art performance among Deep Learning models.
 
 ## Artificial Neuron
 
