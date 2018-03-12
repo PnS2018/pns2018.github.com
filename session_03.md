@@ -179,6 +179,10 @@ generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
 that certain types of ConvNets achieve comparable performance in Natural
 Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
 
+### Convolution
+
+### Pooling
+
 ## Regularization
 
 Regularization techniques in DNNs research help to reduce the network generalization error which is the difference between training and testing errors. These
