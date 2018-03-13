@@ -128,7 +128,20 @@ __Remark__: Shun'ichi Amari wrote a brilliant article that is titled _Neural the
 
 ## Convolutional Nerual Networks
 
-Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets are a generalization of MLP networks. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
+Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets explicitly proposed to work with images. However, we can show that this model generalizes the MLP networks. ConvNets are largely responsible for the renaissance of neural networks
+(Krizhevsky et al., 2012). They have proven to be great architectures for
+achieving state-of-the art results on visual recognition tasks, e.g., image and
+video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
+2013), object detection (Ren et al., 2015; Liu et al., 2015) and image caption
+generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
+that certain types of ConvNets achieve comparable performance in Natural
+Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
+
+In this section, we firstly explain ConvNets in concepts, and then dive into implementation details.
+
+### Convolution
+
+The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
 
 $$
@@ -180,14 +193,6 @@ where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
 
 ---
 
-ConvNets are largely responsible for the renaissance of neural networks
-(Krizhevsky et al., 2012). They have proven to be great architectures for
-achieving state-of-the art results on visual recognition tasks, e.g., image and
-video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
-2013), object detection (Ren et al., 2015; Liu et al., 2015) and image caption
-generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
-that certain types of ConvNets achieve comparable performance in Natural
-Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
 
 ### Convolution
 
