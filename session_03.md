@@ -114,7 +114,7 @@ $$
 
 ---
 
-Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix.
+Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix. The activation function for the first layer is the linear activation $$f^{1}(x)=x$$.
 
 Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks that has two layers. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
