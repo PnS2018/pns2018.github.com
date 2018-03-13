@@ -73,6 +73,8 @@ dataset if the neuron experienced a large gradient flow. And because the ReLU is
 
 __Remarks__: Although ReLU function is the most-common choice of the activation function, Sigmoid or $$\tanh$$ function have their own market. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
 
+__Remarks__: The artificial neuron model is inspired by neuronscience findings and can solve many different problems. However, one should not over-explain its connection with neuroscience because the model can perfectly be analyzed without any neuroscience knowledge.
+
 A group of artificial neurons can be organized into a layer. A layer is the building block of ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
 ## Multi-layer Perceptron
@@ -95,7 +97,7 @@ $$
 \mathbf{y}=f^{L}(f^{L-1}(f^{L-2}(\cdots(f^{2}(f^{1}(\mathbf{x})))\cdots)))
 $$
 
-Note that the above formulation omits the method of computation between the layer input $$\mathbf{h}^{l-1}$$ and the parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$. In some books, the result before applying activation is called _pre-activation_ and denoted as $$\mathbf{z}^{l}$$.
+Note that the above formulation omits the method of computation between the layer input $$\mathbf{h}^{l-1}$$ and the parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$. In some books, the result before applying the activation function is called _pre-activation_ and denoted as $$\mathbf{z}^{l}$$.
 
 Now, we can describe the MLP network in a similar manner. Suppose the $$l$$-th layer has $$m$$ neurons and $$(l-1)$$-th layer has $$n$$ neurons, and the parameters $$\mathbf{W}^{l}\in\mathbb{R}^{m\times n}$$, $$\mathbf{b}^{l}\in\mathbb{R}^{m}$$. The input activation from $$(l-1)$$-th layer $$\mathbf{h}^{l-1}\in\mathbb{R}^{n}$$, the activation of $$l$$-th layer can be computed by:
 
@@ -118,9 +120,11 @@ Note that from the architecture point of view, MLP network is a generalization t
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
 The most profound mathematical argument on the MLP network may be the _Universal Approximation Theorem_. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
-Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
+Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources at the time. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
 
 __Remark__: Because the MLP layer densely connects all the neurons between two layers, it is also referred to as Fully-Connected Layer or Dense Layer.
+
+__Remark__: Shun'ichi Amari wrote a brilliant article that is titled _Neural theory of association and concept-formation_ in 1977. This paper explained how the neural networks can perform unsupervised learning and supervised learning. Amazingly, it also showed how MLP-kind network can be trained via gradient descent.
 
 ## Convolutional Nerual Networks
 
