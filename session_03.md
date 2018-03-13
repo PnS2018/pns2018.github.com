@@ -77,9 +77,9 @@ A group of artificial neurons can be organized into a layer. A layer is the buil
 
 ## Multi-layer Perceptron
 
-The Multi-layer Perceptron (MLP) network is a canonical Feedforward ANN architecture. Let's firstly define its parent class - FeedForward Neural Network (FNNs) before discussing MLP networks.
+The Multi-layer Perceptron (MLP) network is a canonical Feedforward ANN architecture. Let's firstly define its parent class - FeedForward Neural Network (FNNs) before discussing the MLP networks.
 
-FNNs are a class of ANNs where the computation flows in a single direction: there is no _feedback_ connection between layers. An FNN consists of $$L$$ layers where each layer $$l$$ is defined by its parameters $$\{W^{l}, b^{l}\}$$, which are referred to as weights and biases respectively. An activation function $$f^{l}(\cdot)$$ maps the layer input $$\mathbf{h}^{l-1}$$ to layer output $$\mathbf{h}^{l}$$:
+FNNs are a class of ANNs where the computation flows in a single direction: there is no _feedback_ connection between layers. An FNN consists of $$L$$ layers where each layer $$l$$ is defined by its parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$, which are referred to as weights and biases respectively. An activation function $$f^{l}(\cdot)$$ maps the layer input $$\mathbf{h}^{l-1}$$ to layer output $$\mathbf{h}^{l}$$:
 
 $$
 \begin{aligned}
@@ -94,6 +94,8 @@ An alternative view of FNNs is that the network computes a composition of functi
 $$
 \mathbf{y}=f^{L}(f^{L-1}(f^{L-2}(\cdots(f^{2}(f^{1}(\mathbf{x})))\cdots)))
 $$
+
+Note that the above formulation omits the method of computation between the layer input $$\mathbf{h}^{l-1}$$ and the parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$. In some books, the result before applying activation is called _pre-activation_ and denoted as $$\mathbf{z}^{l}$$.
 
 Now, we can describe the MLP network in a similar manner. Suppose the $$l$$-th layer has $$m$$ neurons and $$(l-1)$$-th layer has $$n$$ neurons, and the parameters $$\mathbf{W}^{l}\in\mathbb{R}^{m\times n}$$, $$\mathbf{b}^{l}\in\mathbb{R}^{m}$$. The input activation from $$(l-1)$$-th layer $$\mathbf{h}^{l-1}\in\mathbb{R}^{n}$$, the activation of $$l$$-th layer can be computed by:
 
@@ -110,11 +112,15 @@ $$
 
 ---
 
-Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks without any hidden layer. Furthermore, the activation functions of the Linear Regression and Logistic Regression
+Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix.
+
+Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks that has two layers. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
 The most profound mathematical argument on the MLP network may be the _Universal Approximation Theorem_. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
 Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
+
+__Remark__: Because the MLP layer densely connects all the neurons between two layers, it is also referred to as Fully-Connected Layer or Dense Layer.
 
 ## Convolutional Nerual Networks
 
