@@ -114,7 +114,7 @@ $$
 
 ---
 
-Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix. The activation function for the first layer is the linear activation $$f^{1}(x)=x$$.
+Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix. The activation function for the first layer is the linear activation $$f^{1}(z)=z$$.
 
 Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks that has two layers. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
@@ -128,18 +128,18 @@ __Remark__: Shun'ichi Amari wrote a brilliant article that is titled _Neural the
 
 ## Convolutional Nerual Networks
 
-Convolutional Neural Networks (ConvNets) are a generalization of MLP networks. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
+Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets are a generalization of MLP networks. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
 
 $$
 \begin{aligned}
     \mathbf{z}_{k_{m}}(i,j)&=\left(\mathbf{W}_{k_{m}}^{l}*\mathbf{F}\right)(i,j) \\
-    &=\sum_{k_{n}}\sum_{k_{h}}\sum_{k_{w}}\mathbf{F}(k_{h}, k_{w})\mathbf{W}_{k_{m}}^{l}(i-k_{h}, j-k_{w})+b_{k_{m}}^{l} \\
+    &=\sum_{k_{n}}\sum_{k_{h}}\sum_{k_{w}}\mathbf{F}(k_{h}, k_{w})\mathbf{W}_{k_{m}}^{l}(i-k_{h}, j-k_{w})+\mathbf{b}_{k_{m}}^{l} \\
     \mathbf{h}_{k_{m}}^{l}&=f^{l}(\mathbf{z}_{k_{m}})
 \end{aligned}
 $$
 
-The above equations demonstrate the convolution operation by using the $$k+{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and sub-sampling parameters (strides). There are variants of convolution operations according to different parameter settings. Readers can find
+The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and sub-sampling parameters (strides). There are variants of convolution operations according to different parameter settings. Readers can find
 a detailed discussion in Goodfellow et al. (2016).
 
 ---
