@@ -164,6 +164,8 @@ a detailed discussion in Goodfellow et al. (2016).
 
 ---
 
+### Pooling
+
 Another important component of ConvNets is pooling. The pooling operation is inspired by the complex cells in the Primary Visual Cortex (V1) (Hubel
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
 are widely applied in Deep Neural Networks. Note that more complicated
@@ -193,10 +195,8 @@ where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
 
 ---
 
+### Flatten and Fully Connected Layers
 
-### Convolution
-
-### Pooling
 
 ## Regularization
 
