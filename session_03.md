@@ -139,6 +139,8 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 
 ### Convolution
 
+ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies on the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at each position, the filter and the covered region does an element-wise multiplication and summation. See the
+example as follows:
 
 ---
 
@@ -148,6 +150,24 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 </div>
 
 ---
+
+For example, when the filter is covered the top-left corner, the output value can be computed by
+
+$$
+\sum_{i,j}\left[\begin{matrix}
+    1 & 1 & 1 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{matrix}\right]\odot\left[\begin{matrix}
+    1 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 1
+\end{matrix}\right] = \sum_{i,j}\left[\begin{matrix}
+    1 & 0 & 1 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{matrix}\right] = 4
+$$
 
 The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
