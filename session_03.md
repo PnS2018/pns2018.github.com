@@ -137,7 +137,7 @@ generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
 that certain types of ConvNets achieve comparable performance in Natural
 Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
 
-### Convolution
+### Convolution Layer
 
 ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies on the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
 example as follows:
@@ -169,21 +169,28 @@ $$
 \end{matrix}\right] = 4
 $$
 
-More generally, if the input image has the dimension of $$N_{h}\times N_{w}$$ and the filter size is $$K_{h}\times K_{w}$$, the output size of the convolved output is $$(N_{h}-K_{h}+1)\times(N_{w}-K_{w}+1)$$. This convolved output is usually referred to as a _feature map_. Commonly, we call the input image as the _input feature map_ and the output as the _output feature map_.
+More generally, if the input image has the dimension of $$N_{h}\times N_{w}$$ and the filter size is $$K_{h}\times K_{w}$$, the output size of the convolved output is $$(N_{h}-K_{h}+1)\times(N_{w}-K_{w}+1)$$. This convolved output is usually referred to as a _feature map_. Commonly, we call the input image as the _input feature map(s)_ and the output as the _output feature map(s)_.
 
 In the above example, the input binary image has only one _channel_ that means the image is a 2D array. However, a RGB image usually has three _channels_. The first channel represents the red intensity, the second channel represents the green intensity and the third channel represents the blue intensity. The mixture of these three channels produces a color image. How can we deal with the input that has multiple channels? The answer is that we also give more channels for
-the filter. Suppose that the input has $$N_{f}$$ channels, the filter will also have $$K_{n}=N_{f}$$ channels. First, each channel of the filter is applied on the corresponding channel of the input feature map. Then, the convolved output is summed along the axis of the channels so that it becomes a feature map that has only one channel in the end. A visual example is given as follows
+the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the filter will also have $$K_{n}=N_{f}$$ channels. First, each channel of the filter is applied on the corresponding channel of the input. Then, the convolved output is summed along the axis of the channels so that it becomes a output feature map that has only one channel in the end. A visual example is given as follows
 
 ---
 
 <div align="center">
 <iframe src="./res/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
-    <p>Convolution on a 3x7x7 image with a 2x3x3x3 filter. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
+    <p>Convolution on a 3x7x7 image with two 3x3x3 filters. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
 </div>
 
 ---
 
+In above example, the input feature map is a 3D tensor, and respectively, the filter is also a 3D tensor. In ConvNets, every _convolution layer_ usually has $$K_{m}$$ filters, each filter can generate __one__ output feature map. Hence, the filters of a convolution layer can be characterized as a 4D tensor `number of filters x number of channels x height of filters x width of filters`. The input feature map is then transformed from a 3D tensor to another 3D tensor.
 
+Additionally, there are two additional configurations to the convolution operation: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filter. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
+filters jump two pixels at a time. The above example has a stride of two in both horizontal and vertical directions.
+
+__Remarks__: the number of channels/feature maps is also called "depth" of the layer input and output.
+
+__Remarks__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
 
 The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
