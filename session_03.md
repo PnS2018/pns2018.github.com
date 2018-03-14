@@ -203,9 +203,23 @@ where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
 
 ---
 
-### Flatten and Fully Connected Layers
+### Flatten and Dense Layers
 
-The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N-D$$ tensor
+The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N-D$$ tensor into a 1D vector. In Keras, you can easily use the `Flatten` layer to do this job:
+
+```python
+x = Flatten()(x)
+```
+
+Note that we always assume that the first dimension is reserved for `batch_size` and the flatten operation does not affect the first dimension. For example, if you flatten a input 4D tensor with the size `(64, 10, 20, 3)`, the flattened output is a 2D tensor with the size `(64, 10x20x3)`.
+
+One main reason of performing the flatten operation is to append more MLP layers (see above figure). Because MLP layers only receives 1D vector as inputs, we will have to flatten the output of convolution layers before send it into the MLP layers. In practice, we usually refer MLP layers to as Dense layer or Fully-Connected layer.
+
+### Calculating tensor shape
+
+It is very important to keep track with the input and output tensor shapes for each layer while designing a network. For now, it is fairly easy to figure out all these shapes because we only introduced some essential components of ConvNets.
+
+State-of-the-art ConvNet-based architectures have way more complicated structures, and one important debugging scheme is make sure 
 
 ## Regularization
 
