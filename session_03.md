@@ -205,6 +205,16 @@ $$
 
 The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and stride parameters.
 
+The last topic of this section is to calculate the output feature maps' tensor shape  given the horizontal padding $$P_{h}$$, the vertical padding $$P_{v}$$, the horizontal stride $$S_{h}$$ and vertical stride $$S_{v}$$, the output feature maps' tensor shape is:
+
+$$
+\begin{aligned}
+    \hat{N}_{f}&=K_{m} \\
+    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
+    \hat{N}_{w}&=(N_{w}-K_{w}+2P_{w})/S_{w}+1
+\end{aligned}
+$$
+
 ---
 
 <div align="center">
