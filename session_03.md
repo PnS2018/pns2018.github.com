@@ -144,7 +144,7 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 
 <div align="center">
     <p><img src="./images/Convolution_schematic.gif" width="50%"></p>
-    <p>2D convolution on a 6x6 binary image with a 3x3 filter. Image Credit: [UFLDL](http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/)</p>
+    <p>2D convolution on a 6x6 binary image with a 3x3 filter. Image Credit: <a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/">UFLDL</a></p>
 </div>
 
 ---
