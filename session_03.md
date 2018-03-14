@@ -277,6 +277,10 @@ where the equation takes the layer's output activation $$\mathbf{h}$$ and normal
 
 The use of BN in DNNs greatly smooths the network training in practice. It is not used as a default component in many DNNs architectures (e.g., ResNets). The application of BN in RNNs is recently explored in Cooijmans et al. (2016).
 
+Note that one would have to perform BN in both training and inference phases. The only difference is that during the inference phase, the trained $$\gamma$$ and $$\beta$$ parameters are not updated anymore. Furthermore, there are techniques to rescale the trained weights according to BN's trained parameters so that one can avoid BN's calculation during the inference phase. We omitted this details because this is out of the scope of this module.
+
+__Remarks__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the dropout seems making small difference in training.
+
 ## Credit Assignment and the Vanishing Gradient Problem
 
 ## Exercises
