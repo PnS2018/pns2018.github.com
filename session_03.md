@@ -281,8 +281,6 @@ Note that one would have to perform BN in both training and inference phases. Th
 
 __Remarks__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the dropout seems making small difference in training.
 
-## Credit Assignment and the Vanishing Gradient Problem
-
 ## Exercises
 
 1. In this exercise, you will need to implement a multi-layer perceptron to classify the images in the [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset into ten classes. As in last week, you will be provided with a [template script](./res/code/mlp-with-keras-layers-template.py) with the barebone structure of the implementation. You will need to complete the script by defining a multi-layer perceptron model with two hidden layers of 100 units each, each with 'relu' activation, using Keras layers, compile the model with the categorical cross entropy loss and an optimizer of your choice, and train the model. Note the performance of the model after every epoch and also note the number of parameters in the model.
