@@ -139,6 +139,16 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 
 ### Convolution
 
+
+---
+
+<div align="center">
+    <p><img src="./images/Convolution_schematic.gif" width="50%"></p>
+    <p>2D convolution on a 6x6 binary image with a 3x3 filter. Image Credit: [UFLDL](http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/)</p>
+</div>
+
+---
+
 The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
 
@@ -195,6 +205,7 @@ where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
 
 ### Flatten and Fully Connected Layers
 
+The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N-D$$ tensor
 
 ## Regularization
 
