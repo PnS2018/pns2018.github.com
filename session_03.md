@@ -128,7 +128,7 @@ __Remark__: Shun'ichi Amari wrote a brilliant article that is titled _Neural the
 
 ## Convolutional Nerual Networks
 
-Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets explicitly proposed to work with images. However, we can show that this model generalizes the MLP networks. ConvNets are largely responsible for the renaissance of neural networks
+Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets explicitly proposed to work with images. Furthermore, we can show that this model generalizes the MLP networks. ConvNets are largely responsible for the renaissance of neural networks
 (Krizhevsky et al., 2012). They have proven to be great architectures for
 achieving state-of-the art results on visual recognition tasks, e.g., image and
 video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
@@ -136,8 +136,6 @@ video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
 generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
 that certain types of ConvNets achieve comparable performance in Natural
 Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
-
-In this section, we firstly explain ConvNets in concepts, and then dive into implementation details.
 
 ### Convolution
 
