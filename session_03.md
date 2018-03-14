@@ -215,6 +215,8 @@ $$
 \end{aligned}
 $$
 
+__Remarks__: Readers may think that the above examples compute "correlation" instead of "convolution", and you are correct. The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
+
 ---
 
 <div align="center">
