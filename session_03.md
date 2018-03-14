@@ -215,24 +215,15 @@ Note that we always assume that the first dimension is reserved for `batch_size`
 
 One main reason of performing the flatten operation is to append more MLP layers (see above figure). Because MLP layers only receives 1D vector as inputs, we will have to flatten the output of convolution layers before send it into the MLP layers. In practice, we usually refer MLP layers to as Dense layer or Fully-Connected layer.
 
-### Calculating tensor shape
+Note that it is possible to convert a 1D vector back to a 3D tensor via reshaping. This is sometimes useful in practice while your desired output is characterized as a 3D volume.
 
-It is very important to keep track with the input and output tensor shapes for each layer while designing a network. For now, it is fairly easy to figure out all these shapes because we only introduced some essential components of ConvNets.
-
-State-of-the-art ConvNet-based architectures have way more complicated structures, and one important debugging scheme is make sure 
+__Remarks__: the development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
 
 ## Regularization
 
 Regularization techniques in DNNs research help to reduce the network generalization error which is the difference between training and testing errors. These
 techniques usually bound the weights, stabilize training, and increase robustness against adversarial examples of the network. This section introduces $$L^{2}$$
-Regularization and Batch Normalization (BN) (Ioffe & Szegedy, 2015) which
-are both applied throughout this thesis. A more informative review of regularization in Deep Learning can be found in Goodfellow et al. (2016).
-
-### $$L^{1}$$ Regularization
-
-$$
-\hat{J}(\theta, \lambda)=J(\theta)+\lambda\|\theta\|_{1}
-$$
+Regularization, Dropout and Batch Normalization (BN) (Ioffe & Szegedy, 2015). A more informative review of regularization in Deep Learning can be found in Goodfellow et al. (2016).
 
 ### $$L^{2}$$ Regularization
 
@@ -244,15 +235,32 @@ $$
 
 where $$\lambda$$ is a small constant that controls the weight decay speed.
 
+Intuitively, as the $$L^{2}$$ regularization applies the constraints on the weights, it reduce the effects of overfitting by decreasing the magnitude of the weights.
+
+Usually $$L^{2}$$ regularization is not applied to the bias terms and only makes small difference if it applies to the bias terms. Note that in some books, the control parameter $$\lambda$$ is written as $$\frac{\lambda}{2}$$. This style of formulation helps while deriving the gradient updates.
+
+__Remarks__: $$L^{2}$$ Regularization is also known as _ridge regression_ or _Tikhonov regularization_.
+
 ### Dropout
+
+Dropout is very simple yet effective regularization technique for mitigating the overfitting (Srivastava et al 2014). Dropout firstly compute a binary mask where $$p$$% of the elements of the mask are set to zero stochastically. Then the mask and the incoming layer inputs $$\mathbf{h}^{l-1}$$ performs a element-wise multiplication. Finally, the masked output $$\tilde{\mathbf{h}}^{l-1}$$ is used as the layer input. This binary mark switches the neuron off by turning the
+activation to zero. Hence, the neuron would not be updated in the next gradient update.
 
 $$
 \begin{aligned}
     \mathbf{r}^{l}&\sim\text{Bernoulli}(p) \\
-    \tilde{\mathbf{h}}^{l-1}&=\mathbf{r}^{l}*\mathbf{h}^{l-1} \\
+    \tilde{\mathbf{h}}^{l-1}&=\mathbf{r}^{l}\odot\mathbf{h}^{l-1} \\
     \tilde{\mathbf{h}}^{l}&=f^{l}(\tilde{\mathbf{h}}^{l-1})
 \end{aligned}
 $$
+
+Note that this process is only performed during the network training so that the generalization could be improved. It switches off during the testing/inference phase.
+
+The dropout purposely adds noise to the system so that during training, the network is forced to make correct prediction with imperfect inputs. This process hence improves the robustness of the network to test samples.
+
+Another way to explain the dropout is the network resemble view. Because at each batch training, the network switches $$p$$% neurons off, the masked network is trained while the weights of the other neurons are not updated. After training, since the dropout is not applied anymore, we can intuitively view that all the masked networks during training are combined to produce prediction simultaneously.
+
+__Remarks__: from the formulation, Dropout connects to another classical architecture - _Denoising Autoencoder_. Interested readers can checkout this architecture.
 
 ### Batch Normalization
 
