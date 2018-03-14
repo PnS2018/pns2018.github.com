@@ -177,8 +177,8 @@ the filter. Suppose that the input has $$N_{f}$$ channels, the filter will also 
 ---
 
 <div align="center">
-<iframe src="/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
-    <p>Convolution on a 3x7x7 image with a 3x3x3 filter. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
+<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
+    <p>Convolution on a 3x7x7 image with a 2x3x3x3 filter. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
 </div>
 
 ---
