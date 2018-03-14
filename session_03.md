@@ -188,11 +188,11 @@ In above example, the input feature map is a 3D tensor, and respectively, the fi
 Additionally, there are two additional configurations to the convolution operation: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filter. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
 filters jump two pixels at a time. The above example has a stride of two in both horizontal and vertical directions.
 
-__Remarks__: the number of channels/feature maps is also called "depth" of the layer input and output.
+__Remarks__: the number of channels/feature maps is also called _depth_ of the layer input and output.
 
 __Remarks__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
 
-The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
+With the informal description above, we can now formally describe the convolution layer. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
 
 $$
@@ -203,8 +203,7 @@ $$
 \end{aligned}
 $$
 
-The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and sub-sampling parameters (strides). There are variants of convolution operations according to different parameter settings. Readers can find
-a detailed discussion in Goodfellow et al. (2016).
+The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and stride parameters.
 
 ---
 
