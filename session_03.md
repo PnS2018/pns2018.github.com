@@ -177,11 +177,13 @@ the filter. Suppose that the input has $$N_{f}$$ channels, the filter will also 
 ---
 
 <div align="center">
-<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
+<iframe src="./res/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
     <p>Convolution on a 3x7x7 image with a 2x3x3x3 filter. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
 </div>
 
 ---
+
+
 
 The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
