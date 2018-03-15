@@ -260,8 +260,8 @@ Another important component of ConvNets is pooling. The pooling operation is ins
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
 are widely applied in DNNs.
 
-In many ways, one can view the pooling layer as a variant of the convolution layer. Although this claim is not correct in general, this can help you understand the concept. Let's consider a filter that has the size $$K_{h}\times K{v}$$ (the pooling size) can carry out the pooling operation on a feature map. We also define the padding parameters $$P_{h}$$, $$P_{v}$$ and the stride parameters $$S_{h}$$, $$S_{v}$$. Now we slide this filter on the target feature map as the same as the convolution
-process. At each covered region, instead of computing the weighted sum of the region, the filter applies a predefined function $$g$$ that extracts/computes the output value. The same filter carries out the same process to all other input feature maps. At the end of the pooling operation, the height and width of the output feature maps may be different from the input feature maps. However, the number of the feature maps is remained the same. The tensor size of the output feature
+In many ways, one can view the pooling layer as a variant of the convolution layer. Although this claim is not correct in general, this can help you understand the concept. Let's consider a filter that has the size $$K_{h}\times K_{v}$$ (the pooling size) can carry out the pooling operation on a feature map. We also define the padding parameters $$P_{h}$$, $$P_{v}$$, and the stride parameters $$S_{h}$$, $$S_{v}$$. Now we slide this filter on the target feature map as the same as the convolution
+process. At each covered region, instead of computing the weighted sum of the region, the filter applies a predefined function $$g$$ that extracts/computes the output value. The same filter carries out the same process to all other input feature maps. At the end of the pooling operation, the height and width of the output feature maps may be different from the input feature maps. However, the number of the feature maps remains the same. The tensor shape of the output feature
 maps can be calculated:
 
 $$
@@ -285,9 +285,9 @@ commonly call this as "non-overlapping pooling". In some situations, you can set
 
 ---
 
-The rest of this section discuss two popular types of pooling: Max-pooling and Average-pooling.
+The rest of this section discusses two popular types of pooling: Max-pooling and Average-pooling.
 
-The max-pooling selects the maximum value in the covered region and omits all other values. The max-pooling operation implements a certain degree of "translation invariance" at small scale because if the input feature maps has a small shift, the same maximum value can still be selected.
+The max-pooling selects the maximum value in the covered region and omits all other values. The max-pooling operation implements a certain degree of "translation invariance" at small scale because if the input feature maps have a small shift, the same maximum value can still be selected.
 Given a set of input feature maps $$\mathbf{F}$$, for each input feature map $$\mathbf{F}_{n_{f}}$$ where $$1\leq n_{f}\leq N_{f}$$, the output feature map $$\hat{\mathbf{F}}_{n_{f}}$$ can be computed via the following equation:
 
 $$
@@ -303,7 +303,7 @@ where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We al
 x = MaxPooling2D((2, 2))(x)  # perform max-pooling over 2x2 non-overlapping region
 ```
 
-As the name suggested, the average-pooling operation computes the average activation of the covered region:
+The average-pooling operation computes the average activation of the covered region:
 
 $$
 \begin{aligned}
@@ -318,27 +318,27 @@ A Keras example is given as follows:
 x = AveragePooling2D((2, 2))(x)  # perform average-pooling over 2x2 non-overlapping region
 ```
 
-In practice, there are two kinds of special cases of max-pooling and average-pooling that are widely employed: global max-pooling and global average-pooling. As the name suggested, the global max-pooling and average-pooling has the configurations where $$K_{h}=N_{h}$$, $$K_{v}=N_{w}$$, the padding is set to zero and stride is set to one.
+In practice, there are two kinds of special cases of max-pooling and average-pooling that are widely employed: global max-pooling and global average-pooling. The global max-pooling and average-pooling has the configurations where $$K_{h}=N_{h}$$, $$K_{v}=N_{w}$$, the padding is set to zero and stride is set to one.
 
-Note that in section, we only describes the pooling layers for 2D feature maps. There are other variants in Keras implementation that can deal with 1D or 3D feature maps.
+Note that in section, we only describe the pooling layers for 2D feature maps. There are other variants in Keras implementation that can deal with 1D or 3D feature maps.
 
-__Remark__: Recently, people tends to use convolution that has larger strides to replace the pooling operation for sub-sampling, such as ResNets.
+__Remark__: Recently, people tend to use convolution that has larger strides to replace the pooling operation for sub-sampling, such as ResNets.
 
 ### Flatten and Dense Layers
 
-The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N$$-D tensor into a 1D vector. In Keras, you can easily use the `Flatten` layer to do this job:
+The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N$$-D tensor into a 1D vector. In Keras, you can use the `Flatten` layer to do this job:
 
 ```python
 x = Flatten()(x)
 ```
 
-Note that we always assume that the first dimension is reserved for `batch_size` and the flatten operation does not affect the first dimension. For example, if you flatten a input 4D tensor with the size `(64, 10, 20, 3)`, the flattened output is a 2D tensor with the size `(64, 10x20x3)`.
+Note that we always assume that the first dimension is reserved for `batch_size` and the flatten operation does not affect the first dimension. For example, if you flatten an input 4D tensor with the size `(64, 10, 20, 3)`, the flattened output is a 2D tensor with the size `(64, 10x20x3)`.
 
-One main reason of performing the flatten operation is to append more MLP layers (see above figure). Because MLP layers only receives 1D vector as inputs, we will have to flatten the output of convolution layers before send it into the MLP layers. In practice, we usually refer MLP layers to as Dense layer or Fully-Connected layer.
+One main reason for performing the flatten operation is to append more MLP layers (see above figure). Because MLP layers only receive 1D vector as inputs, we will have to flatten the output of convolution layers before sending it into the MLP layers. In practice, we usually refer MLP layers to as Dense layer or Fully-Connected layer.
 
-Note that it is possible to convert a 1D vector back to a 3D tensor via reshaping. This is sometimes useful in practice while your desired output is characterized as a 3D volume.
+Note that it is possible to convert a 1D vector back to a 3D tensor via reshaping. This operation is sometimes used in practice if your desired output is characterized as a 3D volume.
 
-__Remark__: the development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
+__Remark__: The development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
 
 ## Regularization
 
@@ -364,13 +364,13 @@ x=Dense(64,
 
 Intuitively, as the $$L^{2}$$ regularization applies the constraints on the weights, it reduce the effects of overfitting by decreasing the magnitude of the weights.
 
-Usually $$L^{2}$$ regularization is not applied to the bias terms and only makes small difference if it applies to the bias terms. Note that in some books, the control parameter $$\lambda$$ is written as $$\frac{\lambda}{2}$$. This style of formulation helps while deriving the gradient updates.
+Usually, $$L^{2}$$ regularization is not applied to the bias terms and only makes small difference if it applies to the bias terms. Note that in some books, the control parameter $$\lambda$$ is written as $$\frac{\lambda}{2}$$. This style of formulation helps while deriving the gradient updates.
 
 __Remark__: $$L^{2}$$ Regularization is also known as _ridge regression_ or _Tikhonov regularization_.
 
 ### Dropout
 
-Dropout is very simple yet effective regularization technique for mitigating the overfitting (Srivastava et al 2014). Dropout firstly compute a binary mask where $$p$$% of the elements of the mask are set to zero stochastically. Then the mask and the incoming layer inputs $$\mathbf{h}^{l-1}$$ performs a element-wise multiplication. Finally, the masked output $$\tilde{\mathbf{h}}^{l-1}$$ is used as the layer input. This binary mark switches the neuron off by turning the
+Dropout is a simple yet effective regularization technique for mitigating the overfitting (Srivastava et al 2014). Dropout first computes a binary mask where $$p$$% of the elements of the mask are set to zero stochastically. Then, the mask and the incoming layer inputs $$\mathbf{h}^{l-1}$$ performs a element-wise multiplication. Finally, the masked output $$\tilde{\mathbf{h}}^{l-1}$$ is used as the layer input. This binary mark switches the neuron off by turning the
 activation to zero. Hence, the neuron would not be updated in the next gradient update.
 
 $$
@@ -387,15 +387,15 @@ Note that this process is only performed during the network training so that the
 x = Dropout(0.3)(x)  # 30 of the neurons are dropped
 ```
 
-The dropout purposely adds noise to the system so that during training, the network is forced to make correct prediction with imperfect inputs. This process hence improves the robustness of the network to test samples.
+The dropout purposely adds noise to the system so that during training, the network is forced to make correct predictions with imperfect inputs. This process hence improves the robustness of the network to test samples.
 
-Another way to explain the dropout is the network resemble view. Because at each batch training, the network switches $$p$$% neurons off, the masked network is trained while the weights of the other neurons are not updated. After training, since the dropout is not applied anymore, we can intuitively view that all the masked networks during training are combined to produce prediction simultaneously.
+Another way to explain the dropout is the network resemble view. Because at each batch training, the network switches $$p$$% neurons off, the masked network is trained while the weights of the other neurons are not updated. After training, since the dropout is not applied, we can intuitively view that all the masked networks during training are combined to produce prediction simultaneously.
 
-__Remark__: from the formulation, Dropout connects to another classical architecture - _Denoising Autoencoder_. Interested readers can checkout this architecture.
+__Remark__: From the formulation, Dropout connects to another classical architecture - _Denoising Autoencoder_. Interested readers can check out this architecture.
 
 ### Batch Normalization
 
-Batch Normalization (BN) was proposed as a strategy of reducing internal
+Batch Normalization (BN) was proposed as a strategy for reducing internal
 covariate shift (Ioffe & Szegedy, 2015). Internal covariate shift is characterized
 as “the change in the distribution of network activation due to the change in
 network parameters during training”. Mathematically, BN is defined as:
@@ -412,9 +412,9 @@ x = BatchNormalization()(x)  # perform BN on the input
 
 The use of BN in DNNs greatly smooths the network training in practice. It is not used as a default component in many DNNs architectures (e.g., ResNets). The application of BN in RNNs is recently explored in Cooijmans et al. (2016).
 
-Note that one would have to perform BN in both training and inference phases. The only difference is that during the inference phase, the trained $$\gamma$$ and $$\beta$$ parameters are not updated anymore. Furthermore, there are techniques to rescale the trained weights according to BN's trained parameters so that one can avoid BN's calculation during the inference phase. We omitted this details because this is out of the scope of this module.
+Note that one has to perform BN in both training and inference phases. The only difference is that during the inference phase, the trained $$\gamma$$ and $$\beta$$ parameters are not updated anymore. Furthermore, there are techniques to rescale the trained weights according to BN's trained parameters so that one can avoid BN's calculation during the inference phase. We omitted this details because this is out of the scope of this module.
 
-__Remark__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the dropout seems making small difference in training.
+__Remark__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the Dropout seems to make a small difference in training.
 
 ## Exercises
 
