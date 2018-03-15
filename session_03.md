@@ -328,7 +328,7 @@ __Remark__: Recently, people tends to use convolution that has larger strides to
 
 ### Flatten and Dense Layers
 
-The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N-D$$ tensor into a 1D vector. In Keras, you can easily use the `Flatten` layer to do this job:
+The output of convolution and pooling layers for a single sample is organized in a 3D tensor. And commonly, we would like to reorganize this tensor to a 1D vector so that we can manipulate all "information" carried by the output easily. This process is called _flatten_. The flatten operation simply "stretch" an $$N$$-D tensor into a 1D vector. In Keras, you can easily use the `Flatten` layer to do this job:
 
 ```python
 x = Flatten()(x)
