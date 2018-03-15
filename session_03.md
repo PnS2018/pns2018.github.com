@@ -71,9 +71,9 @@ __tanh__ is the scaled and shifted version of the Sigmoid function ($$\tanh(x)=2
 __ReLU__ becomes very popular in the last few years after the seminal work _ImageNet Classification with Deep Convolutional Neural Networks_ by Alex Krizhevsky, et al. was published in 2014. The function greatly accelerates the training compared to the Sigmoid or $$\tanh$$ functions. Additionally, ReLU is very cheap to compute. The ReLU function has its own problems as well. For example, a neuron may not be activated by any inputs (e.g., always outputs zero) from the entire
 dataset if the neuron experienced a large gradient flow. And because the ReLU is an open-ended function, the training may suffer from instability if the network has too many layers.
 
-__Remarks__: Although ReLU function is the most-common choice of the activation function, Sigmoid or $$\tanh$$ function have their own market. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
+__Remark__: Although ReLU function is the most-common choice of the activation function, Sigmoid or $$\tanh$$ function have their own market. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
 
-__Remarks__: The artificial neuron model is inspired by neuronscience findings and can solve many different problems. However, one should not over-explain its connection with neuroscience because the model can perfectly be analyzed without any neuroscience knowledge.
+__Remark__: The artificial neuron model is inspired by neuronscience findings and can solve many different problems. However, one should not over-explain its connection with neuroscience because the model can perfectly be analyzed without any neuroscience knowledge.
 
 A group of artificial neurons can be organized into a layer. A layer is the building block of ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
@@ -180,10 +180,10 @@ $$
 \end{matrix}\right] = 4
 $$
 
-More generally, if the input image has the dimension of $$N_{h}\times N_{w}$$ and the filter size is $$K_{h}\times K_{w}$$, the output size of the convolved output is $$(N_{h}-K_{h}+1)\times(N_{w}-K_{w}+1)$$. This convolved output is usually referred to as a _feature map_. Commonly, we call the input image as the _input feature map(s)_ and the output as the _output feature map(s)_.
+More generally, if the input image has the dimension of $$N_{h}\times N_{w}$$ and the filter size is $$K_{h}\times K_{w}$$, the output size of the convolved output is $$(N_{h}-K_{h}+1)\times(N_{w}-K_{w}+1)$$. This convolved output is usually referred to as a _feature map_. Commonly, we call the input of a convolution layer as the _input feature map(s)_ and the output as the _output feature map(s)_.
 
-In the above example, the input binary image has only one _channel_ that means the image is a 2D array. However, a RGB image usually has three _channels_. The first channel represents the red intensity, the second channel represents the green intensity and the third channel represents the blue intensity. The mixture of these three channels produces a color image. How can we deal with the input that has multiple channels? The answer is that we also give more channels for
-the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the filter will also have $$K_{n}=N_{f}$$ channels. First, each channel of the filter is applied on the corresponding channel of the input. Then, the convolved output is summed along the axis of the channels so that it becomes a output feature map that has only one channel in the end. A visual example is given as follows
+In the above example, the input binary image has only one _channel_ that means the image is a 2D array. However, a RGB image usually has three _channels_ where these channels represents the red intensity, the green intensity and the blue intensity correspondingly. The mixture of these three channels produces a color image. How can a convolution layer deal with the input that has multiple channels? The answer is that we also give more channels to
+the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the filter will also have $$K_{n}=N_{f}$$ channels. First, each channel of the filter is applied on the corresponding channel of the input. Second, the convolved outputs of all feature maps are summed along the axis of the channels so that they are combined into one output feature map. A visual example is given as follows
 
 ---
 
@@ -196,14 +196,14 @@ the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the
 
 In above example, the input feature map is a 3D tensor, and respectively, the filter is also a 3D tensor. In ConvNets, every _convolution layer_ usually has $$K_{m}$$ filters, each filter can generate __one__ output feature map. Hence, the filters of a convolution layer can be characterized as a 4D tensor `number of filters x number of channels x height of filters x width of filters`. The input feature map is then transformed from a 3D tensor to another 3D tensor.
 
-Additionally, there are two additional configurations to the convolution operation: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filter. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
-filters jump two pixels at a time. The above example has a stride of two in both horizontal and vertical directions.
+__Remark__: The number of channels/feature maps is also called the __depth__ of the layer input and output.
 
-__Remarks__: the number of channels/feature maps is also called _depth_ of the layer input and output.
+__Remark__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
 
-__Remarks__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
+Additionally, there are two configurations for defining the convolution layer: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filters. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
+filters jump two pixels at a time. The above example has a stride that is equal to two in both horizontal and vertical directions.
 
-With the informal description above, we can now formally describe the convolution layer. The weights of the $$l$$-th convolutional layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
+With the informal description above, we can now formally describe the convolution layer. The weights of the $$l$$-th convolution layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
 
 $$
@@ -226,7 +226,9 @@ $$
 \end{aligned}
 $$
 
-__Remarks__: Readers may think that the above examples compute "correlation" instead of "convolution", and you are right. The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
+Note that in practice, we prefer to process a batch of 3D tensors instead of one. Therefore, usually, we define the input of the convolution with an additional dimension that represents the `batch_size`. The input can be characterized as a 4D tensor as well: `batch_size x number of feature maps x height of feature maps x width of feature maps`.
+
+__Remark__: Readers may think that the above examples compute "correlation" instead of "convolution", and you are right. The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
 
 
 ### Pooling Layer
@@ -274,7 +276,7 @@ One main reason of performing the flatten operation is to append more MLP layers
 
 Note that it is possible to convert a 1D vector back to a 3D tensor via reshaping. This is sometimes useful in practice while your desired output is characterized as a 3D volume.
 
-__Remarks__: the development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
+__Remark__: the development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
 
 ## Regularization
 
@@ -296,7 +298,7 @@ Intuitively, as the $$L^{2}$$ regularization applies the constraints on the weig
 
 Usually $$L^{2}$$ regularization is not applied to the bias terms and only makes small difference if it applies to the bias terms. Note that in some books, the control parameter $$\lambda$$ is written as $$\frac{\lambda}{2}$$. This style of formulation helps while deriving the gradient updates.
 
-__Remarks__: $$L^{2}$$ Regularization is also known as _ridge regression_ or _Tikhonov regularization_.
+__Remark__: $$L^{2}$$ Regularization is also known as _ridge regression_ or _Tikhonov regularization_.
 
 ### Dropout
 
@@ -317,7 +319,7 @@ The dropout purposely adds noise to the system so that during training, the netw
 
 Another way to explain the dropout is the network resemble view. Because at each batch training, the network switches $$p$$% neurons off, the masked network is trained while the weights of the other neurons are not updated. After training, since the dropout is not applied anymore, we can intuitively view that all the masked networks during training are combined to produce prediction simultaneously.
 
-__Remarks__: from the formulation, Dropout connects to another classical architecture - _Denoising Autoencoder_. Interested readers can checkout this architecture.
+__Remark__: from the formulation, Dropout connects to another classical architecture - _Denoising Autoencoder_. Interested readers can checkout this architecture.
 
 ### Batch Normalization
 
@@ -336,7 +338,7 @@ The use of BN in DNNs greatly smooths the network training in practice. It is no
 
 Note that one would have to perform BN in both training and inference phases. The only difference is that during the inference phase, the trained $$\gamma$$ and $$\beta$$ parameters are not updated anymore. Furthermore, there are techniques to rescale the trained weights according to BN's trained parameters so that one can avoid BN's calculation during the inference phase. We omitted this details because this is out of the scope of this module.
 
-__Remarks__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the dropout seems making small difference in training.
+__Remark__: Since the Batch Normalization was proposed, there is a trend of abandoning Dropout as the dropout seems making small difference in training.
 
 ## Exercises
 
