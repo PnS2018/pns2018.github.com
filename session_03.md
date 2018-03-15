@@ -137,6 +137,17 @@ generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
 that certain types of ConvNets achieve comparable performance in Natural
 Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner et al., 2016).
 
+---
+
+<div align="center">
+    <p><img src="./images/convnet.png" width="70%"></p>
+    <p>ConvNets usually consist of convolution layers, pooling layers and dense layers.</p>
+</div>
+
+---
+
+Usually, a ConvNet consists of convolution layers, pooling layers and dense layers. In the following sections, we will discuss them in details.
+
 ### Convolution Layer
 
 ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies on the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
@@ -217,16 +228,8 @@ $$
 
 __Remarks__: Readers may think that the above examples compute "correlation" instead of "convolution", and you are right. The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
 
----
 
-<div align="center">
-    <p><img src="./images/convnet.png" width="70%"></p>
-    <p>ConvNets usually consist of convolution layers, pooling layers and fully connected layers.</p>
-</div>
-
----
-
-### Pooling
+### Pooling Layer
 
 Another important component of ConvNets is pooling. The pooling operation is inspired by the complex cells in the Primary Visual Cortex (V1) (Hubel
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
