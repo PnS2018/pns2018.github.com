@@ -124,7 +124,7 @@ Because a three-layered MLP network is a universal function approximator, resear
 
 __Remark__: Because the MLP layer densely connects all the neurons between two layers, it is also referred to as Fully-Connected Layer or Dense Layer.
 
-__Remark__: Shun'ichi Amari wrote a brilliant article that is titled _Neural theory of association and concept-formation_ in 1977. This paper explained how the neural networks can perform unsupervised learning and supervised learning. Amazingly, it also showed how MLP-kind network can be trained via gradient descent.
+__Remark__: Shun'ichi Amari wrote a brilliant article titled _Neural theory of association and concept-formation_ in 1977. This paper explained how the neural networks can perform unsupervised learning and supervised learning. Amazingly, it also showed how MLP-kind network can be trained via gradient descent.
 
 ## Convolutional Nerual Networks
 
