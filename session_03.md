@@ -340,6 +340,14 @@ Note that it is possible to convert a 1D vector back to a 3D tensor via reshapin
 
 __Remark__: The development of modern ConvNet-based architectures is beyond the scope of this module. But we do encourage readers to check out some seminal works in this fields, such as AlexNet, GoogLeNet, VGGNet, OverFeat, ResNet.
 
+With Keras, you can save your compiled model into a directed graph image, this model image can also provide additional information about the tensor shape of each layer. e.g.,
+
+```python
+from keras.utils import plot_model
+plot_model(model, to_file='model.png',
+           show_shapes=True)
+```
+
 ## Regularization
 
 Regularization techniques in DNNs research help to reduce the network generalization error which is the difference between training and testing errors. These
