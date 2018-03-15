@@ -239,8 +239,8 @@ are widely applied in DNNs.
 ---
 
 <div align="center">
-    <img src="./images/pool.jepg" width="30%">
-    <img src="./images/maxpool.jepg" width="30%">
+    <img src="./images/pool.jpeg" width="30%">
+    <img src="./images/maxpool.jpeg" width="30%">
     <p><b>Left</b>: The pooling operation; <b>Right</b>: An example of Max-pooling. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
 </div>
 
