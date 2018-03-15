@@ -155,14 +155,14 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 
 ### Convolution Layer
 
-ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies to the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
+ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies to the input tensor. Let's consider a concrete example where you have a $$5\times 5$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
 example as follows:
 
 ---
 
 <div align="center">
     <p><img src="./images/Convolution_schematic.gif" width="50%"></p>
-    <p>2D convolution on a 6x6 binary image with a 3x3 filter. Image Credit: <a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/">UFLDL</a></p>
+    <p>2D convolution on a 5x5 binary image with a 3x3 filter. Image Credit: <a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/">UFLDL</a></p>
 </div>
 
 ---
