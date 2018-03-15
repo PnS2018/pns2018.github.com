@@ -201,7 +201,15 @@ __Remark__: The number of channels/feature maps is also called the __depth__ of 
 __Remark__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
 
 Additionally, there are two configurations for defining the convolution layer: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filters. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
-filters jump two pixels at a time. The above example has a stride that is equal to two in both horizontal and vertical directions.
+filters jump two pixels at a time. The above example has a stride that is equal to two in both horizontal and vertical directions. A Keras example is as follows:
+
+```python
+x = Conv2D(filters=10,          # this layer has 10 filters
+           kernel_size=(3, 3),  # the filter size is 3x3
+           strides=(2, 2),      # horizontal stride is 2, vertical stride is 2
+           padding="same")(x)   # pad 0s so that the output has the same shape as input
+x = Activation("relu")(x)
+```
 
 With the informal description above, we can now formally describe the convolution layer. The weights of the $$l$$-th convolution layer can be defined as a 4D tensor where the dimension of the tensor is determined by number of filters $$K_{m}$$, number of channels $$K_{n}$$, the height of the filters $$K_{h}$$ and the width of the filters $$K_{w}$$ (e.g., $$\mathbf{W}^{l}\in\mathbb{R}^{K_{m}\times K_{n}\times K_{h}\times K_{w}}$$). The bias is a 1D tensor where the length is equal
 to the number of filters (e.g., $$\mathbf{b}^{l}\in\mathbb{R}^{K_{m}}$$). Let the input feature maps $$\mathbf{F}$$ be a 3D tensor where the dimension is defined as number of feature maps $$N_{f}$$, the height of the feature map $$N_{h}$$ and the width of the feature map $$N_{w}$$ (e.g., $$\mathbf{F}\in\mathbb{R}^{N_{f}\times N_{h}\times N_{w}}$$). Note that the MLP network is a special case when $$N_{h}=N_{w}=1$$.
@@ -268,16 +276,38 @@ The max-pooling selects the maximum value in the covered region and omits all ot
 Given a set of input feature maps $$\mathbf{F}$$, for each input feature map $$\mathbf{F}_{n_{f}}$$ where $$1\leq n_{f}\leq N_{f}$$, the output feature map $$\hat{\mathbf{F}}_{n_{f}}$$ can be computed via the following equation:
 
 $$
-\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{MaxPool}(\mathbf{F}_{n_{f}})=\max\left\{\mathbf{F}_{n_{f}}(i',j'); i'\in[iS_{v}, iS_{v}+K_{v}-1], j'\in[jS_{h}, jS_{h}+K_{h}-1]\right\}
+\begin{aligned}
+\hat{\mathbf{F}}_{n_{f}}(i,j)&=\text{MaxPool}(\mathbf{F}_{n_{f}})\\
+&=\max\left\{\mathbf{F}_{n_{f}}(i',j'); i'\in[iS_{v}, iS_{v}+K_{v}-1], j'\in[jS_{h}, jS_{h}+K_{h}-1]\right\}
+\end{aligned}
 $$
 
-where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We also assume that the padding has been done beforehand.
+where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We also assume that the padding has been done beforehand. A Keras example is given as follows:
+
+```python
+x = MaxPooling2D((2, 2))(x)
+```
 
 As the name suggested, the average-pooling operation computes the average activation of the covered region:
 
 $$
-\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{AvgPool}(\mathbf{F}_{n_{f}})=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum_{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
+\begin{aligned}
+\hat{\mathbf{F}}_{n_{f}}(i,j)&=\text{AvgPool}(\mathbf{F}_{n_{f}})\\
+&=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum_{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
+\end{aligned}
 $$
+
+A Keras example is given as follows:
+
+```python
+x = AveragePooling2D((2, 2))(x)
+```
+
+In practice, there are two kinds of special cases of max-pooling and average-pooling that are widely employed: global max-pooling and global average-pooling. As the name suggested, the global max-pooling and average-pooling has the configurations where $$K_{h}=N_{h}$$, $$K_{v}=N_{w}$$, the padding is set to zero and stride is set to one.
+
+Note that in section, we only describes the pooling layers for 2D feature maps. There are other variants in Keras implementation that can deal with 1D or 3D feature maps.
+
+__Remark__: Recently, people tends to use convolution that has larger strides to replace the pooling operation for sub-sampling, such as ResNets.
 
 ### Flatten and Dense Layers
 
