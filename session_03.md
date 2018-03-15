@@ -276,7 +276,7 @@ where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We al
 As the name suggested, the average-pooling operation computes the average activation of the covered region:
 
 $$
-\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{AvgPool}(\mathbf{F}_{n_{f}})=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
+\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{AvgPool}(\mathbf{F}_{n_{f}})=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum_{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
 $$
 
 ### Flatten and Dense Layers
