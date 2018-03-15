@@ -20,16 +20,16 @@ Instead of the term "deep", "hierarchical" might be more suitable. However, mode
 
 The second part of the name "Learning" is also a misleading word. The "learning" process (via training) intends to improve the generalization in unseen examples. However, the concept does not associate with "learning" in the biological sense. The entire "learning" process is carried out by some powerful optimization algorithms (we called them "training" algorithms).
 
-This is another example where computer scientists gave a terrible yet catchy name (the first example is "Computer Science" itself, check [here](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/1a-overview-and-introduction-to-lisp/) for reason). Yann Lecun, one of the founding fathers of DL, proposed to rename "Deep Learning" to "Differentiable
-Programming" in a recent [Facebook post](https://www.facebook.com/yann.lecun/posts/10155003011462143). This is by far the most accurate definition. First, all modern DL models up to date are differentiable. And the optimization algorithms finds a set of optimal parameters that "program" the model to exhibit some desired behaviors.
+This is another example where computer scientists gave a terrible yet catchy name (the first example is "Computer Science" itself, check [here](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/1a-overview-and-introduction-to-lisp/) for reason). Yann LeCun, one of the founding fathers of DL, proposed to rename "Deep Learning" to "Differentiable
+Programming" in a recent [Facebook post](https://www.facebook.com/yann.lecun/posts/10155003011462143). This is by far the most accurate definition. First, all modern DL models up to date are differentiable. Second, the optimization algorithms finds a set of optimal parameters that "program" the model to exhibit some desired behaviors.
 
-We have to remember that DL consists of many extremely useful and powerful tools. However, DL alone is not AI, or Machine Learning.
+We have to remember that DL consists of many useful and powerful tools. However, DL alone is not AI, or Machine Learning.
 
 __Remark__: To be exact, differentiable models are the largest family of DL models. However, there are DL models that are not differentiable and do not use SGD to optimize (e.g., some Reinforcement Learning algorithms).
 
 ## Artificial Neuron
 
-Artificial Neural Networks (ANNs) are machine learning models that are inspired by neuroscience findings and are constructed by a mathematical abstraction of functionality of biological neurons.
+Artificial Neural Networks (ANNs) are machine learning models that are inspired by neuroscience findings and are constructed by a mathematical abstraction of the functionality of biological neurons.
 
 ---
 
@@ -50,7 +50,7 @@ $$
 \end{cases}
 $$
 
-where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Note that in practice there are more activation functions available (e.g., Leaky ReLU, ELU, softplus). The above formulation of an artificial neuron has a direct link with the models we introduced in Session 2 where the neuron computes a linear equation and applies an non-linear function to the sum.
+where $$z=\mathbf{w}\mathbf{x}+b$$ (the linear equation we have seen before), ReLU stands for "Rectified Linear Unit". Note that in practice there are more activation functions available (e.g., Leaky ReLU, ELU, softplus).
 
 ---
 
@@ -63,17 +63,17 @@ where $$z=\mathbf{w}\mathbf{x}+b$$, ReLU stands for "Rectified Linear Unit". Not
 
 ---
 
-__Sigmoid function__ was very popular because (a) the function has a range between 0 to 1 so that one can interpret the level of activation to some meaning (e.g., probability, degree of activation); (b) the function is more "biological plausible" than other activation functions for our artificial neuron model. However, in practice, Sigmoid function has some very undesirable properties. One of the greatest issues is that the gradient of the neuron reaches to zero when the activation of the neuron saturates at the tails of the function. When the gradient is
-close zero, the parameters that is associated with the neuron can not be effectively updated.
+__Sigmoid function__ was very popular because (a) the function has a range between 0 to 1 so that one can interpret the level of activation to some meaning (e.g., probability, degree of activation); (b) the function is more "biological plausible" than other activation functions for our artificial neuron model. However, in practice, the Sigmoid function has some very undesirable properties. One of the most significant issues is that the gradient of the neuron reaches to zero when the activation of the neuron saturates at the tails of the function. When the gradient is
+close zero, the parameters that are associated with the neuron cannot be effectively updated.
 
-__tanh__ is the scaled and shifted version of the Sigmoid function ($$\tanh(x)=2\sigma(2x)-1$$). This function squashes the function input to the range $$(-1, 1)$$. Compared to the Sigmoid function, the $$\tanh$$ function is zero-centered although it still has the saturation problem. In practice, the $$\tanh$$ function is always preferred to the Sigmoid function.
+__tanh__ is the scaled and shifted version of the Sigmoid function ($$\tanh(x)=2\sigma(2x)-1$$). This function squashes the function input to the range $$(-1, 1)$$. Compared to the Sigmoid function, the $$\tanh$$ function is zero-centered although it still has the saturation problem. In practice, one always prefers to use the $$\tanh$$ function than the Sigmoid function.
 
-__ReLU__ becomes very popular in the last few years after the seminal work _ImageNet Classification with Deep Convolutional Neural Networks_ by Alex Krizhevsky, et al. was published in 2014. The function greatly accelerates the training compared to the Sigmoid or $$\tanh$$ functions. Additionally, ReLU is very cheap to compute. The ReLU function has its own problems as well. For example, a neuron may not be activated by any inputs (e.g., always outputs zero) from the entire
+__ReLU__ becomes very popular in the last few years after the seminal work _ImageNet Classification with Deep Convolutional Neural Networks_ by Alex Krizhevsky, et al. was published in 2014. The function greatly accelerates the training compared to the Sigmoid or $$\tanh$$ functions. Additionally, ReLU is very cheap to compute. The ReLU function has its problems as well. For example, a neuron may not be activated by any inputs (e.g., always outputs zero) from the entire
 dataset if the neuron experienced a large gradient flow. And because the ReLU is an open-ended function, the training may suffer from instability if the network has too many layers.
 
-__Remark__: Although ReLU function is the most-common choice of the activation function, Sigmoid or $$\tanh$$ function have their own market. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
+__Remark__: Although ReLU function is the most common choice of the activation function, the Sigmoid or $$\tanh$$ function have their market. In particular, they are preferable in Recurrent Neural Networks (RNNs) where the neuron receives feedback signals.
 
-__Remark__: The artificial neuron model is inspired by neuronscience findings and can solve many different problems. However, one should not over-explain its connection with neuroscience because the model can perfectly be analyzed without any neuroscience knowledge.
+__Remark__: The artificial neuron model is inspired by neuroscience findings and can solve many different problems. However, one should not over-explain its connection with neuroscience because the model can be analyzed without any neuroscience knowledge.
 
 A group of artificial neurons can be organized into a layer. A layer is the building block of ANNs. Interactions between and within layers shape the dynamics of the neural networks.
 
