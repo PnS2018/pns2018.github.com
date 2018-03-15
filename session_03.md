@@ -295,7 +295,7 @@ Given a set of input feature maps $$\mathbf{F}$$, for each input feature map $$\
 $$
 \begin{aligned}
 \hat{\mathbf{F}}_{n_{f}}(i,j)&=\text{MaxPool}(\mathbf{F}_{n_{f}})\\
-&=\max\left\{\mathbf{F}_{n_{f}}(i',j'); i'\in[iS_{v}, iS_{v}+K_{v}-1], j'\in[jS_{h}, jS_{h}+K_{h}-1]\right\}
+&=\max\left\{\mathbf{F}_{n_{f}}(i',j'); i'\in[iS_{v}, iS_{v}+K_{v}), j'\in[jS_{h}, jS_{h}+K_{h})\right\}
 \end{aligned}
 $$
 
@@ -310,7 +310,7 @@ As the name suggested, the average-pooling operation computes the average activa
 $$
 \begin{aligned}
 \hat{\mathbf{F}}_{n_{f}}(i,j)&=\text{AvgPool}(\mathbf{F}_{n_{f}})\\
-&=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum_{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
+&=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v})}\sum_{j'\in[jS_{h}, jS_{h}+K_{h})}\mathbf{F}_{n_{f}}(i',j')
 \end{aligned}
 $$
 
