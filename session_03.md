@@ -346,7 +346,13 @@ $$
 \hat{J}(\theta, \lambda)=J(\theta)+\lambda\|\theta\|_{2}^{2}
 $$
 
-where $$\lambda$$ is a small constant that controls the weight decay speed.
+where $$\lambda$$ is a small constant that controls the weight decay speed. A Keras example is given as follows:
+
+```python
+from keras import regularizers
+x=Dense(64,
+        kernel_regularizer=regularizers.l2(0.01))(x)  # add L2 regularization on weights of this layer 
+```
 
 Intuitively, as the $$L^{2}$$ regularization applies the constraints on the weights, it reduce the effects of overfitting by decreasing the magnitude of the weights.
 
@@ -367,7 +373,11 @@ $$
 \end{aligned}
 $$
 
-Note that this process is only performed during the network training so that the generalization could be improved. It switches off during the testing/inference phase.
+Note that this process is only performed during the network training so that the generalization could be improved. It switches off during the testing/inference phase. A Keras example is given as follows:
+
+```python
+x = Dropout(0.3)(x)  # 30 of the neurons are dropped
+```
 
 The dropout purposely adds noise to the system so that during training, the network is forced to make correct prediction with imperfect inputs. This process hence improves the robustness of the network to test samples.
 
@@ -386,7 +396,11 @@ $$
 \hat{\mathbf{h}} = \text{BN}(\mathbf{h};\gamma, \beta)=\beta+\gamma\odot\frac{\mathbf{h}-\mathbb{E}[\mathbf{h}]}{\sqrt{\text{Var}[\mathbf{h}]+\varepsilon}}
 $$
 
-where the equation takes the layer's output activation $$\mathbf{h}$$ and normalizes it into $$\hat{\mathbf{h}}$$, $$\gamma$$ and $$\beta$$ are trainable parameters that are called scale and shift parameters respectively, and $$\varepsilon$$ is a small regularization constant.
+where the equation takes the layer's output activation $$\mathbf{h}$$ and normalizes it into $$\hat{\mathbf{h}}$$, $$\gamma$$ and $$\beta$$ are trainable parameters that are called scale and shift parameters respectively, and $$\varepsilon$$ is a small regularization constant. A Keras example is as follows:
+
+```python
+x = BatchNormalization()(x)  # perform BN on the input
+```
 
 The use of BN in DNNs greatly smooths the network training in practice. It is not used as a default component in many DNNs architectures (e.g., ResNets). The application of BN in RNNs is recently explored in Cooijmans et al. (2016).
 
