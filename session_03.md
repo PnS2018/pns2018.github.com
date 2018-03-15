@@ -248,7 +248,7 @@ Note that in practice, we prefer to process a batch of 3D tensors instead of one
 
 <div align="center">
     <p><img src="./images/weights.jpeg" width="80%"></p>
-    <p>96 Filters from the first convolution layer learned by Krizhevsky et al. Each filter has a shape of 11x11x3. These filters mostly respond to edges, colors. Image Credit: <a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/">UFLDL</a></p>
+    <p>96 Filters from the first convolution layer learned by Krizhevsky et al. Each filter has a shape of 11x11x3. These filters mostly respond to edges, colors. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
 </div>
 
 ---
