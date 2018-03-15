@@ -235,8 +235,8 @@ The last topic of this section is to calculate the output feature maps' tensor s
 $$
 \begin{aligned}
     \hat{N}_{f}&=K_{m} \\
-    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
-    \hat{N}_{w}&=(N_{w}-K_{w}+2P_{w})/S_{w}+1
+    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{v})/S_{v}+1 \\
+    \hat{N}_{w}&=(N_{w}-K_{w}+2P_{h})/S_{h}+1
 \end{aligned}
 $$
 
@@ -268,7 +268,7 @@ $$
 \begin{aligned}
     \hat{N}_{f}&=N_{f} \\
     \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
-    \hat{N}_{w}&=(N_{v}-K_{v}+2P_{v})/S_{v}+1
+    \hat{N}_{w}&=(N_{w}-K_{v}+2P_{v})/S_{v}+1
 \end{aligned}
 $$
 
