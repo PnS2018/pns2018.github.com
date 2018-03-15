@@ -237,8 +237,20 @@ Another important component of ConvNets is pooling. The pooling operation is ins
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
 are widely applied in DNNs.
 
-In many ways, one can view the pooling layer as a variant of the convolution layer. Although this claim is not correct in general, this can help you understand the concept. Let's consider a filter that has the size $$K_{h}\times K{v}$$ can carry out the pooling operation on a feature map. We also define the padding parameters $$P_{h}$$, $$P_{v}$$ and the stride parameters $$S_{h}$$, $$S_{v}$$. Now we slide this filter on the target feature map as the same as the convolution
-process.
+In many ways, one can view the pooling layer as a variant of the convolution layer. Although this claim is not correct in general, this can help you understand the concept. Let's consider a filter that has the size $$K_{h}\times K{v}$$ (the pooling size) can carry out the pooling operation on a feature map. We also define the padding parameters $$P_{h}$$, $$P_{v}$$ and the stride parameters $$S_{h}$$, $$S_{v}$$. Now we slide this filter on the target feature map as the same as the convolution
+process. At each covered region, instead of computing the weighted sum of the region, the filter applies a predefined function $$g$$ that extracts/computes the output value. The same filter carries out the same process to all other input feature maps. At the end of the pooling operation, the height and width of the output feature maps may be different from the input feature maps. However, the number of the feature maps is remained the same. The tensor size of the output feature
+maps can be calculated:
+
+$$
+\begin{aligned}
+    \hat{N}_{f}&=N_{f} \\
+    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
+    \hat{N}_{w}&=(N_{v}-K_{v}+2P_{v})/S_{v}+1
+\end{aligned}
+$$
+
+In principle, one can parameterize the predefined pooling function $$g$$. Because the pooling layer is usually served as a way of sub-sampling, we often do not introduce extra parameters for the pooling function. We also rarely introduce any extra padding because of the same reason. Conventionally, we set the stride as the same as the pooling size (e.g, $$K_{h}=S_{h}$$, $$K_{v}=S_{v}$$). This way, the covered regions are not overlapped while the filter is moving. We
+commonly call this as "non-overlapping pooling". In some situations, you can set the stride smaller than the pooling size. We hence refer this case to as "overlapped pooling".
 
 ---
 
@@ -250,35 +262,21 @@ process.
 
 ---
 
+The rest of this section discuss two popular types of pooling: Max-pooling and Average-pooling.
 
-Note that more complicated
-pooling operation can be configured by altering its pooling shape, strides, and
-zero-padding parameters, e.g., overlapping pooling when pooling strides are
-smaller than pooling sub-region shape. A more informative review of pooling
-operations can be found in Goodfellow et al. (2016) as well.
-
-
-To give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
-computed by:
+The max-pooling selects the maximum value in the covered region and omits all other values. The max-pooling operation implements a certain degree of "translation invariance" at small scale because if the input feature maps has a small shift, the same maximum value can still be selected.
+Given a set of input feature maps $$\mathbf{F}$$, for each input feature map $$\mathbf{F}_{n_{f}}$$ where $$1\leq n_{f}\leq N_{f}$$, the output feature map $$\hat{\mathbf{F}}_{n_{f}}$$ can be computed via the following equation:
 
 $$
-\hat{f}^{(i)}=\text{MaxPooling}(f^{(i)}, w)
+\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{MaxPool}(\mathbf{F}_{n_{f}})=\max\left\{\mathbf{F}_{n_{f}}(i',j'); i'\in[iS_{v}, iS_{v}+K_{v}-1], j'\in[jS_{h}, jS_{h}+K_{h}-1]\right\}
 $$
 
-The output feature map $$\hat{f}^{(i)}$$ is arranged in rectangular shape with the size $$(\lfloor(n-d_{v}-2p_{v})/s_{v}+1\rfloor], \lfloor(m-d_{h}-2p_{h})/s_{h}+1\rfloor)$$. Each entry $$\hat{f}_{(x,y)}^{(i)}$$ contains the maximum activation value from a subset of input feature map $$f^{(i)}$$'s entries:
+where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We also assume that the padding has been done beforehand.
+
+As the name suggested, the average-pooling operation computes the average activation of the covered region:
 
 $$
-\hat{f}_{(x,y)}^{(i)} = \max\left\{f_{(x',y')}^{(i)};x'\in[xs_{v}, xs_{v}+d_{v}-1], y'\in[ys_{h}, ys_{h}+d_{h}-1]\right\}
-$$
-
-where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
-
-$$
-\begin{aligned}
-    \hat{N}_{f}&=N_{f} \\
-    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
-    \hat{N}_{w}&=(N_{v}-K_{v}+2P_{v})/S_{v}+1
-\end{aligned}
+\hat{\mathbf{F}}_{n_{f}}(i,j)=\text{AvgPool}(\mathbf{F}_{n_{f}})=\frac{1}{K_{h}\times K_{v}}\sum_{i'\in[iS_{v}, iS_{v}+K_{v}-1]}\sum{j'\in[jS_{h}, jS_{h}+K_{h}-1]}\mathbf{F}_{n_{f}}(i',j')
 $$
 
 ### Flatten and Dense Layers
