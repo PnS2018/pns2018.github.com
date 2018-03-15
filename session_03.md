@@ -228,14 +228,26 @@ $$
 
 Note that in practice, we prefer to process a batch of 3D tensors instead of one. Therefore, usually, we define the input of the convolution with an additional dimension that represents the `batch_size`. The input can be characterized as a 4D tensor as well: `batch_size x number of feature maps x height of feature maps x width of feature maps`.
 
-__Remark__: Readers may think that the above examples compute "correlation" instead of "convolution", and you are right. The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
-
+__Remark__: Readers may recognize that the above examples compute "correlation" instead of "convolution". The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
 
 ### Pooling Layer
 
 Another important component of ConvNets is pooling. The pooling operation is inspired by the complex cells in the Primary Visual Cortex (V1) (Hubel
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
-are widely applied in Deep Neural Networks. Note that more complicated
+are widely applied in DNNs.
+
+---
+
+<div align="center">
+    <img src="./images/pool.jepg" width="30%">
+    <img src="./images/maxpool.jepg" width="30%">
+    <p><b>Left</b>: The pooling operation; <b>Right</b>: An example of Max-pooling. Image Credit: <a href="http://cs231n.github.io/convolutional-networks/">CS231n</a></p>
+</div>
+
+---
+
+
+Note that more complicated
 pooling operation can be configured by altering its pooling shape, strides, and
 zero-padding parameters, e.g., overlapping pooling when pooling strides are
 smaller than pooling sub-region shape. A more informative review of pooling
