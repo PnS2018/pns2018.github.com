@@ -244,6 +244,16 @@ $$
 
 Note that in practice, we prefer to process a batch of 3D tensors instead of one. Therefore, usually, we define the input of the convolution with an additional dimension that represents the `batch_size`. The input can be characterized as a 4D tensor as well: `batch_size x number of feature maps x height of feature maps x width of feature maps`.
 
+---
+
+<div align="center">
+    <p><img src="./images/weights.jpeg" width="80%"></p>
+    <p>96 Filters from the first convolution layer learned by Krizhevsky et al. Each filter has a shape of 11x11x3. These filters mostly respond to edges, colors. Image Credit: <a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution/">UFLDL</a></p>
+</div>
+
+---
+
+
 __Remark__: Readers may recognize that the above examples compute "correlation" instead of "convolution". The correct convolution requires _filter flipping_ where one needs to transpose every channel of a filter. However, to demonstrate how the convolution is performed, we assume that all the filters have been "flipped".
 
 ### Pooling Layer
