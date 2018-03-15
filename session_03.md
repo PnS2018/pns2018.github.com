@@ -97,7 +97,7 @@ $$
 \mathbf{y}=f^{L}(f^{L-1}(f^{L-2}(\cdots(f^{2}(f^{1}(\mathbf{x})))\cdots)))
 $$
 
-Note that the above formulation omits the method of computation between the layer input $$\mathbf{h}^{l-1}$$ and the parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$. In some books, the result before applying the activation function is called _pre-activation_ and denoted as $$\mathbf{z}^{l}$$.
+Note that the above formulation omits the method of computation between the layer input $$\mathbf{h}^{l-1}$$ and the parameters $$\{\mathbf{W}^{l}, \mathbf{b}^{l}\}$$. The result before applying the activation function is called _pre-activation_ and denoted as $$\mathbf{z}^{l}$$.
 
 Now, we can describe the MLP network in a similar manner. Suppose the $$l$$-th layer has $$m$$ neurons and $$(l-1)$$-th layer has $$n$$ neurons, and the parameters $$\mathbf{W}^{l}\in\mathbb{R}^{m\times n}$$, $$\mathbf{b}^{l}\in\mathbb{R}^{m}$$. The input activation from $$(l-1)$$-th layer $$\mathbf{h}^{l-1}\in\mathbb{R}^{n}$$, the activation of $$l$$-th layer can be computed by:
 
@@ -121,23 +121,23 @@ x = Activation("relu")(x)  # the activation function is ReLU
 
 ---
 
-Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value, the parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix. The activation function for the first layer is the linear activation $$f^{1}(z)=z$$.
+Conventionally, we call the first layer as the input layer, the last layer as the output layer, and the rest of layers as hidden layers. The input layer has a special array of neurons where each neuron has only one input value. The parameters are fixed as $$\{\mathbf{W}^{1}=\mathbf{I}, \mathbf{b}^{1}=\mathbf{0}\}$$ where $$\mathbf{I}$$ is the identity matrix. The activation function for the first layer is the linear activation $$f^{1}(z)=z$$.
 
-Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are MLP networks that has two layers. Furthermore, the activation functions of the Linear Regression and Logistic Regression
+Note that from the architecture point of view, MLP network is a generalization to Linear Regression and Logistic Regression (see [Session 2](./session_02.html)). Linear Regression and Logistic Regression are two-layered MLP networks. Furthermore, the activation functions of the Linear Regression and Logistic Regression
 is $$f(x)=x$$ and $$f(x)=\sigma(x)$$ respectively.
 
-The most profound mathematical argument on the MLP network may be the _Universal Approximation Theorem_. This theorem states that a MLP network with a single hidden layer that contains finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was firstly proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
+The most profound mathematical argument on the MLP network may be the _Universal Approximation Theorem_. This theorem states that an MLP network with a single hidden layer that contains a finite number of neurons can uniformly approximate the target function $$f$$ with arbitrary precision. This theorem was first proved by George Cybenko in 1989 for Sigmoid activation functions. This theorem then generated a huge influence on researchers back in the 1990s and early 2000s.
 Because a three-layered MLP network is a universal function approximator, researchers refused to go beyond three layers given limited computing resources at the time. However, the theorem does not give any information on how long the network takes to find a good approximation. And in practice, we usually found that it is usually very time costly compared to deeper architectures.
 
 __Remark__: Because the MLP layer densely connects all the neurons between two layers, it is also referred to as Fully-Connected Layer or Dense Layer.
 
-__Remark__: Shun'ichi Amari wrote a brilliant article titled _Neural theory of association and concept-formation_ in 1977. This paper explained how the neural networks can perform unsupervised learning and supervised learning. Amazingly, it also showed how MLP-kind network can be trained via gradient descent.
+__Remark__: Shun'ichi Amari wrote a brilliant article titled _Neural theory of association and concept-formation_ in 1977. This paper explained how the neural networks could perform unsupervised learning and supervised learning. Amazingly, it also showed how MLP-kind network could be trained via gradient descent.
 
 ## Convolutional Nerual Networks
 
-Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets explicitly proposed to work with images. Furthermore, we can show that this model generalizes the MLP networks. ConvNets are largely responsible for the renaissance of neural networks
+Convolutional Neural Networks (ConvNets) is another type of FNN (Lecun et al., 1998). ConvNets explicitly proposed to work with images. Furthermore, we can show that this model generalizes the MLP networks. ConvNets significantly accelerates the renaissance of neural networks
 (Krizhevsky et al., 2012). They have proven to be great architectures for
-achieving state-of-the art results on visual recognition tasks, e.g., image and
+achieving state-of-the-art results on visual recognition tasks, e.g., image and
 video recognition (Simonyan & Zisserman, 2014; Szegedy et al., 2015; Ji et al.,
 2013), object detection (Ren et al., 2015; Liu et al., 2015) and image caption
 generation (Karpathy & Li, 2015; Vinyals et al., 2016). Recent results show
@@ -148,16 +148,14 @@ Language Processing (NLP) tasks against RNNs (Zhang et al., 2015; Kalchbrenner e
 
 <div align="center">
     <p><img src="./images/convnet.png" width="70%"></p>
-    <p>ConvNets usually consist of convolution layers, pooling layers and dense layers.</p>
+    <p>ConvNets usually consist of convolution layers, pooling layers, and dense layers.</p>
 </div>
 
 ---
 
-Usually, a ConvNet consists of convolution layers, pooling layers and dense layers. In the following sections, we will discuss them in details.
-
 ### Convolution Layer
 
-ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies on the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
+ConvNets heavily use 2D convolution on 3D tensor. Informally, 2D convolution can be viewed as a filtering process where you have a filter that applies to the input tensor. Let's consider a concrete example where you have a $$6\times 6$$ binary image and a $$3\times 3$$ binary filter. The _valid convolution_ can be performed by using the filter as a sliding window and applying convolution operation at every possible position, the filter and the covered region does an element-wise multiplication and summation. See the
 example as follows:
 
 ---
@@ -189,7 +187,7 @@ $$
 
 More generally, if the input image has the dimension of $$N_{h}\times N_{w}$$ and the filter size is $$K_{h}\times K_{w}$$, the output size of the convolved output is $$(N_{h}-K_{h}+1)\times(N_{w}-K_{w}+1)$$. This convolved output is usually referred to as a _feature map_. Commonly, we call the input of a convolution layer as the _input feature map(s)_ and the output as the _output feature map(s)_.
 
-In the above example, the input binary image has only one _channel_ that means the image is a 2D array. However, a RGB image usually has three _channels_ where these channels represents the red intensity, the green intensity and the blue intensity correspondingly. The mixture of these three channels produces a color image. How can a convolution layer deal with the input that has multiple channels? The answer is that we also give more channels to
+In the above example, the input binary image has only one _channel_ that means the image is a 2D array. However, an RGB image usually has three _channels_ where these channels represent the red intensity, the green intensity, and the blue intensity correspondingly. The mixture of these three channels produces a color image. How can a convolution layer deal with the input that has multiple channels? The answer is that we also give more channels to
 the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the filter will also have $$K_{n}=N_{f}$$ channels. First, each channel of the filter is applied on the corresponding channel of the input. Second, the convolved outputs of all feature maps are summed along the axis of the channels so that they are combined into one output feature map. A visual example is given as follows
 
 ---
@@ -201,13 +199,13 @@ the filter. Suppose that the input has $$N_{f}$$ channels (or feature maps), the
 
 ---
 
-In above example, the input feature map is a 3D tensor, and respectively, the filter is also a 3D tensor. In ConvNets, every _convolution layer_ usually has $$K_{m}$$ filters, each filter can generate __one__ output feature map. Hence, the filters of a convolution layer can be characterized as a 4D tensor `number of filters x number of channels x height of filters x width of filters`. The input feature map is then transformed from a 3D tensor to another 3D tensor.
+In above example, the input feature map is a 3D tensor, and respectively, the filter is also a 3D tensor. In ConvNets, every _convolution layer_ usually has $$K_{m}$$ filters; each filter can generate __one__ output feature map. Hence, the filters of a convolution layer can be characterized as a 4D tensor `number of filters x number of channels x height of filters x width of filters`. The input feature map is then transformed from a 3D tensor to another 3D tensor.
 
 __Remark__: The number of channels/feature maps is also called the __depth__ of the layer input and output.
 
 __Remark__: We use "feature map" and "channel" interchangeably for describing the layer input and output. For filters, we only use the term "channel" for describing its depth.
 
-Additionally, there are two configurations for defining the convolution layer: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might appends values that are generated from some distribution. The strides describes how we slide the filters. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
+Additionally, there are two configurations for defining the convolution layer: _padding_ and _strides_. The padding operation pads additional rows and columns to each channel of the input feature maps. Usually, the operation pads a constant value such as 0. In some cases, one might append values that are generated from some distribution. The stride describes how we slide the filters. When the stride is 1, then we move the filters one pixel at a time. When the stride is 2, then the
 filters jump two pixels at a time. The above example has a stride that is equal to two in both horizontal and vertical directions. A Keras example is as follows:
 
 ```python
@@ -230,7 +228,7 @@ $$
 $$
 
 The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and stride parameters. Each element in the output feature maps is a neuron, and the value of the element represents the activation of the neuron. Under this
-construction, consequently, each convolution layer usually has much less parameters than a MLP layer. At the same time, a convolution layer uses a lot more computing resources than a MLP layers. To compute one feature map, the filter is used repeatedly. This feature of the convolution layer is called _weight sharing_.
+construction, consequently, each convolution layer usually has much fewer parameters than an MLP layer. At the same time, a convolution layer uses a lot more computing resources than an MLP layer. To compute one feature map, the corresponding filter is repeatedly used. This feature of the convolution layer is called _weight sharing_.
 
 The last topic of this section is to calculate the output feature maps' tensor shape  given the horizontal padding $$P_{h}$$, the vertical padding $$P_{v}$$, the horizontal stride $$S_{h}$$ and vertical stride $$S_{v}$$, the output feature maps' tensor shape is:
 
@@ -242,7 +240,7 @@ $$
 \end{aligned}
 $$
 
-Note that in practice, we prefer to process a batch of 3D tensors instead of one. Therefore, usually, we define the input of the convolution with an additional dimension that represents the `batch_size`. The input can be characterized as a 4D tensor as well: `batch_size x number of feature maps x height of feature maps x width of feature maps`.
+Note that in practice, we prefer to process a batch of 3D tensors instead of one. Therefore, usually, we define the input of the convolution with an additional dimension that represents the `batch_size`. The input feature maps can be characterized as a 4D tensor as well: `batch_size x number of feature maps x height of feature maps x width of feature maps`.
 
 ---
 
