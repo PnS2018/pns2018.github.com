@@ -434,4 +434,4 @@ __Remark__: Since the Batch Normalization was proposed, there is a trend of aban
 
 4. (Optional) Try to improve your first two exercises by using different regularization such as Dropout and Batch Normalization.
 
-5. (Optional) Copy your first exercise's answer to a different script, and modify your network to a 30-layered MLP network where each layer has 20 neurons, can you still train the network? This exercise related to the fundamental challenge of the DNNs - _the vanishing gradient problem_.
+5. (Optional) Copy your first exercise's answer to a different script, and modify your network to a 30-layered MLP network where each layer has 20 neurons, can you still train the network? This exercise relates to the fundamental challenge of the DNNs - _the vanishing gradient problem_.
