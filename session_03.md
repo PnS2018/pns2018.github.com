@@ -214,7 +214,8 @@ $$
 \end{aligned}
 $$
 
-The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and stride parameters.
+The above equations demonstrate the convolution operation by using the $$k_{m}$$-th filter. The output of the layer $$\mathbf{h}^{l}$$ includes the activations (output feature maps) from all filters $$\{\mathbf{h}_{1}^{l}, \ldots, \mathbf{h}_{K_{m}}^{l}\}$$. Note that the above equations do not include zero-padding and stride parameters. Each element in the output feature maps is a neuron, and the value of the element represents the activation of the neuron. Under this
+construction, consequently, each convolution layer usually has much less parameters than a MLP layer. At the same time, a convolution layer uses a lot more computing resources than a MLP layers. To compute one feature map, the filter is used repeatedly. This feature of the convolution layer is called _weight sharing_.
 
 The last topic of this section is to calculate the output feature maps' tensor shape  given the horizontal padding $$P_{h}$$, the vertical padding $$P_{v}$$, the horizontal stride $$S_{h}$$ and vertical stride $$S_{v}$$, the output feature maps' tensor shape is:
 
@@ -236,6 +237,9 @@ Another important component of ConvNets is pooling. The pooling operation is ins
 & Wiesel, 1962). It serves as a way of sub-sampling and invariance. Max-pooling and average-pooling are notable examples of pooling operations which
 are widely applied in DNNs.
 
+In many ways, one can view the pooling layer as a variant of the convolution layer. Although this claim is not correct in general, this can help you understand the concept. Let's consider a filter that has the size $$K_{h}\times K{v}$$ can carry out the pooling operation on a feature map. We also define the padding parameters $$P_{h}$$, $$P_{v}$$ and the stride parameters $$S_{h}$$, $$S_{v}$$. Now we slide this filter on the target feature map as the same as the convolution
+process.
+
 ---
 
 <div align="center">
@@ -253,11 +257,8 @@ zero-padding parameters, e.g., overlapping pooling when pooling strides are
 smaller than pooling sub-region shape. A more informative review of pooling
 operations can be found in Goodfellow et al. (2016) as well.
 
----
 
-[TODO] To integrate following paragraphs into the main text
-
-TO give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
+To give a concrete description of max-pooling, let's define the `MaxPooling` function as a filter $$w$$ where it has a downscale factor $$d=(d_{v}, d_{h})$$, a  stride $$s=(s_{v}, s_{h})$$ and a zero-padding parameter $$p=(p_{v}, p_{h})$$. Suppose there are $$N$$ input feature maps $$\mathcal{F}=\{f^{(i)}\}_{i=1}^{N}$$ and $$f_{(i)}\in\mathbb{R}^{n\times m}$$. The output feature maps $$\hat{\mathcal{F}}=\{\hat{f}^{(i)}\}_{i=1}^{N}$$ can be
 computed by:
 
 $$
@@ -272,7 +273,13 @@ $$
 
 where $$x$$ (the row index) and $$y$$ (the column index) start from 0.
 
----
+$$
+\begin{aligned}
+    \hat{N}_{f}&=N_{f} \\
+    \hat{N}_{h}&=(N_{h}-K_{h}+2P_{h})/S_{h}+1 \\
+    \hat{N}_{w}&=(N_{v}-K_{v}+2P_{v})/S_{v}+1
+\end{aligned}
+$$
 
 ### Flatten and Dense Layers
 
