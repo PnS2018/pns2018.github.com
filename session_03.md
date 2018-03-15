@@ -105,6 +105,13 @@ $$
 \mathbf{h}^{l}=f^{l}\left(\mathbf{W}^{l}\mathbf{h}^{l-1}+\mathbf{b}^{l}\right)
 $$
 
+A Keras example is as follows:
+
+```python
+x = Dense(100)(x)  # the layer has 100 neuron
+x = Activation("relu")(x)  # the activation function is ReLU
+```
+
 ---
 
 <div align="center">
@@ -285,7 +292,7 @@ $$
 where the $$i$$ (the row index) and $$y$$ (the column index) start from 0. We also assume that the padding has been done beforehand. A Keras example is given as follows:
 
 ```python
-x = MaxPooling2D((2, 2))(x)
+x = MaxPooling2D((2, 2))(x)  # perform max-pooling over 2x2 non-overlapping region
 ```
 
 As the name suggested, the average-pooling operation computes the average activation of the covered region:
@@ -300,7 +307,7 @@ $$
 A Keras example is given as follows:
 
 ```python
-x = AveragePooling2D((2, 2))(x)
+x = AveragePooling2D((2, 2))(x)  # perform average-pooling over 2x2 non-overlapping region
 ```
 
 In practice, there are two kinds of special cases of max-pooling and average-pooling that are widely employed: global max-pooling and global average-pooling. As the name suggested, the global max-pooling and average-pooling has the configurations where $$K_{h}=N_{h}$$, $$K_{v}=N_{w}$$, the padding is set to zero and stride is set to one.
