@@ -426,7 +426,7 @@ __Remark__: Since the Batch Normalization was proposed, there is a trend of aban
 
     ---
 
-    The convolutional neural network has a convolution layer with `20` kernels of size `5x5` each, with a `relu` activation followed by max pooling with a pool size of `(2, 2)` and a stride of `(2, 2)`. This is followed by another convolution layer with `50` kernels of size `5x5` each, with a `relu` activation followed by max pooling with a pool size of `(2, 2)` and a stride of `(2, 2)`. Now flatten the 2D output from the previous layer and apply a linear transformation to a space with `500` units, with a `relu` activation, followed by another linear transformation into `10` units. Use a `softmax` activation on the final layer to train the model as a classifier.
+    The convolutional neural network has a convolution layer with `20` kernels of size `7x7` each, with a `relu` activation followed by max pooling with a pool size of `(2, 2)` and a stride of `(2, 2)`. This is followed by another convolution layer with `25` kernels of size `5x5` each, with a `relu` activation followed by max pooling with a pool size of `(2, 2)` and a stride of `(2, 2)`. Now flatten the 2D output from the previous layer and apply a linear transformation to a space with `200` units, with a `relu` activation, followed by another linear transformation into `10` units. Use a `softmax` activation on the final layer to train the model as a classifier.
 
     ---
 
