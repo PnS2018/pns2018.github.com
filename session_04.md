@@ -70,7 +70,7 @@ The standard deviation $$\sigma$$ is divided from the updated dataset with the f
 $$
 \begin{aligned}
 \sigma^{2}&=\frac{1}{N}\sum_{\hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}}\hat{\mathbf{x}}_{i}\odot\hat{\mathbf{x}}_{i} \\
-\tilde{\mathbf{x}}_{i}=\hat{\mathbf{x}}_{i}/\sigma,\quad \forall \hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}
+\tilde{\mathbf{x}}_{i}&=\hat{\mathbf{x}}_{i}/\sigma,\quad \forall \hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}
 \end{aligned}
 $$
 
