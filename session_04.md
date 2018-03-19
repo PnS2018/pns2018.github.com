@@ -44,7 +44,50 @@ Given a grayscale or RGB image, we can naturally treat the image as the same as 
 
 ## Image Augmentation in Keras
 
-Data Augmentation 
+Image Augmentation is a form of regularization that reduces generalization error of image recognition system by creating "fake images" (Goodfellow et al.,
+2016). By applying various kinds of data transformations (e.g., standardiza-
+tion, geometric transformations such as rotating, scaling, stretching), the vir-
+tual size of the dataset increases. The exposure of more varieties of the original
+image particularly improves the network robustness against geometric trans-
+formations and view points in training DNNs.
+
+### Standardization
+
+Standardization is one of the common dataset preprocessing procedures in Machine Learning. The use of standardization is to stabilize the dataset by subtracting the feature-wise mean and diving feature-wise standard deviation. Note that this procedure does not affect the overall distribution of the data and it is merely a data shifting and rescaling operation. The employment of standardization gives DNNs the advantage in which they are freed from learning the high variance
+property and the mean of the data.
+
+To be specific, let the image dataset be $$\mathcal{X}=\{\mathbf{x}_{i}\}_{i=1}^{N}$$ where the dataset contains $$N$$ samples, the mean of the dataset $$\bar{\mathbf{x}}$$ and updated zero-mean dataset $$\hat{\mathcal{X}}$$ can be computed as follows:
+
+$$
+\begin{aligned}
+    \bar{\mathbf{x}}&=\frac{1}{N}\sum_{\mathbf{x}_{i}\in\mathcal{X}}\mathbf{x}_{i} \\
+    \hat{\mathbf{x}}&=\mathbf{x}-\bar{\mathbf{x},\quad \forall\mathbf{x}_{i}\in\mathcal{X}
+\end{aligned}
+$$
+
+The standard deviation $$\sigma$$ is divided from the updated dataset with the following two equations and the standardized dataset $$\tilde{\mathcal{X}}\in\{\tilde{\mathbf{x}}\}_{i=1}^{N}$$ is created.
+
+$$
+\sigma^{2}&=\frac{1}{N}\sum_{\hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}}\hat{\mathbf{x}}_{i}\odot\hat{\mathbf{x}}_{i} \\
+\tilde{\mathbf{x}}_{i}=\hat{\mathbf{x}}_{i}/\sigma,\quad \forall \hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}
+$$
+
+where $$\odot$$ and / are element-wise multiplication and division.
+
+In practice, the feature wise mean $$\bar{\mathbf{x}}$$ and standard deviation $$\sigma$$ are usually precomputed from the training dataset and saved. Because the training dataset and the testing dataset are typically assumed that they follow the same distribution, $$\bar{\mathbf{x}}$$ and $$\sigma$$ are reused to standardize the testing dataset  for saving computing resources (especially the size of the testing dataset is much larger than training dataset). In some cases
+where computing standard deviation is not feasible for a large dataset, then only mean subtraction is applied.
+
+### Random Flipping and Shifting
+
+Random Flipping and Shifting are two popular image augmentation that are employed to create more varieties of an image particularly in the context of object recognition. The use of these two procedures increases the network's robustness against mirror image, rotation, and translation.
+
+__Random Flipping__ is usually applied on each image during the training. The image can be translated into one of the four forms presented in the above left image randomly and independently. Note that for certain applications, one of vertical flipping or horizontal flipping might be disabled, e.g., for object segmentation in autonomous driving, it does not make sense to apply vertical flipping.
+
+__Random Shifting__ randomly shifts the image for some predefined distance along one of the 9 directions: left ($$\leftarrow$$), right ($$\rightarrow$$), up ($$\uparrow$$), down ($$\downarrow$$), up-left ($$\nwarrow$$), up-right ($$\nearrow$$), down-left ($$\swarrow$$), down-right ($$\searrow$$), and still ($$\cdot$$) in the training phase (the above image at the right). This predefined distance is usually quantified in pixels.
+
+Note that image augmentation is not applied in the testing phase because the goal is to reduce generalization error. There are other forms of image augmentation in practice, such as sample-wise standardization, whitening, rotating, scaling, shear transformation, contrast normalization.
+
+### Keras implementation
 
 Keras implements many useful image geometric transformation and normalization methods. The description of the `ImageDataGenerator` is as follows:
 
