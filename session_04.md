@@ -81,6 +81,16 @@ where computing standard deviation is not feasible for a large dataset, then onl
 
 Random Flipping and Shifting are two popular image augmentation that are employed to create more varieties of an image particularly in the context of object recognition. The use of these two procedures increases the network's robustness against mirror image, rotation, and translation.
 
+---
+
+<div align="center">
+    <img src="./images/flipping.png" width="40%">
+    <img src="./images/shifting.png" width="40%">
+    <p><b>Left</b>: Random Flipping; <b>Right</b>: Random Shifting.</p>
+</div>
+
+---
+
 __Random Flipping__ is usually applied on each image during the training. The image can be translated into one of the four forms presented in the above left image randomly and independently. Note that for certain applications, one of vertical flipping or horizontal flipping might be disabled, e.g., for object segmentation in autonomous driving, it does not make sense to apply vertical flipping.
 
 __Random Shifting__ randomly shifts the image for some predefined distance along one of the 9 directions: left ($$\leftarrow$$), right ($$\rightarrow$$), up ($$\uparrow$$), down ($$\downarrow$$), up-left ($$\nwarrow$$), up-right ($$\nearrow$$), down-left ($$\swarrow$$), down-right ($$\searrow$$), and still ($$\cdot$$) in the training phase (the above image at the right). This predefined distance is usually quantified in pixels.
