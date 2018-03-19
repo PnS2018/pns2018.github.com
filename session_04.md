@@ -68,8 +68,10 @@ $$
 The standard deviation $$\sigma$$ is divided from the updated dataset with the following two equations and the standardized dataset $$\tilde{\mathcal{X}}\in\{\tilde{\mathbf{x}}\}_{i=1}^{N}$$ is created.
 
 $$
+\begin{aligned}
 \sigma^{2}&=\frac{1}{N}\sum_{\hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}}\hat{\mathbf{x}}_{i}\odot\hat{\mathbf{x}}_{i} \\
 \tilde{\mathbf{x}}_{i}=\hat{\mathbf{x}}_{i}/\sigma,\quad \forall \hat{\mathbf{x}}_{i}\in\hat{\mathcal{X}}
+\end{aligned}
 $$
 
 where $$\odot$$ and / are element-wise multiplication and division.
