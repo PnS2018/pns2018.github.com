@@ -38,7 +38,23 @@ Given a grayscale or RGB image, we can naturally treat the image as the same as 
 
 ## Image Geometric Transformation
 
+### Scaling
+
+### Translation
+
+### Rotation
+
+### Affine transformation
+
 ## Simple Image Processing Techniques
+
+### Image thresholding
+
+### Filtering to blur
+
+### Gradients, again
+
+### Edge Detection
 
 ## ZCA Whitening
 
