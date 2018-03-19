@@ -34,10 +34,64 @@ The grayscale and the RGB images are only two types of image encodings. There ar
 
 The above picture is one of the most famous testing images - __Lenna__ (or Lena). The resolution of the image is $$512\times 512$$.  The image has both simple and complex textures, a wide range of colors, nice mixture of detail, shading which do a great job of testing various of image processing algorithms. Lenna is truly goddess of digital image processing. If you would like to read more story of Lenna, please follow [this link](http://www.lenna.org/).
 
+Given a grayscale or RGB image, we can naturally treat the image as the same as a matrix or a 3D tensor. We can then process images with our knowledge of Linear Algebra.
+
 ## Image Geometric Transformation
 
 ## Simple Image Processing Techniques
 
-## PCA and ZCA Whitening
+## ZCA Whitening
+
+## Image Augmentation in Keras
+
+Data Augmentation 
+
+Keras implements many useful image geometric transformation and normalization methods. The description of the `ImageDataGenerator` is as follows:
+
+```python
+keras.preprocessing.image.ImageDataGenerator(featurewise_center=False,
+    samplewise_center=False,
+    featurewise_std_normalization=False,
+    samplewise_std_normalization=False,
+    zca_whitening=False,
+    zca_epsilon=1e-6,
+    rotation_range=0.,
+    width_shift_range=0.,
+    height_shift_range=0.,
+    shear_range=0.,
+    zoom_range=0.,
+    channel_shift_range=0.,
+    fill_mode='nearest',
+    cval=0.,
+    horizontal_flip=False,
+    vertical_flip=False,
+    rescale=None,
+    preprocessing_function=None,
+    data_format=K.image_data_format())
+```
+
+This generator firstly takes the training features (e.g., $$\mathbf{X}$$) and then computes some statistics,
+
+Here we show an example of using this `ImageDataGenerator`. This generator eliminates the feature-wise mean and normalizes the feature-wise standard deviation. Each image then randomly rotates for at most $$20^{\circ}$$, shifts at most 20% both horizontally and vertically, and performs horizontal flip.
+
+```python
+datagen = ImageDataGenerator(
+    featurewise_center=True,
+    featurewise_std_normalization=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True)
+
+# compute quantities required for featurewise normalization
+# (std, mean, and principal components if ZCA whitening is applied)
+datagen.fit(x_train)
+
+# fits the model on batches with real-time data augmentation:
+model.fit_generator(datagen.flow(x_train, y_train, batch_size=32),
+                    steps_per_epoch=len(x_train) / 32, epochs=epochs)
+```
+
+Noted that this generator is implemented on CPU instead of GPU. Therefore, it takes a long time for preprocessing a huge dataset if you are not careful.
 
 ## Exercises
