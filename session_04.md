@@ -61,7 +61,7 @@ To be specific, let the image dataset be $$\mathcal{X}=\{\mathbf{x}_{i}\}_{i=1}^
 $$
 \begin{aligned}
     \bar{\mathbf{x}}&=\frac{1}{N}\sum_{\mathbf{x}_{i}\in\mathcal{X}}\mathbf{x}_{i} \\
-    \hat{\mathbf{x}}&=\mathbf{x}-\bar{\mathbf{x},\quad \forall\mathbf{x}_{i}\in\mathcal{X}
+    \hat{\mathbf{x}}&=\mathbf{x}_{i}-\bar{\mathbf{x}},\quad \forall\mathbf{x}_{i}\in\mathcal{X}
 \end{aligned}
 $$
 
