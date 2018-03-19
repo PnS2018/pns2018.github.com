@@ -61,9 +61,7 @@ Given a grayscale or RGB image, we can naturally treat the image as the same as 
 ## Image Augmentation in Keras
 
 Image Augmentation is a form of regularization that reduces generalization error of image recognition system by creating "fake images" (Goodfellow et al.,
-2016). By applying various kinds of data transformations (e.g., standardiza-
-tion, geometric transformations such as rotating, scaling, stretching), the vir-
-tual size of the dataset increases. The exposure of more varieties of the original
+2016). By applying various kinds of data transformations (e.g., standardization, geometric transformations such as rotating, scaling, stretching), the virtual size of the dataset increases. The exposure of more varieties of the original
 image particularly improves the network robustness against geometric trans-
 formations and view points in training DNNs.
 
