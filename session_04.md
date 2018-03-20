@@ -21,7 +21,7 @@ With the above definition, we can simply define an image as a $$n\times m\times 
 ($$k=1$$), the image is typically stored as a _grayscale_ image. The intensity of a pixel is then represented by one `uint8` value where 0 is black and 255 is white. If there are three color channels ($$k=3$$), we define that the first, the second and the third channel are the <font color="red">red</font> channel, the <font color="green">green</font> channel and the <font color="blue">blue</font> channel respectively. We hence refer this type of image to as _RGB_
 color image. The intensity of a pixel in a RGB image is represented by three `uint8` integers where these three integers express the mixture of the three base colors - red, green and blue. You can interpret the value of a certain channel as the degree of the color intensity. Because each pixel has three `uint8` values, each RGB pixel can represent $$2^{24}$$ different colors.
 
-The grayscale and the RGB images are only two types of image encodings. There are other image encodings such as YCrCb, HSV, HLS that are widely applied in many other applications. We do not discuss these encodings here.
+The grayscale and the RGB images are only two types of image color-spaces. There are other image color-spaces such as YCrCb, HSV, HLS that are widely applied in many other applications. We do not discuss these color-spaces here.
 
 ---
 
