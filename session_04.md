@@ -324,3 +324,7 @@ model.fit_generator(datagen.flow(x_train, y_train, batch_size=32),
 Noted that this generator is implemented on CPU instead of GPU. Therefore, it takes a long time for preprocessing a huge dataset if you are not careful.
 
 ## Exercises
+
+1. Modify your ConvNet from last week so that now the network can be trained by using `ImageDataGenerator` and `fit_generator` APIs, see if there is any improvements in classification accuracy. Note that you should not apply certain augmentations that are applied on the training dataset on the testing dataset.
+
+2. Try to run examples in the above contents, get familiar with OpenCV.
