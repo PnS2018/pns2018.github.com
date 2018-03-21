@@ -4,7 +4,7 @@ layout: default
 
 In this session, we focus on introducing common concepts and techniques in __Digital Image Processing__. We also would like to discuss how you can apply these techniques to Machine Learning tasks.
 
-This session explains the concepts and techniques in a practical settings. Therefore, we omit many mathematical details that are out of the scope of the session. Nevertheless, we strongly encourage interested readers to study Image Processing and Computer Vision formally.
+This session explains the concepts and techniques in a practical setting. Therefore, we omit many mathematical details that are out of the scope of the session. Nevertheless, we strongly encourage interested readers to study Image Processing and Computer Vision formally.
 
 ## Digital Image Representation
 
@@ -91,6 +91,9 @@ Yo can find the detailed documentation of the `cv2.resize` from [here](https://d
 ### Edge Detection
 
 ## ZCA Whitening
+
+
+__Remark__: We encourage readers to read the book _Computer Vision: Algorithms and Applications_ by Richard Szeliski. This book presents nicely a wide range of Computer Vision algorithms.
 
 ## Image Augmentation in Keras
 
