@@ -79,19 +79,139 @@ Yo can find the detailed documentation of the `cv2.resize` from [here](https://d
 Image translation shifts the content of an image to another pre-defined
 location.
 
+```python
+import cv2
+import numpy as np
+
+img = cv2.imread('messi5.jpg',0)
+rows,cols = img.shape
+
+M = np.float32([[1,0,100],[0,1,50]])
+dst = cv2.warpAffine(img,M,(cols,rows))
+
+cv2.imshow('img',dst)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
 ### Rotation
 
+```python
+img = cv2.imread('messi5.jpg',0)
+rows,cols = img.shape
+
+M = cv2.getRotationMatrix2D((cols/2,rows/2),90,1)
+dst = cv2.warpAffine(img,M,(cols,rows))
+```
+
 ### Affine transformation
+
+```python
+img = cv2.imread('drawing.png')
+rows,cols,ch = img.shape
+
+pts1 = np.float32([[50,50],[200,50],[50,200]])
+pts2 = np.float32([[10,100],[200,50],[100,250]])
+
+M = cv2.getAffineTransform(pts1,pts2)
+
+dst = cv2.warpAffine(img,M,(cols,rows))
+
+plt.subplot(121),plt.imshow(img),plt.title('Input')
+plt.subplot(122),plt.imshow(dst),plt.title('Output')
+plt.show()
+```
 
 ## Simple Image Processing Techniques
 
 ### Image thresholding
 
+```python
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('dave.jpg',0)
+img = cv2.medianBlur(img,5)
+
+ret,th1 = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
+th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,\
+            cv2.THRESH_BINARY,11,2)
+th3 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
+            cv2.THRESH_BINARY,11,2)
+
+titles = ['Original Image', 'Global Thresholding (v = 127)',
+            'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
+images = [img, th1, th2, th3]
+
+for i in xrange(4):
+    plt.subplot(2,2,i+1),plt.imshow(images[i],'gray')
+    plt.title(titles[i])
+    plt.xticks([]),plt.yticks([])
+plt.show()
+```
+
 ### Filtering to blur
+
+```python
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('opencv_logo.png')
+
+kernel = np.ones((5,5),np.float32)/25
+dst = cv2.filter2D(img,-1,kernel)
+
+plt.subplot(121),plt.imshow(img),plt.title('Original')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(dst),plt.title('Averaging')
+plt.xticks([]), plt.yticks([])
+plt.show()
+```
 
 ### Gradients, again
 
+```python
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('dave.jpg',0)
+
+laplacian = cv2.Laplacian(img,cv2.CV_64F)
+sobelx = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5)
+sobely = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=5)
+
+plt.subplot(2,2,1),plt.imshow(img,cmap = 'gray')
+plt.title('Original'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,2),plt.imshow(laplacian,cmap = 'gray')
+plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,3),plt.imshow(sobelx,cmap = 'gray')
+plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,4),plt.imshow(sobely,cmap = 'gray')
+plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+```
+
 ### Edge Detection
+
+```python
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('messi5.jpg',0)
+edges = cv2.Canny(img,100,200)
+
+plt.subplot(121),plt.imshow(img,cmap = 'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(edges,cmap = 'gray')
+plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+```
 
 ## ZCA Whitening
 
