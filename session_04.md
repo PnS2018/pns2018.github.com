@@ -76,6 +76,9 @@ Yo can find the detailed documentation of the `cv2.resize` from [here](https://d
 
 ### Translation
 
+Image translation shifts the content of an image to another pre-defined
+location.
+
 ### Rotation
 
 ### Affine transformation
