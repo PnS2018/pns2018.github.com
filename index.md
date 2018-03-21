@@ -67,3 +67,4 @@ We would like to acknowledge the following resources:
 + [Unsupervised Feature Learning and Deep Learning Tutorial](http://ufldl.stanford.edu/tutorial/)
 + [cs231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/)
 + [RPI-Wireless-Hotspot](https://github.com/unixabg/RPI-Wireless-Hotspot)
++ [OpenCV Python Tutorials](http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html)
