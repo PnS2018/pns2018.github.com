@@ -4,6 +4,8 @@ layout: default
 
 In this session, we focus on introducing common concepts and techniques in __Digital Image Processing__. We also would like to discuss how you can apply these techniques to Machine Learning tasks.
 
+This session explains the concepts and techniques in a practical settings. Therefore, we omit many mathematical details that are out of the scope of the session. Nevertheless, we strongly encourage interested readers to study Image Processing and Computer Vision formally.
+
 ## Digital Image Representation
 
 Before giving intuitive examples of _digital images_ or simply _images_, we would like to formally define the concept of digital image and _digital image processing_. One accurate definition is from the book _Digital Image Processing (2nd Edition)_ by Rafael C. Gonzalez and Richard E. Woods.
@@ -38,7 +40,39 @@ Given a grayscale or RGB image, we can naturally treat the image as the same as 
 
 ## Image Geometric Transformation
 
+OpenCV is an optimized Computer Vision library that supports
+multiple programming languages. The library implements many
+classical and modern Image Processing and Computer Vision
+related algorithms very efficiently. In this module, we use
+the Python bindings of the OpenCV. If you have installed the OpenCV,
+you can import the package in your program as follows:
+
+```python
+import cv2
+```
+
 ### Scaling
+
+Scaling (resizing) an image concerns with the topic of up-sampling and down-sampling.
+For example, the Max-Pooling operation we introduced in Session 3 is
+a way of scaling an image. In this section, we shell use the OpenCV's API
+to rescale an image.
+
+```python
+import cv2
+import numpy as np
+
+img = cv2.imread('lenna.png')
+
+res = cv2.resize(img,None,fx=2, fy=2, interpolation = cv2.INTER_CUBIC)
+
+#OR
+
+height, width = img.shape[:2]
+res = cv2.resize(img,(2*width, 2*height), interpolation = cv2.INTER_CUBIC)
+```
+
+Yo can find the detailed documentation of the `cv2.resize` from [here](https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#resize)
 
 ### Translation
 
