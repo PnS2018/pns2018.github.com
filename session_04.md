@@ -73,7 +73,7 @@ to rescale an image.
 import cv2
 import numpy as np
 
-img = cv2.imread('lenna.png')
+img = cv2.imread('lenna.png')  # put the lenna.png at the same directory as the script
 
 res = cv2.resize(img,None,fx=2, fy=2, interpolation = cv2.INTER_CUBIC)
 
