@@ -17,11 +17,13 @@ a digital computer.
 
 __Remark__: Although this book was published over a decade ago, the book presents a comprehensive introduction that both beginners and experts can enjoy reading.
 
-With the above definition, we can simply define an image as a $$n\times m\times k$$ (`height x width x color_channels`) array where the image consists of $$n\times m$$ _pixels_ and $$n, m, k\in \mathbb{N}^{+}$$. A pixel is a point $$(x,y)$$ in a image. Typically, the intensity of a pixel is denoted as one or an array of `uint8` values. `uint8` is unsigned 8-bit integer that has the range $$[0, 255]$$ (0 is no color, 255 is full color). If there is only one color channel
+With the above definition, we can define an image as a $$n\times m\times k$$ (`height x width x color_channels`) array where the image consists of $$n\times m$$ _pixels_ and $$n, m, k\in \mathbb{N}^{+}$$. The _resolution_ of an image is also determined by the number of pixels of the image.
+
+A pixel is a point $$(x,y)$$ in an image. Typically, the intensity of a pixel is denoted as one or an array of `uint8` values. `uint8` is unsigned 8-bit integer that has the range $$[0, 255]$$ (0 is no color, 255 is full color). If there is only one color channel
 ($$k=1$$), the image is typically stored as a _grayscale_ image. The intensity of a pixel is then represented by one `uint8` value where 0 is black and 255 is white. If there are three color channels ($$k=3$$), we define that the first, the second and the third channel are the <font color="red">red</font> channel, the <font color="green">green</font> channel and the <font color="blue">blue</font> channel respectively. We hence refer this type of image to as _RGB_
 color image. The intensity of a pixel in a RGB image is represented by three `uint8` integers where these three integers express the mixture of the three base colors - red, green and blue. You can interpret the value of a certain channel as the degree of the color intensity. Because each pixel has three `uint8` values, each RGB pixel can represent $$2^{24}$$ different colors.
 
-The grayscale and the RGB images are only two types of image color-spaces. There are other image color-spaces such as YCrCb, HSV, HLS that are widely applied in many other applications. We do not discuss these color-spaces here.
+The grayscale and the RGB encodings are only two types of image color-spaces. There are other image color-spaces such as YCrCb, HSV, HLS that are widely applied in many other applications. We do not discuss these color-spaces here.
 
 ---
 
