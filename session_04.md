@@ -177,6 +177,28 @@ $$
 \end{aligned}
 $$
 
+In `skimage`, one can translate the image by using the `warp` and `SimilarityTransform` APIs:
+
+```python
+from skimage.io import imread
+from skimage.transform import warp
+from skimage.transform import SimilarityTransform
+
+import matplotlib.pyplot as plt
+
+# read image
+img = imread("Lenna.png")
+
+# translate the image
+tform = SimilarityTransform(translation=(-50, -100))
+warped = warp(img, tform)
+
+# display the image
+plt.figure()
+plt.imshow(warped)
+plt.show()
+```
+
 ### Rotation
 
 ```python
