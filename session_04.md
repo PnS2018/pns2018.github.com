@@ -142,7 +142,7 @@ location.
 import cv2
 import numpy as np
 
-# read the image
+# read the image, 0 means loading the image as a grayscale image
 img = cv2.imread("Lenna.png", 0)
 rows,cols = img.shape
 
@@ -187,7 +187,7 @@ from skimage.transform import SimilarityTransform
 import matplotlib.pyplot as plt
 
 # read image
-img = imread("Lenna.png")
+img = imread("Lenna.png", as_grey=True)
 
 # translate the image
 tform = SimilarityTransform(translation=(-50, -100))
@@ -195,19 +195,57 @@ warped = warp(img, tform)
 
 # display the image
 plt.figure()
-plt.imshow(warped)
+plt.imshow(warped, cmap="gray")
 plt.show()
 ```
 
 ### Rotation
 
-```python
-img = cv2.imread('messi5.jpg',0)
-rows,cols = img.shape
+Rotation of an image for an angle $$\theta$$ in OpenCV is achieved by
+defining a rotation matrix that has the form of
 
-M = cv2.getRotationMatrix2D((cols/2,rows/2),90,1)
-dst = cv2.warpAffine(img,M,(cols,rows))
+$$
+M = \[\begin{matrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+\end{matrix}\]
+$$
+
+You can compute this matrix in OpenCV via the `getRotationMatix2D` API.
+The following example rotates the image for $$45^{\circ}$$ in counter-clockwise direction.
+
+```python
+import cv2
+
+# read the image in grayscale
+img = cv2.imread("Lenna.png", 0)
+rows, cols = img.shape
+
+# rotate for 45 degree counter-clockwise respect to the center of the image
+M = cv2.getRotationMatrix2D((cols/2, rows/2), 45, 1)
+dst = cv2.warpAffine(img, M, (cols, rows))
 ```
+
+In `skimage`, one can perform this operation via `rotate` API:
+
+```python
+from skimage.io import imread
+from skimage.transform import rotate
+
+import matplotlib.pyplot as plt
+
+# read image
+img = imread("Lenna.png", as_grey=True)
+
+# rotate the image for 45 degree
+dst = rotate(img, 45)
+
+# display the rotated image
+plt.figure()
+plt.imshow(dst, cmap="gray")
+plt.show()
+```
+
 
 ### Affine transformation
 
