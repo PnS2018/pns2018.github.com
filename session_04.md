@@ -73,21 +73,65 @@ to rescale an image.
 import cv2
 import numpy as np
 
+# read the image file
 img = cv2.imread("Lenna.png")  # put the lenna.png at the same directory as the script
 
+# fx: scaling factor for width (x-axis)
+# fy: scaling factor for height (y-axis)
 res = cv2.resize(img, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 
 #OR
 
+# extract height and width of the image
 height, width = img.shape[:2]
+# resize the image
 res = cv2.resize(img, (2*width, 2*height), interpolation=cv2.INTER_CUBIC)
+
+# display the image
+cv2.imshow('rescaled', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 
 Yo can find the detailed documentation of the `cv2.resize` from [here](https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#resize)
 
 Note that OpenCV reverse the color channel order while encoding an RGB image.
-OpenCV refers this encoding to as BGR. Hence, you will need to
-convert the channel ordering
+OpenCV refers this encoding to as BGR. OpenCV uses the BGR as the default color space.
+However, if you would like to process and plot the RGB image
+using other libraries, you will need to
+convert the channel ordering via the `cvtColor` API:
+
+```python
+res_rgb = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
+```
+
+For `skimage`, one can achieve the same effect via `imread` and `resize` APIs:
+
+```python
+from skimage.io import imread
+from skimage.transform import resize
+from skimage.transform import rescale
+
+import matplotlib.pyplot as plt
+
+# read the image file
+img = imread("Lenna.png")
+
+# resize the image
+height, width = img.shape[:2]
+res = resize(img, (height*2, width*2))
+
+# OR
+# rescale the image by factor
+res = rescale(img, (2, 2))
+
+# display the image
+plt.figure()
+plt.imshow(res)
+plt.show()
+```
+
+Check out the detailed documentation at [here](http://scikit-image.org/docs/dev/api/skimage.transform.html).
 
 ### Translation
 
