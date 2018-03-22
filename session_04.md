@@ -246,22 +246,30 @@ plt.imshow(dst, cmap="gray")
 plt.show()
 ```
 
-
 ### Affine transformation
 
 ```python
-img = cv2.imread('drawing.png')
-rows,cols,ch = img.shape
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-pts1 = np.float32([[50,50],[200,50],[50,200]])
-pts2 = np.float32([[10,100],[200,50],[100,250]])
+# read the image
+img = cv2.imread("Lenna.png", 0)
+rows, cols = img.shape
 
-M = cv2.getAffineTransform(pts1,pts2)
+# select three points
+pts1 = np.float32([[50, 50], [200, 50], [50, 200]])
+pts2 = np.float32([[10, 100], [200, 50], [100, 250]])
 
-dst = cv2.warpAffine(img,M,(cols,rows))
+# get transformation matrix
+M = cv2.getAffineTransform(pts1, pts2)
 
-plt.subplot(121),plt.imshow(img),plt.title('Input')
-plt.subplot(122),plt.imshow(dst),plt.title('Output')
+# apply Affine transformation
+dst = cv2.warpAffine(img, M, (cols, rows))
+
+# disply the output
+plt.subplot(121), plt.imshow(img, cmap="gray"), plt.title('Input')
+plt.subplot(122), plt.imshow(dst, cmap="gray"), plt.title('Output')
 plt.show()
 ```
 
