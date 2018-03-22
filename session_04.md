@@ -496,6 +496,13 @@ plt.show()
 
 ### Edge Detection
 
+The above section on gradients provides a set of simple edge
+detectors (e.g., horizontal or vertical edges). However, the quality
+of the filtered edges is heavily depending on the design of the filter.
+A popular edge detection algorithm is _Canny edge detector_ which
+is developed by John F. Canny in 1986. This algorithm has multiple
+stages that can denoise the image, find the gradients, and apply thresholding.
+
 ```python
 import cv2
 import numpy as np
