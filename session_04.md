@@ -142,16 +142,40 @@ location.
 import cv2
 import numpy as np
 
-img = cv2.imread('messi5.jpg',0)
+# read the image
+img = cv2.imread("Lenna.png", 0)
 rows,cols = img.shape
 
-M = np.float32([[1,0,100],[0,1,50]])
-dst = cv2.warpAffine(img,M,(cols,rows))
+# define translation matrix
+# move 100 pixels on x-axis
+# move 50 pixels on y-axis
+M = np.float32([[1, 0, 100],[0, 1, 50]])
+# translate the image
+dst = cv2.warpAffine(img, M, (cols, rows))
 
-cv2.imshow('img',dst)
+# display the image
+cv2.imshow('img', dst)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
+
+In the above example, one has to define a translation matrix `M`:
+
+$$
+M = \left[\begin{matrix}
+    1 & 0 & 100 \\
+    0 & 1 & 50
+\end{matrix}\right]
+$$
+
+Essentially, the above translation matrix shifts the pixel at $$(x, y)$$ to the new coordinates $$(\hat{x}, \hat{y})$$:
+
+$$
+\begin{aligned}
+    \hat{x}&=x+100 \\
+    \hat{y}&=y+50
+\end{aligned}
+$$
 
 ### Rotation
 
