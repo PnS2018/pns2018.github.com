@@ -441,19 +441,54 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+# read image
 img = cv2.imread("Lenna.png", 0)
 
+# perform laplacian filtering
 laplacian = cv2.Laplacian(img, cv2.CV_64F)
-sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=5)
-sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=5)
+# find vertical edge
+sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+# find horizontal edge
+sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
 
-plt.subplot(2, 2, 1), plt.imshow(img, cmap = 'gray')
+plt.subplot(2, 2, 1), plt.imshow(img, cmap='gray')
 plt.title('Original'), plt.xticks([]), plt.yticks([])
-plt.subplot(2, 2, 2), plt.imshow(laplacian, cmap = 'gray')
+plt.subplot(2, 2, 2), plt.imshow(laplacian, cmap='gray')
 plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
-plt.subplot(2, 2, 3), plt.imshow(sobelx, cmap = 'gray')
+plt.subplot(2, 2, 3), plt.imshow(sobelx, cmap='gray')
 plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
-plt.subplot(2, 2, 4), plt.imshow(sobely, cmap = 'gray')
+plt.subplot(2, 2, 4), plt.imshow(sobely, cmap='gray')
+plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+```
+
+```python
+import numpy as np
+from skimage.io import imread
+from skimage.filters import laplace
+from skimage.filters import sobel_h, sobel_v
+
+import matplotlib.pyplot as plt
+
+# read image
+img = imread("Lenna.png", as_grey=True)
+
+# perform laplacian filtering
+laplacian = laplace(img)
+# find vertical edge
+sobelx = sobel_v(img)
+# find horizontal edge
+sobely = sobel_h(img)
+
+# display results
+plt.subplot(2, 2, 1), plt.imshow(img, cmap='gray')
+plt.title('Original'), plt.xticks([]), plt.yticks([])
+plt.subplot(2, 2, 2), plt.imshow(laplacian, cmap='gray')
+plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
+plt.subplot(2, 2, 3), plt.imshow(sobelx, cmap='gray')
+plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
+plt.subplot(2, 2, 4), plt.imshow(sobely, cmap='gray')
 plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 
 plt.show()
@@ -466,12 +501,37 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+# read image
 img = cv2.imread("Lenna.png", 0)
+# Find edge with Canny edge detection
 edges = cv2.Canny(img, 100, 200)
 
-plt.subplot(121), plt.imshow(img, cmap = 'gray')
+# display results
+plt.subplot(121), plt.imshow(img, cmap='gray')
 plt.title('Original Image'), plt.xticks([]), plt.yticks([])
-plt.subplot(122), plt.imshow(edges,cmap = 'gray')
+plt.subplot(122), plt.imshow(edges, cmap='gray')
+plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+```
+
+```python
+import numpy as np
+from skimage.io import imread
+from skimage.feature import canny
+
+import matplotlib.pyplot as plt
+
+# read image
+img = imread("Lenna.png", as_grey=True)
+
+# find edge with Canny edge detection
+edges = canny(img)
+
+# display results
+plt.subplot(121), plt.imshow(img, cmap='gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(edges, cmap='gray')
 plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
 
 plt.show()
