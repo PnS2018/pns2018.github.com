@@ -168,7 +168,7 @@ M = \left[\begin{matrix}
 \end{matrix}\right]
 $$
 
-Essentially, the above translation matrix shifts the pixel at $$(x, y)$$ to the new coordinates $$(\hat{x}, \hat{y})$$:
+Essentially, the above translation matrix shifts the pixel at $$(x, y)$$ to the new coordinations $$(\hat{x}, \hat{y})$$:
 
 $$
 \begin{aligned}
@@ -248,6 +248,16 @@ plt.show()
 
 ### Affine transformation
 
+Affine transformation is a linear mapping method that preserves
+points, straight lines and planes.
+In affine transformation, all parallel lines in the original image will still
+beg parallel in the output image.
+
+In the following example, we select three points from the original image
+(in this case, $$x_{1}=(50, 50)$$, $$x_{2}=(200, 50)$$, $$x_{3}=(50, 200)$$).
+They will be mapped to the new coordinations $$\hat{x}_{1}=(10, 100)$$,
+$$\hat{x}_{2}=(200, 50)$$, $$\hat{x}_{3}=(100, 250)$$.
+
 ```python
 import cv2
 import numpy as np
@@ -272,6 +282,8 @@ plt.subplot(121), plt.imshow(img, cmap="gray"), plt.title('Input')
 plt.subplot(122), plt.imshow(dst, cmap="gray"), plt.title('Output')
 plt.show()
 ```
+
+The corresponding `skimage` version of the affine transformation is as follows:
 
 ```python
 import numpy as np 
@@ -298,6 +310,11 @@ plt.subplot(121), plt.imshow(img, cmap="gray"), plt.title('Input')
 plt.subplot(122), plt.imshow(dst, cmap="gray"), plt.title('Output')
 plt.show()
 ```
+
+Note that the above code estimates the transformation matrix using
+`estimate_transform` API. If there is a predefined linear mapping,
+one can also specify the transformation matrix using
+the `AffineTransform` API.
 
 ## Simple Image Processing Techniques
 
