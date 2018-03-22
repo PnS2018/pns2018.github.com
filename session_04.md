@@ -205,10 +205,10 @@ Rotation of an image for an angle $$\theta$$ in OpenCV is achieved by
 defining a rotation matrix that has the form of
 
 $$
-M = \[\begin{matrix}
+M = \left[\begin{matrix}
     \cos\theta & -\sin\theta \\
     \sin\theta & \cos\theta
-\end{matrix}\]
+\end{matrix}\right]
 $$
 
 You can compute this matrix in OpenCV via the `getRotationMatix2D` API.
@@ -436,6 +436,45 @@ plt.show()
 
 ### Gradients, again
 
+In some cases, spatial changes on the image may be attractive to know.
+For example, if someone want to find the shape of an object in the image,
+we usually assume that the region round the edge of the object will change dramatically. With this spatial change, we can then define the spatial gradient.
+
+Here we demonstrate two kinds of gradient filters: Laplacian filters and
+Sobel filters. Here we demonstrate some common settings of these two filters
+
++ Laplacian filter:
+
+    $$
+    M=\left[\begin{matrix}
+        0 & 1 & 0 \\
+        1 & -4 & 1 \\
+        0 & 1 & 0
+    \end{matrix}\right]
+    $$
+
++ Sobel filter for horizontal edge:
+
+    $$
+    M=\left[\begin{matrix}
+        1 & 2 & 1 \\
+        0 & 0 & 0 \\
+        -1 & -2 & -1
+    \end{matrix}\right]
+    $$
+
++ Sobel filter for vertical edge:
+
+    $$
+    M=\left[\begin{matrix}
+        1 & 0 & -1 \\
+        2 & 0 & -2 \\
+        1 & 0 & -1
+    \end{matrix}\right]
+    $$
+
+
+A reference OpenCV implementation is as follows:
 ```python
 import cv2
 import numpy as np
@@ -463,6 +502,7 @@ plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 plt.show()
 ```
 
+Here is an example in `skimage`:
 ```python
 import numpy as np
 from skimage.io import imread
