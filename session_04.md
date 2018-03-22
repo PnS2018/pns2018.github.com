@@ -267,7 +267,33 @@ M = cv2.getAffineTransform(pts1, pts2)
 # apply Affine transformation
 dst = cv2.warpAffine(img, M, (cols, rows))
 
-# disply the output
+# display the output
+plt.subplot(121), plt.imshow(img, cmap="gray"), plt.title('Input')
+plt.subplot(122), plt.imshow(dst, cmap="gray"), plt.title('Output')
+plt.show()
+```
+
+```python
+import numpy as np 
+from skimage.io import imread
+from skimage.transform import warp
+from skimage.transform import estimate_transform
+
+import matplotlib.pyplot as plt
+
+# read image
+img = imread("Lenna.png", as_grey=True)
+
+# define corresponding points
+pts1 = np.float32([[50, 50], [200, 50], [50, 200]])
+pts2 = np.float32([[10, 100], [200, 50], [100, 250]])
+
+# estimate transform matrix
+tform = estimate_transform("affine", pts1, pts2)
+# apply affine transformation
+dst = warp(img, tform.inverse)
+
+# display the output
 plt.subplot(121), plt.imshow(img, cmap="gray"), plt.title('Input')
 plt.subplot(122), plt.imshow(dst, cmap="gray"), plt.title('Output')
 plt.show()
@@ -363,9 +389,6 @@ plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
 
 plt.show()
 ```
-
-## ZCA Whitening
-
 
 __Remark__: We encourage readers to read the book _Computer Vision: Algorithms and Applications_ by Richard Szeliski. This book presents nicely a wide range of Computer Vision algorithms.
 
@@ -478,4 +501,4 @@ Noted that this generator is implemented on CPU instead of GPU. Therefore, it ta
 
 1. Modify your ConvNet from last week so that now the network can be trained by using `ImageDataGenerator` and `fit_generator` APIs, see if there is any improvements in classification accuracy. Note that you should not apply certain augmentations that are applied on the training dataset on the testing dataset.
 
-2. Try to run examples in the above contents, get familiar with OpenCV.
+2. Run examples in the above contents, get familiar with OpenCV and scikit-image.
