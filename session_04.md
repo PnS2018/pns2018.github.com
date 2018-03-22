@@ -458,6 +458,10 @@ plt.xticks([]), plt.yticks([])
 plt.show()
 ```
 
+__Remark__: Unfortunately, there is no obvious implementation for `skimage` in this case.
+But this can be achieved by using other numerical packages such as
+`scipy` to perform this task.
+
 ### Gradients, again
 
 In some cases, spatial changes on the image may be attractive to know.
