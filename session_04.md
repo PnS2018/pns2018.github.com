@@ -73,17 +73,21 @@ to rescale an image.
 import cv2
 import numpy as np
 
-img = cv2.imread('lenna.png')  # put the lenna.png at the same directory as the script
+img = cv2.imread("Lenna.png")  # put the lenna.png at the same directory as the script
 
-res = cv2.resize(img,None,fx=2, fy=2, interpolation = cv2.INTER_CUBIC)
+res = cv2.resize(img, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 
 #OR
 
 height, width = img.shape[:2]
-res = cv2.resize(img, (2*width, 2*height), interpolation = cv2.INTER_CUBIC)
+res = cv2.resize(img, (2*width, 2*height), interpolation=cv2.INTER_CUBIC)
 ```
 
 Yo can find the detailed documentation of the `cv2.resize` from [here](https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#resize)
+
+Note that OpenCV reverse the color channel order while encoding an RGB image.
+OpenCV refers this encoding to as BGR. Hence, you will need to
+convert the channel ordering
 
 ### Translation
 
