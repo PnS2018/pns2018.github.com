@@ -320,28 +320,91 @@ the `AffineTransform` API.
 
 ### Image thresholding
 
+Thresholding may be one of the most straightforward Computer Vision
+algorithms. Given a _grayscale_ image, each pixel is assigned to a
+new value that depends on the original pixel intensity and a
+threshold.
+
+Why is the thresholding useful? For example, if the image texture
+is simple enough, one can carefully design a threshold so that
+the desired portion of the image can be selected.
+In other cases, if you would like to investigate the
+illumination level of the image, you can also apply thresholding to do it.
+
+If you apply a global threshold to the entire image,
+it may not be good in all the conditions because different regions of the image
+have different lighting conditions. In this case,
+we can consider adaptive thresholding methods.
+For example, we first calculate the threshold for a small regions of the image.
+And then use the calculated value on local region to threshold pixels.
+
 ```python
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv2.imread('dave.jpg',0)
-img = cv2.medianBlur(img,5)
+# load the image
+img = cv2.imread("Lenna.png", 0)
 
-ret,th1 = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
-th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,\
-            cv2.THRESH_BINARY,11,2)
-th3 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
-            cv2.THRESH_BINARY,11,2)
+# apply global thresholding
+ret, th1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
 
+# apply mean thresholding
+# the function calculates the mean of a 11x11 neighborhood area for each pixel
+# and subtract 2 from the mean
+th2 = cv2.adaptiveThreshold(
+    img, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
+    cv2.THRESH_BINARY, 11, 2)
+
+# apply Gaussian thresholding
+# the function calculates a weights sum by using a 11x11 Gaussian window
+# and subtract 2 from the weighted sum.
+th3 = cv2.adaptiveThreshold(
+    img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+    cv2.THRESH_BINARY, 11, 2)
+
+# display the processed images
 titles = ['Original Image', 'Global Thresholding (v = 127)',
-            'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
+          'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
 images = [img, th1, th2, th3]
 
 for i in xrange(4):
-    plt.subplot(2,2,i+1),plt.imshow(images[i],'gray')
+    plt.subplot(2, 2, i+1), plt.imshow(images[i], 'gray')
     plt.title(titles[i])
-    plt.xticks([]),plt.yticks([])
+    plt.xticks([]), plt.yticks([])
+plt.show()
+```
+
+A `skimage` implementation of global thresholding and adaptive thresholding
+is:
+
+```python
+from skimage.io import imread
+from skimage.filters import threshold_adaptive
+
+import matplotlib.pyplot as plt
+
+# read image, note that pixel values of the image are rescaled in the range of [0, 1]
+img = imread("Lenna.png", as_grey=True)
+
+# global thresholding
+th1 = img > 0.5
+
+# mean thresholding
+th2 = img > threshold_adaptive(img, 11, method="mean", offset=2/255.)
+
+# gaussian thresholding
+th3 = img > threshold_adaptive(img, 11, method="gaussian", offset=2/255.)
+
+# display results
+titles = ['Original Image', 'Global Thresholding (v = 127)',
+          'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
+images = [img, th1, th2, th3]
+
+for i in xrange(4):
+    plt.subplot(2, 2, i+1), plt.imshow(images[i], 'gray')
+    plt.title(titles[i])
+    plt.xticks([]), plt.yticks([])
 plt.show()
 ```
 
@@ -352,14 +415,21 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv2.imread('opencv_logo.png')
+# read the image
+img = cv2.imread("Lenna.png")
 
-kernel = np.ones((5,5),np.float32)/25
-dst = cv2.filter2D(img,-1,kernel)
+# prepare a 11x11 averaging filter
+kernel = np.ones((11, 11), np.float32)/121
+dst = cv2.filter2D(img, -1, kernel)
 
-plt.subplot(121),plt.imshow(img),plt.title('Original')
+# change image from BGR space to RGB space
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+dst = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
+
+# display the result
+plt.subplot(121), plt.imshow(img), plt.title('Original')
 plt.xticks([]), plt.yticks([])
-plt.subplot(122),plt.imshow(dst),plt.title('Averaging')
+plt.subplot(122), plt.imshow(dst), plt.title('Averaging')
 plt.xticks([]), plt.yticks([])
 plt.show()
 ```
