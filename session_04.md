@@ -408,7 +408,31 @@ for i in xrange(4):
 plt.show()
 ```
 
-### Filtering to blur
+### Filtering
+
+In last session, we discussed how a filter in ConvNet can be used to produce
+feature map. The process of applying a filter is _convolution_.
+This is also at the core of implementing static convolution filters.
+You can in principal design a filter that is sensitive to certain spatial patten.
+In result, you can obtain the interesting signal.
+
+Here we demonstrate how can you use an average filter to blur an image.
+
+The average filter that has $$M\times N$$ elements is defined as follows:
+
+$$
+M=\frac{1}{MN}\left[\begin{matrix}
+    1_{11} & 1_{12} & \cdots & 1_{1N} \\
+    1_{21} & 1_{22} & \cdots & 1_{2N} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1_{M1} & 1_{M2} & \cdots & 1_{MN}
+\end{matrix}\right]
+$$
+
+The average filter, as the name suggested, computes the average value over the
+filtered region. If we apply this filter on every possible region,
+then the image will be blurred because each pixel now is a mixture of
+multiple pixels in a local region.
 
 ```python
 import cv2
