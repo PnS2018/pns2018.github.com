@@ -40,6 +40,8 @@ Given a grayscale or RGB image, we can naturally treat the image as the same as 
 
 ## Image Geometric Transformation
 
+This section introduces some simple ways for manipulating images such as scaling, translation, rotation and affine transformation. These geometric transformations are presented with the help of OpenCV and scikit-image.
+
 OpenCV is an optimized Computer Vision library that supports
 multiple programming languages. The library implements many
 classical and modern Image Processing and Computer Vision
@@ -49,6 +51,15 @@ you can import the package in your program as follows:
 
 ```python
 import cv2
+```
+
+scikit-image (or `skimage`) is an optimized image processing library
+that belongs to the scikit-learn family of libraries.
+This library focuses on supporting image processing functions that are
+important to Machine Learning tasks. To import this package in your program:
+
+```python
+import skimage
 ```
 
 ### Scaling
@@ -69,7 +80,7 @@ res = cv2.resize(img,None,fx=2, fy=2, interpolation = cv2.INTER_CUBIC)
 #OR
 
 height, width = img.shape[:2]
-res = cv2.resize(img,(2*width, 2*height), interpolation = cv2.INTER_CUBIC)
+res = cv2.resize(img, (2*width, 2*height), interpolation = cv2.INTER_CUBIC)
 ```
 
 Yo can find the detailed documentation of the `cv2.resize` from [here](https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#resize)
