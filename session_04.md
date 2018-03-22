@@ -732,4 +732,4 @@ Noted that this generator is implemented on CPU instead of GPU. Therefore, it ta
 
 1. Modify your ConvNet from last week so that now the network can be trained by using `ImageDataGenerator` and `fit_generator` APIs, see if there is any improvements in classification accuracy. Note that you should not apply certain augmentations that are applied on the training dataset on the testing dataset.
 
-2. Run examples in the above contents, get familiar with OpenCV and scikit-image.
+2. Run examples in the above contents, get familiar with OpenCV and scikit-image. (you don't have to submit this part)
