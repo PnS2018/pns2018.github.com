@@ -2,9 +2,7 @@
 layout: default
 ---
 
-In this session, we focus on introducing common concepts and techniques in __Digital Image Processing__. We also would like to discuss how you can apply these techniques to Machine Learning tasks.
-
-This session explains the concepts and techniques in a practical setting. Therefore, we omit many mathematical details that are out of the scope of the session. Nevertheless, we strongly encourage interested readers to study Image Processing and Computer Vision formally.
+In this session, we focus on introducing common concepts and techniques in __Digital Image Processing__ and __Computer Vision__. We also would like to discuss how you can apply these techniques to Machine Learning tasks. Note that we omit many mathematical details that are out of the scope of the session.
 
 ## Digital Image Representation
 
