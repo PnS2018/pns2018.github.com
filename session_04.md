@@ -502,6 +502,8 @@ of the filtered edges is heavily depending on the design of the filter.
 A popular edge detection algorithm is _Canny edge detector_ which
 is developed by John F. Canny in 1986. This algorithm has multiple
 stages that can denoise the image, find the gradients, and apply thresholding.
+We omit the details of this algorithm here. Interested readers
+can follow [this link](http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html#canny) for more information.
 
 ```python
 import cv2
@@ -521,6 +523,8 @@ plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
 
 plt.show()
 ```
+
+Here is a `skimage` implementation:
 
 ```python
 import numpy as np
