@@ -9,7 +9,7 @@ projects.
 
 We are also going to discuss some technical topics including how to
 interact with the camera on Raspberry Pi, how to develop a proper
-Python project, and some additional tips and tricks in
+Python project, and some additional tips and tricks for
 solving Machine Learning problems in general.
 
 ## Work with Pi Camera
