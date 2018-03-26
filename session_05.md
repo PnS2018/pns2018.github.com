@@ -39,7 +39,7 @@ The answer is a hard NO. Keras is might be the best way of prototyping
 new ideas and researches. However, it is not the best software to scale,
 it is not the fastest ML software on the market, and researchers from
 different domains have different flavors of choosing and using software.
-In [this page](./dl-res.html), we listed some more influential
+In [this page](./dl-res.html), we listed some influential
 softwares that are currently being employed in academia and industry.
 Try them out, you might now have different feelings over them.
 
