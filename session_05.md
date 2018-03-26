@@ -26,7 +26,7 @@ solving Machine Learning problems in general.
 
 ## Tips and Tricks in Machine Learning
 
-## Not the Ending of Learning ML Software
+## Closing Remarks
 
 In the last five sessions, we learned how to use Keras for symbolic computation
 and solving Machine Learning problems. We also learned how to use
