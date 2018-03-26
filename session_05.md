@@ -14,6 +14,8 @@ solving Machine Learning problems in general.
 
 ## Work with Pi Camera
 
+## Work with Webcam
+
 ## Corner Detection
 
 ## Keypoints Detection
@@ -21,6 +23,28 @@ solving Machine Learning problems in general.
 ## Feature Matching
 
 ## Face Detection
+
+In order to proceed, you will need to install the latest version of
+the `pnslib`. If you don't have it, first clone the project to any
+directory:
+
+```
+$ git clone https://github.com/PnS2018/pnslib
+$ cd pnslib
+```
+
+If you've installed the library, first, you need to pull the
+latest changes:
+
+```
+$ git pull origin master
+```
+
+Install the package via
+
+```
+$ python setup.py develop
+```
 
 ```python
 import cv2
