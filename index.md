@@ -58,6 +58,8 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 + __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker.
 
++ __(Advanced) Object Tracking__: Develop a model-free tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)!
+
 # Acknowledgment
 
 This module uses many online resources on Deep Learning and Raspberry Pi.
