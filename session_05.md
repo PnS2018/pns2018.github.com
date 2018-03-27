@@ -64,6 +64,39 @@ ones on the market. But of course, there are different solutions:
 We encourage you to explore these options, but so far the OpenCV is perhaps
 the most widely adopted solution for processing videos.
 
+## Feature Engineering
+
+In classic Computer Vision, __Feature Engineering__ is an important step
+before further analysis such as detection and recognition.
+Commonly, this process selects/extracts useful information from the raw
+inputs and passes to the next stage so that the later processes can
+both focus on relevant details and reduce the computing overhead.
+
+For example, when we want to identify a person from a database,
+we can simply compare every picture available in the database
+with the photo at the raw pixel level. This process may be effective
+if these pictures records the front face and are aligned perfectly
+and the lighting conditions are roughly the same.
+Besides the limitation on the input data, this algorithm
+also generates huge amount of computing overhead that it may not
+be feasible for running on a reasonable computer. Instead,
+we can first extract the relevant features that identify the
+person of interest, and then search the corresponding one
+in the database. This alternative solution would boost the performance
+greatly since you could identify the person with these selected features,
+and these features are designed to be robust in different environments.
+
+Note that in recent years, conventional Feature Engineering is
+largely replaced by Deep Learning systems where these system
+integrates the Feature Engineering step into the architecture itself.
+Instead of relying on careful designed features, the features learned
+by these DL systems are proven to be more effective and robust to
+the changes in the dataset.
+
+In the next sections, we introduce some common feature engineering
+techniques and show how we can use them for solving
+Computer Vision tasks.
+
 ## Corner Detection
 
 Corner Detection is one of the classical procedure of Computer Vision
@@ -89,6 +122,8 @@ if cv2.waitKey(0) & 0xff == 27:
 ```
 
 ## Keypoints Detection
+
+
 
 ```python
 import cv2

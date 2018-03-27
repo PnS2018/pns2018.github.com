@@ -52,13 +52,17 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 + __Baby Jarvis II__: Distinguish between happy and sad faces using Keras, OpenCV and Raspberry Pi.
 
++ __Baby Jarvis III__: Proof-of-concept driver monitoring system by detecting if the user is sleeping, checking the phone or doing other reckless activities while driving.
+
 + __Distributed Training on a low-cost computer cluster__: Training Deep Learning Networks on a 3-node Raspberry Pi cluster using Tensorflow.
 
 + __Where’s Waldo?__: Find Waldo in the original picture given a query using OpenCV.
 
 + __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker.
 
-+ __(Advanced) Object Tracking__: Develop a model-free tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)!
++ __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)!
+
++ Or... your ideas!
 
 # Acknowledgment
 
