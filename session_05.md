@@ -16,6 +16,20 @@ solving Machine Learning problems in general.
 
 ## Work with Webcam
 
+OpenCV provides a good interface for streaming data from
+a video or a camera. The `VideoCapture` API can accept
+a string that indicates the path of the video or
+an integer that indicates a camera. Commonly, we use
+the integer 0 (corresponding to `CAP_ANY`) so that the OpenCV
+auto-detects the camera devices available.
+
+Note that we only discuss a single camera setup, for accessing
+multiple cameras, you need special treatments such as
+camera synchronization.
+
+Here we demonstrate an example that shows the basic usage
+of the `VideoCapture` API:
+
 ```python
 import numpy as np
 import cv2
@@ -31,6 +45,7 @@ while(True):
 
     # Display the resulting frame
     cv2.imshow('frame', gray)
+    # the loop breaks at pressing `q`
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
