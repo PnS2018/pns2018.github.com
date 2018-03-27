@@ -55,6 +55,15 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
+OpenCV's APIs on reading videos are perhaps the most easy-to-use
+ones on the market. But of course, there are different solutions:
+
++ `scikit-video` supports ranges of video related functions from reading and writing video files to motion estimation functions.
++ `moviepy` is a Python package for video editing. This package works quite well on some basic editing functions (such as cuts, concatenations, title insertion) and writing video (such as in GIF) with intuitive APIs
+
+We encourage you to explore these options, but so far the OpenCV is perhaps
+the most widely adopted solution for processing videos.
+
 ## Corner Detection
 
 Corner Detection is one of the classical procedure of Computer Vision
