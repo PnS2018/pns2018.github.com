@@ -138,7 +138,7 @@ four arguments:
 + `k`: Harries detector free parameter in the equation.
 
 You will need to tune this corner detector for different image so that
-you can get the best features.
+you can get optimal results.
 
 ## Keypoints Detection
 
@@ -152,7 +152,7 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # for opencv 3.x and above
 # you will need to run the following code to install
-# pip install opencv-contrib-python
+# pip install opencv-contrib-python -U
 sift = cv2.xfeatures2d.SIFT_create()
 # for raspberry pi
 sift = cv2.SIFT()
