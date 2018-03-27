@@ -34,6 +34,7 @@ of the `VideoCapture` API:
 import numpy as np
 import cv2
 
+# open the camera
 cap = cv2.VideoCapture(0)
 
 while(True):
@@ -55,6 +56,9 @@ cv2.destroyAllWindows()
 ```
 
 ## Corner Detection
+
+Corner Detection is one of the classical procedure of Computer Vision
+preprocessing.
 
 ```python
 import cv2
