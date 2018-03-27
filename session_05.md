@@ -100,7 +100,14 @@ Computer Vision tasks.
 ## Corner Detection
 
 Corner Detection is one of the classical procedure of Computer Vision
-preprocessing.
+preprocessing due to the reason that the corners represent
+a large variation in intensity in many directions.
+And this can be very attractive in our above photo matching example.
+If we can find the near identical corner features from two
+different photos, we can roughly say that they share similar content
+in the pictures (of course in reality this is not enough).
+
+We give a OpenCV example as follows.
 
 ```python
 import cv2
@@ -120,6 +127,18 @@ cv2.imshow('dst', img)
 if cv2.waitKey(0) & 0xff == 27:
     cv2.destroyAllWindows()
 ```
+
+The above code uses _Harris Corner Detector_. OpenCV implements this
+method in `cornerHarris` API. This API receives
+four arguments:
+
++ `img`: input image, it should be grayscale and `float32` type.
++ `blockSize`: it is the size of the neighbourhood considered for corner detection
++ `ksize`: Aperture parameter of Sobel (from last session) derivative used.
++ `k`: Harries detector free parameter in the equation.
+
+You will need to tune this corner detector for different image so that
+you can get the best features.
 
 ## Keypoints Detection
 
