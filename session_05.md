@@ -194,7 +194,27 @@ you can get optimal results.
 
 ## Keypoints Detection
 
+The corner detection is easy to implement and useful if you have
+a picture that has a static resolution. And it is obvious that
+this process is _rotation invariant_. However, when you scale the
+image via interpolation or simply taking a picture in a closer distance,
+this result of the method may change dramatically because
+the corner in the original image may becomes flat in the new image.
 
+A solution to find _scale invariant_ features in a image is SIFT (scale-invariant
+feature transform). This algorithm is proposed by D. Lowe in a seminal paper
+_Distinctive Image Features from Scale-Invariant Keypoints_.
+We encourage that everyone should read this paper so that you can
+get a better understanding. We are not going to present the details of the algorithm here because the material is out of the scope.
+
+SIFT is a strong method for extracting features because the keypoints
+are generally robust against different rotations, scales and even
+lighting conditions (in a reasonable range). We can then use
+these keypoints as the landmarks so that we can suddenly do
+feature matching, image stitching, gesture recognition, video tracking
+easily.
+
+A OpenCV example is as follows:
 
 ```python
 import cv2
@@ -221,7 +241,19 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-SURF is faster than SIFT
+SURF (Speed-Up Robust Features) is a speed-up version of SIFT.
+In the OpenCV, you can use the similar API for SURF.
+SURF is good at handling images with blurring and rotation,
+but not good at handling viewpoint change and illumination change.
+
+Both SIFT and SURF are __patented__ softwares. You can not use them
+in a commercial software without paying the fees.
+If you are looking for a free alternative, OpenCV Labs created an
+solution that is called ORB (Oriented FAST and Rotated BRIEF).
+
+__Remark__: SIFT and SURF are very popular preprocessing steps
+even today. They are perhaps the most widely adopted feature engineering
+techniques in "classical" Computer Vision (before the DL era).
 
 ## Feature Matching
 
