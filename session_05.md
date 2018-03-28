@@ -335,17 +335,17 @@ if you are running this on the Raspberry Pi.
 
 ## Face Detection
 
-In this section, we would like to show how you can detect human
+In this section, we would like to show how you can detect a human
 face with OpenCV. This is achieved by using _Haar Feature-based
 cascade Classifiers_. The idea is straightforward, by giving many
 positive and negative samples, we can use pre-select filters
-to build a classifier that only accepts the region that contain
-certain feature patterns. We will not further elaborate the algorithm,
+to build a classifier that only accepts the regions that contain
+specific feature patterns. We will not further elaborate the algorithm;
 interested readers can read the original paper _Rapid Object Detection
 using a Boosted Cascade of Simple Features_ that was published in 2001.
 
 To proceed, you will need to install the latest version of
-the `pnslib`. If you don't have it, first clone the project to any
+the `pnslib`. If you don't have it, clone the project to any
 directory:
 
 ```
@@ -353,7 +353,7 @@ $ git clone https://github.com/PnS2018/pnslib
 $ cd pnslib
 ```
 
-If you've installed the library, first, you need to pull the
+If you've installed the library, you need to pull the
 latest changes:
 
 ```
@@ -430,8 +430,8 @@ Available Haar Cascades in OpenCV are as follows:
 17. haarcascade_upperbody.xml
 ```
 
-__Remark__: In recent years, DL systems has advanced
-the face detection field by taking the rotation factor into the account.
+__Remark__: In recent years, DL systems have advanced
+the face detection field by taking the rotation factor into account.
 
 
 ## How to Develop a Python Project
