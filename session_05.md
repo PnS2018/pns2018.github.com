@@ -262,7 +262,8 @@ techniques in "classical" Computer Vision (before the DL era).
 <div align="center">
     <p><img src="./images/Lenna.png" width="30%">
     <img src="./images/Lenna_and_objects.jpg" width="60%"></p>
-    <p>How do you find the corresponding points between the left image and the right image? Left: Lenna. Right: Lenna and objects</p>
+    <p>How do you find the corresponding points between the left image and the right image?</p>
+    <p><b>Left:</b> Lenna. <b>Right:</b> Lenna and objects</p>
 </div>
 <hr>
 
