@@ -405,9 +405,7 @@ parts. Turns out they are very efficient in detecting regions of interests.
 Because this method only uses simple features, these classifiers
 would fail if the training condition is not met. For example, if you
 rotate your head and show only one side of the face, this classifier
-will fail to detect the face. In recent years, DL systems has advanced
-the face detection field by taking the rotation factor into the account.
-
+will fail to detect the face.
 Nevertheless, these pre-trained classifiers are still very useful if you
 simply want to implement a decent human detection system.
 Available Haar Cascades in OpenCV are as follows:
@@ -431,6 +429,10 @@ Available Haar Cascades in OpenCV are as follows:
 16. haarcascade_smile.xml
 17. haarcascade_upperbody.xml
 ```
+
+__Remark__: In recent years, DL systems has advanced
+the face detection field by taking the rotation factor into the account.
+
 
 ## How to Develop a Python Project
 
