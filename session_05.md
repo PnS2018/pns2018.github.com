@@ -47,7 +47,6 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
 	# clear the stream in preparation for the next frame
 	rawCapture.truncate(0)
-
 ```
 
 ## Work with Webcam
@@ -320,7 +319,7 @@ Initialize a github project on the pns2018 github repository, and clone it to yo
 5. __tests__ file: You can put your testing files in this folder.
 6. __results__ folder: You can save all your results in your project in this folder, including saved models, graphs of your training progress, other results when testing your models that you want to pull out later.
 
- 
+
 
 
 ## Tips and Tricks in Machine Learning
