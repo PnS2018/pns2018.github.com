@@ -259,6 +259,13 @@ techniques in "classical" Computer Vision (before the DL era).
 
 TODO: to prepare testing images for feature matching
 
+If you have completed the above example, you can then
+download [this script](./res/code/opencv_feature_matching.py).
+This script demonstrates how to localize the Lenna image in the above
+example. The idea is that by using these keypoints, one can
+calculate a perspective transformation by using `findHomography` API.
+The script is adopted from the [OpenCV tutorial](https://docs.opencv.org/3.4.1/d1/de0/tutorial_py_feature_homography.html)
+
 ## Face Detection
 
 In order to proceed, you will need to install the latest version of
