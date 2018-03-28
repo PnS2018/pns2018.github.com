@@ -282,7 +282,9 @@ For example, if we want to find the Lenna image (the query image) from
 an image that has many objects (the source image), we would try to match
 the descriptors from the both images. The easiest algorithm is just to
 manually loop over all the possibilities, and if the descriptors are close
-enough, we say that we find a match.
+enough, we say that we find a match. The distance between two descriptors
+is defined by the Euclidean distance. The following example demonstrate
+the Brute Force Matcher in OpenCV:
 
 ```python
 import cv2
@@ -304,7 +306,7 @@ bf = cv2.BFMatcher_create()
 # if on raspberry pi, use
 bf = cv2.BFMatcher()
 
-# matching with KNN matcher
+# matching with KNN matcher, find k=2 best matches for each descriptors.
 matches = bf.knnMatch(des1, des2, k=2)
 
 # store all the good matches as per Lowe's ratio test.
