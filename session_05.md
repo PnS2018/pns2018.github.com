@@ -35,9 +35,9 @@ time.sleep(0.1)
 
 # capture frames from the camera
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-	# grab the raw NumPy array representing the image, then initialize the timestamp
-	# and occupied/unoccupied text
-	image = frame.array
+  # grab the raw NumPy array representing the image, then initialize the timestamp
+  # and occupied/unoccupied text
+  image = frame.array
 
   # Display the resulting frame
   cv2.imshow('frame', image)
@@ -45,8 +45,8 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
   if cv2.waitKey(1) & 0xFF == ord('q'):
       break
 
-	# clear the stream in preparation for the next frame
-	rawCapture.truncate(0)
+  # clear the stream in preparation for the next frame
+  rawCapture.truncate(0)
 ```
 
 ## Work with Webcam
