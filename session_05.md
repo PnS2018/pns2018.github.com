@@ -22,7 +22,8 @@ use a new Python package called `picamera[array]`.
 The reason why we do not use OpenCV here is because one need to
 solve tedious driver issues.
 
-[Script citation](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)
+The following example demonstrate how you can get a stream of frames
+from the Pi Camera ([Script citation](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)):
 
 ```python
 # import the necessary packages
