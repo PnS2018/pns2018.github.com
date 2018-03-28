@@ -316,6 +316,9 @@ for m, n in matches:
 
 # draw matches on the image
 img3 = cv2.drawMatches(img1, kp1, img2, kp2, good, None, flags=2)
+# for raspberry pi
+img3 = cv2.drawMatches(img1, kp1, img2, kp2, good, flags=2)
+
 # display the result
 plt.imshow(img3, 'gray'), plt.show()
 ```
@@ -325,7 +328,8 @@ download [this script](./res/code/opencv_feature_matching.py).
 This script demonstrates how to localize the Lenna image in the above
 example. The idea is that by using these keypoints, one can
 calculate a perspective transformation by using `findHomography` API.
-The script is adopted from the [OpenCV tutorial](https://docs.opencv.org/3.4.1/d1/de0/tutorial_py_feature_homography.html)
+The script is adopted from the [OpenCV tutorial](https://docs.opencv.org/3.4.1/d1/de0/tutorial_py_feature_homography.html). Note that you might need to modify
+if you are running this on the Raspberry Pi.
 
 ## Face Detection
 
