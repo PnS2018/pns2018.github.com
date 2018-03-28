@@ -14,6 +14,13 @@ solving Machine Learning problems in general.
 
 ## Work with Pi Camera
 
+We have equipped the Raspberry Pi Camera on the Raspberry Pi
+so that you can get the video feed from the device.
+
+In order to stream the frames from the Pi Camera, we need to
+use a new Python package called `picamera[array]`.
+The reason why we do not use OpenCV here is because one need to
+solve tedious driver issues.
 
 [Script citation](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)
 
