@@ -69,6 +69,18 @@ station and find the position from Google Map! (Difficulty: 7)
 
 __Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
+## Timeline
+
++ Week 5 (May 29th): Project Briefing
+
++ Week 6 (April 12th): Assign project based on the team's decision. Assign team name based on the team's decision. Setup project, first group discussion on the plan to complete the project.
+
++ Week 7-9 (April 19th - May 3rd): Collecting data, writing utility functions, first prototype by end of the 9th week
+
++ Week 10-11 (May 10th, May 17th): Refine the model and implementation so that the system can run as fast as possible
+
++ Week 12-13 (May 24th, May 31th): Project write up and presentation
+
 # Acknowledgment
 
 This module uses many online resources on Deep Learning and Raspberry Pi.
