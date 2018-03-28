@@ -58,6 +58,9 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 + __Are You Human?__: Break a CAPTCHA that uses simple math as the question. (Difficulty: 6)
 
++ __Which station is this?__: Take a picture of the station name, recognize the
+station and find the position from Google Map! (Difficulty: 7)
+
 + __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker. (Difficulty: 8)
 
 + __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)! (Difficulty: 9)
