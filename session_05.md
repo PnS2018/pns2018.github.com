@@ -57,6 +57,8 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
   rawCapture.truncate(0)
 ```
 
+A lot more examples can be found at the [documentation](https://picamera.readthedocs.io/en/release-1.13/) of the library.
+
 ## Work with Webcam
 
 OpenCV provides a good interface for streaming data from
@@ -106,6 +108,13 @@ ones on the market. But of course, there are different solutions:
 
 We encourage you to explore these options, but so far the OpenCV is perhaps
 the most widely adopted solution for processing videos.
+
+__Remark__: In the domain of Deep Learning, we rarely use the image
+that has the resolution higher than `250x250`. Usually, we will
+rescale and subsample them so that we would not have to process
+every details of the picture. We also suggest that for your projects,
+you can cut the unnecessary parts, rescale the image or select only
+the regions of interests.
 
 ## Feature Engineering
 
