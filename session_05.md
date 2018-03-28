@@ -214,6 +214,14 @@ these keypoints as the landmarks so that we can suddenly do
 feature matching, image stitching, gesture recognition, video tracking
 easily.
 
+Once the keypoints are identified, we can then computes the _descriptor_ -
+a vector that describes the surrounding region of the keypoint.
+First, we take a `16x16` neighborhood around the keypoint. Second,
+this `16x16` region is divided into 16 sub-blocks of `4x4` size. Third, For each
+sub-block, 8-bin orientation histogram is created. So a total of `16x8=128`
+bin values are available. This 128-values vector is then the descriptor of
+the keypoint.
+
 A OpenCV example is as follows:
 
 ```python
@@ -257,17 +265,60 @@ techniques in "classical" Computer Vision (before the DL era).
 
 ## Feature Matching
 
+Let's now consider a concrete application of the key points - _Feature Matching_.
+Basically, we want to calculate the correspondence between the descriptors
+of two images.
 
 <hr>
 <div align="center">
     <p><img src="./images/Lenna.png" width="30%">
     <img src="./images/Lenna_and_objects.jpg" width="60%"></p>
-    <p>How do you find the corresponding points between the left image and the right image?</p>
+    <p>How do you find the corresponding keypoints between the left image and the right image?</p>
     <p><b>Left:</b> Lenna. <b>Right:</b> Lenna and objects</p>
 </div>
 <hr>
 
-TODO: to prepare testing images for feature matching
+For example, if we want to find the Lenna image (the query image) from
+an image that has many objects (the source image), we would try to match
+the descriptors from the both images. The easiest algorithm is just to
+manually loop over all the possibilities, and if the descriptors are close
+enough, we say that we find a match.
+
+```python
+import cv2
+from matplotlib import pyplot as plt
+
+# read images in gray scale
+img1 = cv2.imread('Lenna.png', 0)
+img2 = cv2.imread('Lenna_and_objects.jpg', 0)
+
+# Initiate SIFT detector
+sift = cv2.xfeatures2d.SIFT_create()
+
+# find the keypoints and descriptors with SIFT
+kp1, des1 = sift.detectAndCompute(img1, None)
+kp2, des2 = sift.detectAndCompute(img2, None)
+
+# initialize brute-force matcher
+bf = cv2.BFMatcher_create()
+# if on raspberry pi, use
+bf = cv2.BFMatcher()
+
+# matching with KNN matcher
+matches = bf.knnMatch(des1, des2, k=2)
+
+# store all the good matches as per Lowe's ratio test.
+good = []
+for m, n in matches:
+    # only preserve the matches are close enough to each other
+    if m.distance < 0.7*n.distance:
+        good.append(m)
+
+# draw matches on the image
+img3 = cv2.drawMatches(img1, kp1, img2, kp2, good, None, flags=2)
+# display the result
+plt.imshow(img3, 'gray'), plt.show()
+```
 
 If you have completed the above example, you can then
 download [this script](./res/code/opencv_feature_matching.py).
