@@ -48,21 +48,23 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 
 # Projects
 
-+ __Baby Jarvis__: Implement a face recognition system using Keras, OpenCV, and Raspberry Pi. The device will voice the name of the face it sees.
++ __Baby Jarvis__: Implement a face recognition system using Keras, OpenCV, and Raspberry Pi. The device will voice the name of the face it sees. (Difficulty: 5)
 
-+ __Baby Jarvis II__: Distinguish between happy and sad faces using Keras, OpenCV and Raspberry Pi.
++ __Baby Jarvis II__: Distinguish between happy and sad faces using Keras, OpenCV and Raspberry Pi. (Difficulty: 5)
 
-+ __Baby Jarvis III__: Proof-of-concept driver monitoring system by detecting if the user is sleeping, checking the phone or doing other reckless activities while driving.
++ __Baby Jarvis III__: Proof-of-concept driver monitoring system by detecting if the user is sleeping, checking the phone or doing other reckless activities while driving. (Difficulty: 6)
 
-+ __Distributed Training on a low-cost computer cluster__: Training Deep Learning Networks on a 3-node Raspberry Pi cluster using Tensorflow.
++ __Where’s Waldo?__: Find Waldo in the original picture given a query using OpenCV. (Difficulty: 6)
 
-+ __Where’s Waldo?__: Find Waldo in the original picture given a query using OpenCV.
++ __Are You Human?__: Break a CAPTCHA that uses simple math as the question. (Difficulty: 6)
 
-+ __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker.
++ __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker. (Difficulty: 8)
 
-+ __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)!
++ __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)! (Difficulty: 9)
 
 + Or... your ideas!
+
+__Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
 # Acknowledgment
 
