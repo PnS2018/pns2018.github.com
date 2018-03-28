@@ -476,18 +476,18 @@ Initialize a github project on the pns2018 github repository, and clone it to yo
 In the last five sessions, we learned how to use Keras for symbolic computation
 and solving Machine Learning problems. We also learned how to use
 OpenCV, numpy, scikit-image to process image data.
-You might be overwhelmed by how many softwares there are in order to solve
+You might be overwhelmed by how many software there are to solve
 some particular problems. You probably wonder if this is enough for
 dealing with practical issues in future projects.
 
 The answer is a hard NO. Keras is might be the best way of prototyping
 new ideas. However, it is not the best software to scale,
 it is not the fastest ML software on the market, and researchers from
-different domains have different flavors of choosing and using software.
-In [this page](./dl-res.html), we listed some influential
-softwares that are currently being employed in academia and industry.
+different domains have different flavors of choosing and using a software.
+In [this page](./dl-res.html), we listed some other influential
+software that are currently being employed in academia and industry.
 
-The best way of learning a programming language/library is arguably
+Arguably, the best way of learning a programming language/library is 
 to do a project. In the following weeks, you will need to
 choose a project that uses the knowledge you learned in the past
 five weeks. Furthermore, everything has to be fit into a Raspberry Pi.
