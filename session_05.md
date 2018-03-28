@@ -257,6 +257,15 @@ techniques in "classical" Computer Vision (before the DL era).
 
 ## Feature Matching
 
+
+<hr>
+<div align="center">
+    <p><img src="./images/Lenna.png" width="30%">
+    <img src="./images/Lenna_and_objects.jpg" width="60%"></p>
+    <p>How do you find the corresponding points between the left image and the right image? Left: Lenna. Right: Lenna and objects</p>
+</div>
+<hr>
+
 TODO: to prepare testing images for feature matching
 
 If you have completed the above example, you can then
