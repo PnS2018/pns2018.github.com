@@ -3,13 +3,13 @@ layout: default
 ---
 
 In this session, we are going to discuss some advanced topics in
-Computer Vision without explaining too much mathematical details.
-These are essential tools that you can use everyday in your
+Computer Vision without explaining too many mathematical details.
+These are essential tools that you can use every day in your
 projects.
 
 We are also going to discuss some technical topics including how to
 interact with the camera on Raspberry Pi, how to develop a proper
-Python project, and some additional tips and tricks for
+Python project and some additional tips and tricks for
 solving Machine Learning problems in general.
 
 ## Work with Pi Camera
@@ -17,12 +17,12 @@ solving Machine Learning problems in general.
 We have equipped the Raspberry Pi Camera on the Raspberry Pi
 so that you can get the video feed from the device.
 
-In order to stream the frames from the Pi Camera, we need to
+To stream the frames from the Pi Camera, we need to
 use a new Python package called `picamera[array]`.
-The reason why we do not use OpenCV here is because one need to
+The reason why we do not use OpenCV here is that one needs to
 solve tedious driver issues.
 
-The following example demonstrate how you can get a stream of frames
+The following example demonstrates how you can get a stream of frames
 from the Pi Camera ([Script citation](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)):
 
 ```python
@@ -112,7 +112,7 @@ the most widely adopted solution for processing videos.
 __Remark__: In the domain of Deep Learning, we rarely use the image
 that has the resolution higher than `250x250`. Usually, we will
 rescale and subsample them so that we would not have to process
-every details of the picture. We also suggest that for your projects,
+every detail of the picture. We also suggest that for your projects,
 you can cut the unnecessary parts, rescale the image or select only
 the regions of interests.
 
@@ -127,10 +127,10 @@ both focus on relevant details and reduce the computing overhead.
 For example, when we want to identify a person from a database,
 we can simply compare every picture available in the database
 with the photo at the raw pixel level. This process may be effective
-if these pictures records the front face and are aligned perfectly
+if these pictures record the front face and are aligned perfectly
 and the lighting conditions are roughly the same.
 Besides the limitation on the input data, this algorithm
-also generates huge amount of computing overhead that it may not
+also generates a massive amount of computing overhead that it may not
 be feasible for running on a reasonable computer. Instead,
 we can first extract the relevant features that identify the
 person of interest, and then search the corresponding one
@@ -139,10 +139,10 @@ greatly since you could identify the person with these selected features,
 and these features are designed to be robust in different environments.
 
 Note that in recent years, conventional Feature Engineering is
-largely replaced by Deep Learning systems where these system
-integrates the Feature Engineering step into the architecture itself.
-Instead of relying on careful designed features, the features learned
-by these DL systems are proven to be more effective and robust to
+largely replaced by Deep Learning systems where these systems
+integrate the Feature Engineering step into the architecture itself.
+Instead of relying on carefully designed features, the features learned
+by these DL systems are proven to be more robust to
 the changes in the dataset.
 
 In the next sections, we introduce some common feature engineering
@@ -157,7 +157,7 @@ a large variation in intensity in many directions.
 And this can be very attractive in our above photo matching example.
 If we can find the near identical corner features from two
 different photos, we can roughly say that they share similar content
-in the pictures (of course in reality this is not enough).
+in the pictures (of course, in reality, this is not enough).
 
 We give a OpenCV example as follows.
 
@@ -189,7 +189,7 @@ four arguments:
 + `ksize`: Aperture parameter of Sobel (from last session) derivative used.
 + `k`: Harries detector free parameter in the equation.
 
-You will need to tune this corner detector for different image so that
+You will need to tune this corner detector for different images so that
 you can get optimal results.
 
 ## Keypoints Detection
@@ -199,9 +199,9 @@ a picture that has a static resolution. And it is obvious that
 this process is _rotation invariant_. However, when you scale the
 image via interpolation or simply taking a picture in a closer distance,
 this result of the method may change dramatically because
-the corner in the original image may becomes flat in the new image.
+the corner in the original image may become flat in the new image.
 
-A solution to find _scale invariant_ features in a image is SIFT (scale-invariant
+A solution to find _scale invariant_ features in an image is SIFT (scale-invariant
 feature transform). This algorithm is proposed by D. Lowe in a seminal paper
 _Distinctive Image Features from Scale-Invariant Keypoints_.
 We encourage that everyone should read this paper so that you can
@@ -209,12 +209,12 @@ get a better understanding. We are not going to present the details of the algor
 
 SIFT is a strong method for extracting features because the keypoints
 are generally robust against different rotations, scales and even
-lighting conditions (in a reasonable range). We can then use
+lighting conditions (within a reasonable range). We can then use
 these keypoints as the landmarks so that we can suddenly do
 feature matching, image stitching, gesture recognition, video tracking
 easily.
 
-Once the keypoints are identified, we can then computes the _descriptor_ -
+Once the keypoints are identified, we can then compute the _descriptor_ -
 a vector that describes the surrounding region of the keypoint.
 First, we take a `16x16` neighborhood around the keypoint. Second,
 this `16x16` region is divided into 16 sub-blocks of `4x4` size. Third, For each
@@ -254,9 +254,9 @@ In the OpenCV, you can use the similar API for SURF.
 SURF is good at handling images with blurring and rotation,
 but not good at handling viewpoint change and illumination change.
 
-Both SIFT and SURF are __patented__ softwares. You can not use them
-in a commercial software without paying the fees.
-If you are looking for a free alternative, OpenCV Labs created an
+Both SIFT and SURF are __patented__ software. You can not use them
+in commercial software without paying the fees.
+If you are looking for a free alternative, OpenCV Labs created a
 solution that is called ORB (Oriented FAST and Rotated BRIEF).
 
 __Remark__: SIFT and SURF are very popular preprocessing steps
@@ -265,8 +265,8 @@ techniques in "classical" Computer Vision (before the DL era).
 
 ## Feature Matching
 
-Let's now consider a concrete application of the key points - _Feature Matching_.
-Basically, we want to calculate the correspondence between the descriptors
+Let's now consider a concrete application of the keypoints - _Feature Matching_.
+We want to calculate the correspondence between the descriptors
 of two images.
 
 <hr>
@@ -280,10 +280,10 @@ of two images.
 
 For example, if we want to find the Lenna image (the query image) from
 an image that has many objects (the source image), we would try to match
-the descriptors from the both images. The easiest algorithm is just to
-manually loop over all the possibilities, and if the descriptors are close
+the descriptors from both images. The most straightforward algorithm is just to
+loop over all the possibilities manually, and if the descriptors are close
 enough, we say that we find a match. The distance between two descriptors
-is defined by the Euclidean distance. The following example demonstrate
+is defined by the Euclidean distance. The following example demonstrates
 the Brute Force Matcher in OpenCV:
 
 ```python
@@ -330,7 +330,7 @@ download [this script](./res/code/opencv_feature_matching.py).
 This script demonstrates how to localize the Lenna image in the above
 example. The idea is that by using these keypoints, one can
 calculate a perspective transformation by using `findHomography` API.
-The script is adopted from the [OpenCV tutorial](https://docs.opencv.org/3.4.1/d1/de0/tutorial_py_feature_homography.html). Note that you might need to modify
+The script is adapted from the [OpenCV tutorial](https://docs.opencv.org/3.4.1/d1/de0/tutorial_py_feature_homography.html). Note that you might need to modify
 if you are running this on the Raspberry Pi.
 
 ## Face Detection
