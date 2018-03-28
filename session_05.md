@@ -14,6 +14,42 @@ solving Machine Learning problems in general.
 
 ## Work with Pi Camera
 
+
+[Script citation](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)
+
+```python
+# import the necessary packages
+from picamera.array import PiRGBArray
+from picamera import PiCamera
+import time
+import cv2
+
+# initialize the camera and grab a reference to the raw camera capture
+camera = PiCamera()
+camera.resolution = (640, 480)
+camera.framerate = 32
+rawCapture = PiRGBArray(camera, size=(640, 480))
+
+# allow the camera to warmup
+time.sleep(0.1)
+
+# capture frames from the camera
+for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
+	# grab the raw NumPy array representing the image, then initialize the timestamp
+	# and occupied/unoccupied text
+	image = frame.array
+
+  # Display the resulting frame
+  cv2.imshow('frame', image)
+  # the loop breaks at pressing `q`
+  if cv2.waitKey(1) & 0xFF == ord('q'):
+      break
+
+	# clear the stream in preparation for the next frame
+	rawCapture.truncate(0)
+
+```
+
 ## Work with Webcam
 
 OpenCV provides a good interface for streaming data from
@@ -253,6 +289,39 @@ Available Haar Cascades in OpenCV
 ```
 
 ## How to Develop a Python Project
+
+You will be working on your projects from the next session on. Working on a
+deep learning project involves lots of data, experiments and analyzing the
+results. So, it is imperative that you maintain a good structure in your project
+folder so you can handle your work in a smooth fashion. Here are a few tips
+that will help you in this regard. Note that, the points mentioned below are
+just helpful guidelines, and you free to use it, tweak it or follow a
+completely different folder structure as per your convenience.
+
+Before you start a project, there are a few things (not an exhaustive list by any means) that you have to do in general.
+
+1. Implement a model architecture
+2. Train the model
+3. Test the model
+4. Take care of the data
+5. Take care of any hyper parameter tuning (optional)
+6. Keep track of the results
+7. Replicate any experiment
+
+So your folder structure should take care of these requirements.
+
+#### Folder structure
+Initialize a github project on the pns2018 github repository, and clone it to your working machine. The folder structure can be organized as follows.
+
+1. __README__ file: A README file with some basic information about the project, like the required dependencies, setting up the project and replicating an experiment, links to the dataset, is really useful both for you and anyone you are sharing your project with.
+2. __data__ folder: A data folder to host the data is useful if it is kept separate. Given that some of your projects involve data collection, your data generation scripts can also be hosted in this directory.
+3. __models__ folder: You can put your model implementations in this folder.
+4. __main.py__ file: The main file is the main training script for the project. Ideally you would want to run this script with some parameters of choice to train a required model.
+5. __tests__ file: You can put your testing files in this folder.
+6. __results__ folder: You can save all your results in your project in this folder, including saved models, graphs of your training progress, other results when testing your models that you want to pull out later.
+
+ 
+
 
 ## Tips and Tricks in Machine Learning
 
