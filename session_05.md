@@ -463,13 +463,59 @@ Initialize a github project on the pns2018 github repository, and clone it to yo
 2. __data__ folder: A data folder to host the data is useful if it is kept separate. Given that some of your projects involve data collection, your data generation scripts can also be hosted in this directory.
 3. __models__ folder: You can put your model implementations in this folder.
 4. __main.py__ file: The main file is the main training script for the project. Ideally you would want to run this script with some parameters of choice to train a required model.
-5. __tests__ file: You can put your testing files in this folder.
+5. __tests__ folder: You can put your testing files in this folder.
 6. __results__ folder: You can save all your results in your project in this folder, including saved models, graphs of your training progress, other results when testing your models that you want to pull out later.
 
-
-
+You can modify this basic structure to suit the needs of your project, but make sure that you start with a plan rather than figuring out your project structure on the go.
 
 ## Tips and Tricks in Machine Learning
+
+Some of you were interested in knowing some general tips and tricks that people
+use in machine learning. The most important tip is that there are no general
+tricks that would help you get the best model. Having said that, there are a
+few things that you can keep in mind when you want to optimize a model. Most of
+the points mentioned here are summarized from an [online post](https://machinelearningmastery.com/improve-deep-learning-performance/).
+
+1. One of the most important trick to get a better model is to have __more
+data__. Whether you gather more data, generate them artificially or augment the
+original data is up to you.
+2. __Optimizing your input features__. You can optimize the features that you feed
+to the network through some preprocessing techniques. One of the most commonly
+used preprocessing techniques are standardizing your data to a zero mean and one
+variance distribution and using a dimensionality reduction to reduce your input
+dimensionality.
+3. __Optimizing your learning rule__. You can optimize your learning rule, the
+popular learning rule used currently is the 'Adam' learning rule, but more
+recent works suggest that the use of stochastic gradient descent with learning
+rate schedulers is rising. But keep track of the recent literature for
+experiments regarding optimal learning rule. Also keep in mind that there is no
+single learning rule for every task.
+4. __Avoid overfitting and underfitting__. Make sure your model is not overfitting and
+underfitting. If you model is overfitting, either add more data or decrease the number of
+parameters in your model or use regularizing techniques. If you model is underfitting,
+increase the number of parameters in your model, and look for different architectures to better
+the performance.
+5. __Weight initialization__. Weight initialization makes a huge difference to your model's
+training performance and the final accuracy, especially for the deeper models. So keep in mind
+that look for experiments in the literature about optimal weight initializations.
+6. __Batch size and epochs__. Ideally you would want to use the whole dataset as your batch size.
+But computing and memory constraints usually limit you from doing so. Perform a hyper parameter
+search for the optimal batch size to tune it. Another hyper parameter to optimize is the number of
+epochs to train on. Training for more and more epochs usually leads to overfitting especially if
+your model is over the required capacity. You can use a technique called early stopping where the
+training is stopped when you observe that the validation performance is not getting better with
+increasing number of epochs.
+7. __Ensemble techniques__. Another commonly used technique to improve the performance on a
+particular task is using multiple models each trained separately and then using the combined
+prediction of these models enhances the overall performance on your task. But keep in mind that
+usually the marginal gain in performance is too low for the use of extra computation and memory.
+But nevertheless, this is a technique that could prove useful in case you are looking to optimize
+the performance.
+
+There are many other techniques used to optimize the performance of deep learning models, but it
+is usually suggested that you look for them depending on the task at hand. There's a wide amount
+of open literature, and remember that search engines are your friends for most of the basic
+questions.
 
 ## Closing Remarks
 
@@ -487,7 +533,7 @@ different domains have different flavors of choosing and using a software.
 In [this page](./dl-res.html), we listed some other influential
 software that are currently being employed in academia and industry.
 
-Arguably, the best way of learning a programming language/library is 
+Arguably, the best way of learning a programming language/library is
 to do a project. In the following weeks, you will need to
 choose a project that uses the knowledge you learned in the past
 five weeks. Furthermore, everything has to be fit into a Raspberry Pi.
