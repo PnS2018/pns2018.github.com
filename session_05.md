@@ -468,6 +468,8 @@ Initialize a github project on the pns2018 github repository, and clone it to yo
 
 You can modify this basic structure to suit the needs of your project, but make sure that you start with a plan rather than figuring out your project structure on the go.
 
+An example project repository can be found [here](https://github.com/PnS2018/sample_project_repository).
+
 ## Tips and Tricks in Machine Learning
 
 Some of you were interested in knowing some general tips and tricks that people
