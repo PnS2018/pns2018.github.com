@@ -71,7 +71,7 @@ __Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
 ## Timeline
 
-+ Week 5 (May 29th): Project Briefing
++ Week 5 (March 29th): Project Briefing
 
 + Week 6 (April 12th): Assign project based on the team's decision. Assign team name based on the team's decision. Setup project, first group discussion on the plan to complete the project.
 
