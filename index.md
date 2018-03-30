@@ -79,7 +79,7 @@ __Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
 + Week 10-11 (May 10th, May 17th): Refine the model and implementation so that the system can run as fast as possible
 
-+ Week 12-13 (May 24th, May 31th): Project write up and presentation
++ Week 12-13 (May 24th, May 31st): Project write up and presentation
 
 # Acknowledgment
 
