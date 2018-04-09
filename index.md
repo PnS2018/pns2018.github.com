@@ -63,6 +63,8 @@ station and find the position from Google Map! (Difficulty: 7)
 
 + __Implementing backpropagation__: Implement the backpropagation method in basic python without relying on any high level APIs like Keras or Tensorflow. (Difficulty: 7)
 
++ __(Advanced) Paper Piano__: Print the piano key on a paper, use CV techniques to identify which key is pressed and play the sound. (Difficulty: 8)
+
 + __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker. (Difficulty: 8)
 
 + __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)! (Difficulty: 9)
@@ -73,7 +75,7 @@ __Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
 ## Timeline
 
-+ Week 5 (May 29th): Project Briefing
++ Week 5 (March 29th): Project Briefing
 
 + Week 6 (April 12th): Assign project based on the team's decision. Assign team name based on the team's decision. Setup project, first group discussion on the plan to complete the project.
 
@@ -81,7 +83,7 @@ __Remark__: Difficulty scale: 1 (so easy) -- 10 (way too hard)
 
 + Week 10-11 (May 10th, May 17th): Refine the model and implementation so that the system can run as fast as possible
 
-+ Week 12-13 (May 24th, May 31th): Project write up and presentation
++ Week 12-13 (May 24th, May 31st): Project write up and presentation
 
 # Acknowledgment
 
