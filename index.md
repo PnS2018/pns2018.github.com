@@ -61,6 +61,8 @@ Advanced techniques of Computer Vision such as filtering, corner detection, keyp
 + __Which station is this?__: Take a picture of the station name, recognize the
 station and find the position from Google Map! (Difficulty: 7)
 
++ __Implementing backpropagation__: Implement the backpropagation method in basic python without relying on any high level APIs like Keras or Tensorflow. (Difficulty: 7)
+
 + __(Advanced) Raspberry that talks__: Analysis an image via image captioning, then broadcast the information to a speaker. (Difficulty: 8)
 
 + __(Advanced) Object Tracking__: Develop a model-free object tracker for [VOT Challenge](http://www.votchallenge.net/vot2017/index.html)! (Difficulty: 9)
